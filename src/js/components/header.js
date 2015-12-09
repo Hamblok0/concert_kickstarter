@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-export default (props) => (
-  <header>
-    <h1> This is a mothafrackin header </h1>
-  </header>
-)
+class Header extends React.Component {
+  render () {
+    return(
+      <p>This is the header</p>
+    )
+  }
+}
+
+export default Header;
