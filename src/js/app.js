@@ -8,6 +8,7 @@ import Band from './components/band';
 import BandEdit from './components/band-edit';
 import Login from './components/login';
 import Register from './components/register';
+import Fund from './components/fund';
 
 
 const routes = (
@@ -19,6 +20,9 @@ const routes = (
       <Route path="band/:id" component={Band}>
         <Route path="edit" component={BandEdit} />
       </Route>
+
+      <Route path ="fund" component={Fund} />
+
 
 
     </Route>

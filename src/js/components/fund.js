@@ -1,14 +1,13 @@
 import React from 'react'
 
-class Login extends React.Component {
+class Fund extends React.Component {
   render () {
     return(
       <section>
-        <p>Hello I am login!</p>
-
+        <p>Fund Page</p>
       </section>
     )
   }
 }
 
-export default Login;
+export default Fund;
