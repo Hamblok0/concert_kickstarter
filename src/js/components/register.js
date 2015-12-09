@@ -4,9 +4,7 @@ class Register extends React.Component {
   render () {
     return(
       <section>
-        <p>
-          This is the register page
-        </p>
+        <p>Hello I am register!</p>
       </section>
     )
   }

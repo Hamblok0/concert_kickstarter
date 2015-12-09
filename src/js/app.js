@@ -17,8 +17,8 @@ const routes = (
       <IndexRoute component={HomeView}/>
       <Route path="login" component={Login}/>
       <Route path="register" component={Register}/>
-      <Route path="band/:id" component={Band} >
-        <Route path ="edit" component={BandEdit}/>
+      <Route path="band/:id" component={Band}>
+        <Route path="edit" component={BandEdit} />
       </Route>
 
       <Route path ="fund" component={Fund} />
