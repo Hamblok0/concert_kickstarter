@@ -1,6 +1,6 @@
 import React from "react";
 
-class Dashboard extends React.Component {
+class HomeView extends React.Component {
   render() {
     return (
       <section>
@@ -12,4 +12,4 @@ class Dashboard extends React.Component {
 }
 
 
-export default Dashboard;
+export default HomeView;
