@@ -20,11 +20,7 @@ const routes = (
       <Route path="band/:id" component={Band}>
         <Route path="edit" component={BandEdit} />
       </Route>
-
       <Route path ="fund" component={Fund} />
-
-
-
     </Route>
   </Router>
 );
