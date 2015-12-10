@@ -9,6 +9,7 @@ import BandEdit from './components/band-edit';
 import Login from './components/login';
 import Register from './components/register';
 import Fund from './components/fund';
+import CampaignEdit from './components/campaign-edit';
 
 
 const routes = (
@@ -19,6 +20,7 @@ const routes = (
       <Route path="register" component={Register}/>
       <Route path="band/:id" component={Band}>
         <Route path="edit" component={BandEdit} />
+        <Route path="edit2" component={CampaignEdit} />
       </Route>
       <Route path ="fund" component={Fund} />
     </Route>
