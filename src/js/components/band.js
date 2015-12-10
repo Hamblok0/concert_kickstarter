@@ -6,9 +6,14 @@ class Band extends React.Component {
     if (this.props.children) {
       html = this.props.children
     } else {
-      html = (<p1>
-        Yo this that stuff that the user gonna see on da band page dawg
-      </p1>)
+      html = (
+        <article className="cover">
+          <div>
+            <h1>Your Band | Your City</h1>
+          </div>
+          <img src="http://antikhobi.com/wp-content/uploads/2014/07/img_placeholder21.png"/>
+        </article>
+      )
     }
     return (
       <section>
