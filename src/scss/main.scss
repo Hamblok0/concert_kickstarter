@@ -10,18 +10,55 @@ header {
     float: left;
   }
   nav {
-    margin: 35px 0;
+    margin: 25px 0;
     display: inline-block;
+    width: 90%;
     a {
       text-decoration: none;
       padding: 10px;
       font-size: 1.3em;
+      float: left;
       color: #0E5340;
       transition: color 0.3s ease;
       &:hover {
         color: #003728;
         transition: color 0.3s ease;
       }
+    }
+    a.btn {
+      border: 1px solid #0E5340;
+      margin-right: 10px;
+      border-radius: 5px;
+      background: #A1C9BE;
+    }
+    a.guestBtn {
+      float: right;
+    }
+  }
+}
+footer {
+  background: #6FA697;
+  border-top: 1px solid #0E5340;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  img {
+    float: left;
+  }
+  nav {
+    margin: 10px 0;
+    display: inline-block;
+    a, p {
+      display: inline-block;
+      text-decoration: none;
+      padding: 5px;
+      font-size: 1em;
+      color: #0E5340;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #003728;
+      transition: color 0.3s ease;
     }
   }
 }
