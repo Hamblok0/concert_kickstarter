@@ -11,6 +11,7 @@ class Band extends React.Component {
           <article className="cover">
             <div>
               <h1>Your Band | Your City</h1>
+              <button name="Edit Profile"></button>
             </div>
             <img src="http://antikhobi.com/wp-content/uploads/2014/07/img_placeholder21.png"/>
           </article>
