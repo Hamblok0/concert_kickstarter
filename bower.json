@@ -10,9 +10,14 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "dist/bower_components"
   ],
   "dependencies": {
     "neat": "~1.7.2"
-  }
+  },
+  "homepage": "https://github.com/Hamblok0/concert_kickstarter",
+  "description": "",
+  "main": "",
+  "moduleType": []
 }

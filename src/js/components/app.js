@@ -7,9 +7,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Header />
-        {this.props.children}
+        <main>
+          {this.props.children}
+        </main>
         <Footer />
       </div>
     )
