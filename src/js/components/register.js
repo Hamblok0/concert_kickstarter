@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import CreateUser from '../models/create-user';
 import createLocation from 'history/lib/createLocation';
 import $ from 'jquery';
 
@@ -26,7 +27,7 @@ class Register extends React.Component {
         email: email,
         password: password,
         type: type
-      }, (error, data) => {
+     }, (error, data) => {
         if(!error) {
           //send user to login screen
         } else {
@@ -46,9 +47,9 @@ class Register extends React.Component {
         <input type="password" className="password" placeholder="Password" ref="pwd" />
         <input type="password" className="password" placeholder="Confirm password" ref="pwd1" />
         <label id="fan" value="fan">I am a... Fan</label>
-        <input type="radio" id="fan" name="radio" value="fan"/>
+        <input type="radio" id="fan" name="radio" value="Fan"/>
         <label id="band" value="band">Band</label>
-        <input type="radio" id="band" name="radio" value="band"/>
+        <input type="radio" id="band" name="radio" value="Band"/>
         <input type="submit" className="registerBtn" value="Sign up" />
         <p className="instructions">Already have an account? <a href="#login" className="formLink">Login »</a></p>
       </form>
