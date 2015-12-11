@@ -15,11 +15,8 @@ class BandList extends React.Component {
 
   componentDidMount(){
     jQuery.ajax("https://gigster-app.herokuapp.com/users").then( response => {
-      let bands = response.map(band => {
-        return {
-          id: id,
-          name: name
-        }
+      let bands = response.filter(band => {
+        return band.type === "Band"
       });
       this.setState({
         bands
@@ -28,7 +25,7 @@ class BandList extends React.Component {
   }
 
   render () {
-    let bands = this.props.bands.map(band => {
+    let bands = this.state.bands.map(band => {
       return (
         <Band key={band.id}
               name={band.name} />
