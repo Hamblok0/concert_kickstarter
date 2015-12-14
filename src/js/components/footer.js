@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => (
   <footer>
-    <a href="#"><img src="../images/logo.png" alt="Logo" width="60px"/></a>
+    <a href="#"><i className="fa fa-headphones"></i></a>
     <nav>
       <a className="aboutBtn" href="#">About</a>
       <a className="faqBtn" href="#">FAQ</a>

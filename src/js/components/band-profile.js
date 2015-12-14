@@ -9,21 +9,17 @@ class BandProfile extends React.Component {
       html = (
         <div>
           <article className="cover">
-            <div className="title">
-              <h1>Tame Impala | Brooklyn, NY</h1>
-            </div>
-            <img src="http://antikhobi.com/wp-content/uploads/2014/07/img_placeholder21.png"/>
-            <div class="img">
-            </div>
+            <h1>Tame Impala | Brooklyn, NY</h1>
+            <img src="images/tame.png"/>
           </article>
-
+          <section className="profile">
           <article className="bandInfo">
             <div className="soundCloud">
-              <iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+              <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
               </iframe>
             </div>
             <div className="youtube">
-              <iframe width="420" height="315" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+              <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
             </div>
 
             <section className="genBox">
@@ -50,9 +46,9 @@ class BandProfile extends React.Component {
                 <h3>11</h3>
                 <p>days to go</p>
               </span>
-              <input type="submit" className="bringBtn" value="Bring This Band"></input>
+              <input type="submit" className="bringBtn" value="pledge"></input>
             </section>
-
+            </section>
             <article className="campaignList">
               <h1>Campaigns</h1>
               <div className="campBox">
@@ -70,7 +66,7 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
-                <input type="submit" className="bringBtn" value="Bring This Band"></input>
+                <input type="submit" className="bringBtn" value="pledge"></input>
               </div>
             </article>
         </div>

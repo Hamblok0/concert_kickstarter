@@ -1,4 +1,5 @@
 @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "variables";
 @import "../../bower_components/neat/app/assets/stylesheets/neat";
 
 @mixin vertical-align($position: relative) {
@@ -9,7 +10,7 @@
   transform: translateY(-50%);
 }
 
-html, body {
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -17,13 +18,12 @@ html, body {
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: #A1C9BE;
+  font-family: 'Montserrat', sans-serif;
+  background: $background;
 }
 
 div.wrapper {
   @include outer-container(100%);
-  // height: 100%;
 }
 
   ///////////////////////////////
@@ -32,35 +32,50 @@ div.wrapper {
 
 header {
   @include omega();
-  background: #6FA697;
-  border-bottom: 1px solid #0E5340;
-  img {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  // opacity: 0.5;
+  background: rgba(159, 108, 209, 0.5);
+  // background: #E2D7EC;
+  .fa {
     float: left;
+    font-size: 3em;
+    color: $base01;
+    margin: 15px 0 0 30px;
   }
   nav {
     margin: 25px 0;
     display: inline-block;
     width: 90%;
+    text-align: right;
     a {
       text-decoration: none;
       padding: 10px;
-      font-size: 1.3em;
-      float: left;
-      color: #0E5340;
-      transition: color 0.3s ease;
+      font-size: .8em;
+      letter-spacing: .15em;
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease;
       &:hover {
-        color: #003728;
-        transition: color 0.3s ease;
+        // color: #003728;
+        transition: background 0.3s ease, color 0.3s ease;
       }
     }
     a.btn {
-      border: 1px solid #0E5340;
-      margin-right: 10px;
-      border-radius: 5px;
-      background: #A1C9BE;
+      border: 1px solid $form;
+      margin-right: 20px;
+      // border-radius: 5px;
+      &:hover {
+        background: $base01;
+      }
     }
     a.guestBtn {
-      float: right;
+      // float: right;
+      &:hover {
+        color: $base01;
+      }
     }
   }
 }
@@ -70,7 +85,7 @@ header {
 ///////////////////////////////
 
 main {
-  @include outer-container;
+  @include outer-container(100%);
 }
 
   ///////////////////////////////
@@ -87,21 +102,25 @@ article.cover {
   h1 {
     text-align: center;
     font-size: 2em;
+    margin: 20px auto;
   }
   img {
     text-align: center;
     margin: 0 auto;
     width: 100%;
     height: 300px;
-    border: 3px solid #1C7474;
-    border-radius: 10px;
+    border: 1px solid $base01;
+    border-radius: 1px;
   }
 }
 
+section.profile {
+  @include outer-container(90%);
+}
 article.bandInfo {
   @include span-columns(7.5);
-  border-right: 1px solid gray;
-  padding-right: 20px;
+  border-right: 1px solid $gray;
+  padding-right: 50px;
   div.soundCloud {
     padding-top: 20px;
   }
@@ -110,9 +129,12 @@ article.bandInfo {
     margin-top: 20px;
   }
   section.genBox {
+    text-align: center;
     h3 {
       display: inline-block;
       padding-left: 5px;
+      font-weight: lighter;
+      font-size: 1em;
     }
   }
 }
@@ -144,8 +166,19 @@ section.fundInfoBox {
   input.bringBtn {
     width: 80%;
     margin-top: 70px;
-    padding: 15px;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background: $base01;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    padding: 15px;
+    float: right;
+    border-radius: 1px;
+    &:hover {
+      opacity: .8;
+    }
   }
 }
 
@@ -153,32 +186,39 @@ input.bringBtn {
   width: 100%;
   color: white;
   text-decoration: none;
-  background: #0D523F;
+  background: $base01;
+  font-family: 'Montserrat', sans-serif;
   padding: 10px 0;
   display: block;
   // margin: 20px auto;
   font-size: 1em;
   border: none;
-  border-radius: 5px;
+  border-radius: 1px;
   text-align: center;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: .8em;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 article.campaignList {
   @include span-columns(12);
   margin: 0 auto 30px;
-  border-top: 1px solid gray;
+  background: $background;
+  border-top: 1px solid $gray;
   h1 {
     text-align: center;
     font-size: 2em;
   }
   div.campBox {
-    @include span-columns(4);
-    @include shift(4);
+    @include span-columns(6);
+    @include shift(3);
     section.border {
-      border: 1px solid #0D523F;
-      border-radius: 10px;
-      background: #CAE0E0;
+      background: white;
       margin-bottom: 20px;
+      padding: 20px;
     }
     span {
       display: block;
@@ -199,24 +239,43 @@ form.register {
   @include span-columns(4);
   @include shift(4);
   margin-top: 100px;
+  margin-bottom: 200px;
   text-align: center;
+  h1 {
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $med-gray;
+    padding-bottom: 15px;
+  }
   input.email,
   input.password {
-    margin: 5px 0;
-    font-size: 0.8em;
+    margin-bottom: 1em;
+    font-size: 1em;
     width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid gray;
+    padding: 1em;
+    border-radius: 1px;
+    border: 1px solid $light-gray;
+    color: black;
+    // font-weight: 500;
   }
-  label {
-    color: #256F5B;
-    margin: 20px 0;
+  section.radio {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 1em;
+    label {
+      color: black;
+      margin-right: 5px;
+    }
+    input[type=radio] {
+      margin-right: 40px;
+    }
   }
   .instructions {
-    color: #256F5B;
+    color: $base01;
     font-size: 0.9em;
-    border-top: 1px solid gray;
+    border-top: 1px solid $med-gray;
     padding-top: 15px;
     a {
       text-decoration: none;
@@ -233,19 +292,28 @@ form.register {
   .registerBtn {
     color: white;
     text-decoration: none;
-    background: #0D523F;
+    background: $base01;
     width: 100%;
     padding: 10px 0;
     display: block;
-    margin: 5px 0;
+    margin: 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0;
+    display: block;
     font-size: 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 1px;
     text-align: center;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    &:hover {
+      opacity: .8;
+    }
   }
   a.formLink {
     text-decoration: none;
-    color: #0D523F;
+    color: $base01;
     // display: none;
   }
 }
@@ -254,18 +322,115 @@ form.register {
  //         HOME VIEW         //
 ///////////////////////////////
 
-.homeBanner {
-  height: 200px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+section.home {
+  @include outer-container(100%);
 }
 
-.bandList {
-  border-bottom: 1px solid black;
+.homeHero {
+  @include outer-container(100%);
+  background: url('../images/bg-home.jpg') no-repeat center center;
+  background-position: contain;
+  height: 500px;
+  padding-top: 100px;
+  background-position: 100% 0%;
+  text-align: center;
+  div.textBox {
+    @include span-columns(6);
+    background: rgba(0, 0, 0, .5);
+    margin: 50px auto;
+    margin-left: 25%;
+  }
+  h1 {
+    color: white;
+    font-size: 3em;
+    text-transform: uppercase;
+  }
+  p {
+    color: white;
+    font-size: 2.5em;
+  }
+}
+
+section.bandList {
+  @include outer-container(70%);
+  // font-family: 'Roboto', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
+  background: white;
+  margin-top: 50px;
+  h1 {
+    font-weight: 500;
+    font-size: 1.2em;
+    border-bottom: 1px solid $base01;
+    background: $background;
+    padding-bottom: 25px;
+  }
+  &:nth-child(1) {
+    padding-top: 50px;
+    background: purple;
+  }
+  article.bandItem {
+    @include span-columns(6);
+    margin-left: 25%;
+    border-bottom: 5px solid $background;
+    margin-bottom: 45px;
+    padding-bottom: 20px;
+
+    img {
+      @include span-columns(3);
+      border-radius: 1px;
+      height: 115px;
+      width: auto;
+    }
+    section.bandInfo {
+      @include span-columns(8);
+      float: right;
+      a, .bandName {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        font-size: 1.2em;
+        margin: 0;
+        display: inline;
+        transition: color .3s ease;
+        &:hover {
+          color: $base01;
+          transition: color .3s ease;
+        }
+      }
+      p.bandDate {
+        color: black;
+        font-weight: 300;
+        margin: 0;
+      }
+      p.bandStatus {
+        color: $gray;
+        font-weight: 300;
+        margin: 0;
+      }
+      a.pledgeBtn {
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        color: white;
+        background: $base01;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+        font-size: .6em;
+        padding: 10px;
+        float: right;
+        border-radius: 1px;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 }
 
 .cover {
-  border-bottom: 1px solid gray;
+  margin-top: 70px;
+  border-bottom: 1px solid $gray;
 }
 
   ///////////////////////////////
@@ -275,14 +440,18 @@ form.register {
 footer {
   @include omega();
   clear: both;
-  background: #6FA697;
-  border-top: 1px solid #0E5340;
+  background: black;
+  border-top: 1px solid $border;
   position: relative;
   position: static;
   bottom: 0;
   width: 100%;
-  img {
+  text-align: center;
+  i.fa {
     float: left;
+    font-size: 1.5em;
+    color: white;
+    margin: 10px 0 0 80px;
   }
   nav {
     margin: 10px 0;
@@ -291,12 +460,18 @@ footer {
       display: inline-block;
       text-decoration: none;
       padding: 5px;
-      font-size: 1em;
-      color: #0E5340;
+      font-size: .75em;
+      color: white;
       transition: color 0.3s ease;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-right: 20px;
+    }
+    p {
+      margin: 0 50px;
     }
     a:hover {
-      color: #003728;
+      color: $base01;
       transition: color 0.3s ease;
     }
   }

@@ -3,13 +3,17 @@ import React from 'react';
 class Band extends React.Component {
   render () {
     return (
-      <div className="bandItem">
-        <h4>
-          {this.props.name}
-        </h4>
-        <span>December 11th - Nashvegas</span>
-        <span>Status: 5 years until show</span>
-      </div>
+      <article className="bandItem">
+        <a href="#band/1"><img src="http://lorempixel.com/115/115/nightlife" height="115px" width="115px" className="bandAvatar"/></a>
+        <section className="bandInfo">
+          <a href="#band/1"><h4 className="bandName">
+            {this.props.name}
+          </h4></a>
+          <p className="bandDate">December 11th - Nashvegas</p>
+          <p className="bandStatus">Status: 5 years until show</p>
+          <a className="pledgeBtn" href="#band/1">Pledge</a>
+        </section>
+      </article>
     )
   }
 }

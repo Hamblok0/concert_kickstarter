@@ -2,8 +2,8 @@ import React from 'react'
 
 
 export default (props) => (
-  <header>
-    <a href="#"><img src="../images/logo.png" alt="Logo" width="80px"/></a>
+  <header id="fading" height="70px">
+    <a href="#"><i className="fa fa-headphones"></i></a>
     <nav>
       <a className="gitBtn btn" href="#band/1/edit">Start A Gig</a>
       <a className="discoverBtn btn" href="#">Discover</a>
