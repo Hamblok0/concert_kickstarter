@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import createLocation from 'history/lib/createLocation';
 import $ from 'jquery';
 
-import CreateUser from '../models/create-user';
+import User from '../models/user';
 
 class Login extends React.Component {
   constructor(props) {
@@ -19,12 +19,14 @@ class Login extends React.Component {
     let password = this.refs.pwd.value;
 
     if(email && password) {
-      CreateUser.login({
+      User.login({
         // grant_type: password,
         username: email,
         password: password
       }, (error, data) => {
         if(!error) {
+
+
           //send user to home view if fan, send user to profile edit if band
         } else {
           alert('There was an error with your information.' + error);

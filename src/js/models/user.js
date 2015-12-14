@@ -1,11 +1,26 @@
 import $ from 'jquery';
 
-class CreateUser {
+class User {
   constructor() {
     this.access_token = null;
     this.refresh_token = null;
     this.token_expires = null;
     this.token_created = null;
+
+    if (localStorage.getItem('user_auth')) {
+      let {
+        access_token,
+        refresh_token,
+        token_expires,
+        token_created
+      } = JSON.parse(localStorage.getItem('user_auth'));
+
+      this.access_token = access_token;
+      this.refresh_token = refresh_token;
+      this.token_expires = token_expires;
+      this.token_created = token_created;
+    }
+
   }
   isLoggedIn() {
     return this.access_token !== null;
@@ -34,7 +49,7 @@ class CreateUser {
     let options = {
       url: url,
       method: 'POST',
-      data: data 
+      data: data
     };
 
     $.ajax(options).then(response => {
@@ -45,18 +60,28 @@ class CreateUser {
       this.token_expires = expires_in;
       this.token_created = created_at;
 
+      localStorage.setItem('user_auth', JSON.stringify({
+        access_token: access_token,
+        refresh_token: refresh_token,
+        expires_in: expires_in,
+        created_at: created_at
+      }));
+
       done(null, response);
     }).fail(error => {
       done(error);
     });
-    this.state = {
-      access_token: this.access_token,
-    }
-    console.log(this.access_token);
   }
   logout() {
-    this.token = null;
+    this.access_token = null;
+    this.refresh_token = null;
+    this.token_expires = null;
+    this.token_created = null;
+
+    localStorage.removeItem('user_auth');
+
+
   }
 }
 
-export default new CreateUser();
+export default new User();
