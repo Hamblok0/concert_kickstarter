@@ -25,9 +25,8 @@ class Login extends React.Component {
         password: password
       }, (error, data) => {
         if(!error) {
-
-
-          //send user to home view if fan, send user to profile edit if band
+          console.log('redirecting to home page');
+          this.props.history.pushState(null, '/');
         } else {
           alert('There was an error with your information.' + error);
         }
