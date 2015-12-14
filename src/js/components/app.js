@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 import Header from './header';
 import Footer from './footer';

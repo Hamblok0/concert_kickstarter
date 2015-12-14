@@ -26,6 +26,7 @@ class BandProfile extends React.Component {
       html = (
         <div>
           <article className="cover">
+<<<<<<< HEAD
             <div className="title">
               <h1>Tame Impala | Brooklyn, NY</h1>
               <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
@@ -34,14 +35,14 @@ class BandProfile extends React.Component {
             <div class="img">
             </div>
           </article>
-
+          <section className="profile">
           <article className="bandInfo">
             <div className="soundCloud">
-              <iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+              <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
               </iframe>
             </div>
             <div className="youtube">
-              <iframe width="420" height="315" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+              <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
             </div>
 
             <section className="genBox">
@@ -68,9 +69,9 @@ class BandProfile extends React.Component {
                 <h3>11</h3>
                 <p>days to go</p>
               </span>
-              <input type="submit" className="bringBtn" value="Bring This Band"></input>
+              <a href="#fund"><input type="submit" className="bringBtn" value="pledge" href="#fund"></input></a>
             </section>
-
+            </section>
             <article className="campaignList">
               <h1>Campaigns</h1>
               <div className="campBox">
@@ -88,8 +89,12 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
+<<<<<<< HEAD
                 <button className="edittBut" name="Edit Campaigns" onClick={this.goToEdit2} />
                 <input type="submit" className="bringBtn" value="Bring This Band"></input>
+=======
+                <a href="#fund"><input type="submit" className="bringBtn" value="pledge"></input></a>
+>>>>>>> master
               </div>
             </article>
         </div>
