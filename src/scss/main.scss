@@ -74,9 +74,9 @@ header {
         background: $base01;
       }
     }
-    a.guestBtn {
-      // float: right;
-      &:hover {
+    div.guestBtn {
+      display: inline-block;
+      a:hover {
         color: $base01;
       }
     }

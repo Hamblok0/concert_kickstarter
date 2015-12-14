@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import createLocation from 'history/lib/createLocation';
 import $ from 'jquery';
 
-import CreateUser from '../models/create-user';
+import User from '../models/user';
 
 class Register extends React.Component {
   constructor(props) {
@@ -23,13 +23,13 @@ class Register extends React.Component {
     console.log(email, password, type);
 
     if(email && password && type && password === passwordConfirm) {
-      CreateUser.register({
+      User.register({
         email: email,
         password: password,
         type: type
      }, (error, data) => {
         if(!error) {
-          //send user to login screen
+          this.props.history.pushState(null, '/');
         } else {
           alert('There was an error with your information.' + error);
         }

@@ -88,10 +88,7 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
-                <button className="edittBut" name="Edit Campaigns" onClick={this.goToEdit2} />
-                <input type="submit" className="bringBtn" value="Bring This Band"></input>
                 <a href="#fund"><input type="submit" className="bringBtn" value="pledge"></input></a>
-
               </div>
             </article>
         </div>
