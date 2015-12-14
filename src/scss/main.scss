@@ -15,6 +15,9 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    a {
+      text-decoration: none;
+    }
 }
 
 body {
@@ -64,7 +67,7 @@ header {
       }
     }
     a.btn {
-      border: 1px solid $form;
+      border: 1px solid $border;
       margin-right: 20px;
       // border-radius: 5px;
       &:hover {
@@ -119,7 +122,7 @@ section.profile {
 }
 article.bandInfo {
   @include span-columns(7.5);
-  border-right: 1px solid $gray;
+  border-right: 1px solid $med-gray;
   padding-right: 50px;
   div.soundCloud {
     padding-top: 20px;
@@ -176,8 +179,10 @@ section.fundInfoBox {
     padding: 15px;
     float: right;
     border-radius: 1px;
+    transition: opacity .3s ease;
     &:hover {
       opacity: .8;
+      transition: opacity .3s ease;
     }
   }
 }
@@ -198,8 +203,10 @@ input.bringBtn {
   letter-spacing: .15em;
   text-transform: uppercase;
   font-size: .8em;
+  transition: opacity .3s ease;
   &:hover {
     opacity: .8;
+    transition: opacity .3s ease;
   }
 }
 
@@ -212,6 +219,7 @@ article.campaignList {
     text-align: center;
     font-size: 2em;
   }
+}
   div.campBox {
     @include span-columns(6);
     @include shift(3);
@@ -229,7 +237,67 @@ article.campaignList {
       padding-left: 10px;
     }
   }
+
+section.fund {
+  @include span-columns(12);
+  margin: 0 auto 30px;
+  background: $background;
+  border-top: 1px solid $gray;
+  h1 {
+    margin: 100px 0 30px;
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: left;
+    border-bottom: 1px solid $med-gray;
+    padding-bottom: 15px;
+  }
+  h3 {
+    margin: 0px;
+  }
+  div.campBox {
+    margin-bottom: 100px;
+    section.border {
+      padding: 30px;
+    }
+    .fa {
+      padding-right: 3px;
+    }
+    h3.title {
+      font-size: 1.5em;
+    }
+    p.tickets {
+      font-weight: 100;
+      color: $gray;
+      padding-left: 5px;
+    }
+    p.bandDate {
+      font-weight: 100;
+      padding-left: 5px;
+    }
+    p {
+      display: inline;
+    }
+    span {
+      margin-bottom: 10px;
+    }
+    div.deadBox,
+    div.pledge {
+      margin: 30px 0;
+      p {
+        padding-right: 10px;
+      }
+      p.warn {
+        color: #E70B20;
+      }
+    }
+    div.pledge {
+      p {
+        padding-left: 10px;
+      }
+    }
+  }
 }
+
   ///////////////////////////////
  //         LOGIN / REG       //
 ///////////////////////////////
@@ -307,8 +375,10 @@ form.register {
     letter-spacing: .15em;
     text-transform: uppercase;
     font-size: .8em;
+    transition: opacity .3s ease;
     &:hover {
       opacity: .8;
+      transition: opacity .3s ease;
     }
   }
   a.formLink {
@@ -430,7 +500,6 @@ section.bandList {
 
 .cover {
   margin-top: 70px;
-  border-bottom: 1px solid $gray;
 }
 
   ///////////////////////////////
