@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, Link } from 'react-router';
 
 import App from './components/app';
 import HomeView from './components/homeview';

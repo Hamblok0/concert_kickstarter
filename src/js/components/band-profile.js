@@ -1,6 +1,23 @@
 import React from "react";
+import { Link } from 'react-router';
 
 class BandProfile extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.goToEdit = this.goToEdit.bind(this);
+    this.goToEdit2 = this.goToEdit2.bind(this);
+  }
+
+  goToEdit(e){
+    this.props.history.pushState(null, "band/1/edit");
+  }
+
+  goToEdit2(e){
+    this.props.history.pushState(null, "band/1/edit2");
+  }
+
+
   render() {
     let html;
     if (this.props.children) {
@@ -9,8 +26,14 @@ class BandProfile extends React.Component {
       html = (
         <div>
           <article className="cover">
-            <h1>Tame Impala | Brooklyn, NY</h1>
-            <img src="images/tame.png"/>
+<<<<<<< HEAD
+            <div className="title">
+              <h1>Tame Impala | Brooklyn, NY</h1>
+              <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
+            </div>
+            <img src="http://antikhobi.com/wp-content/uploads/2014/07/img_placeholder21.png"/>
+            <div class="img">
+            </div>
           </article>
           <section className="profile">
           <article className="bandInfo">
@@ -66,7 +89,12 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
+<<<<<<< HEAD
+                <button className="edittBut" name="Edit Campaigns" onClick={this.goToEdit2} />
+                <input type="submit" className="bringBtn" value="Bring This Band"></input>
+=======
                 <a href="#fund"><input type="submit" className="bringBtn" value="pledge"></input></a>
+>>>>>>> master
               </div>
             </article>
         </div>
