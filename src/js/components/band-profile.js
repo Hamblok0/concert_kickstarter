@@ -31,25 +31,22 @@ class BandProfile extends React.Component {
               <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
             </div>
             <img src="images/tame.png"/>
-            <div class="img">
-            </div>
           </article>
           <section className="profile">
-          <article className="bandInfo">
-            <div className="soundCloud">
-              <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
-              </iframe>
-            </div>
-            <div className="youtube">
-              <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
-            </div>
-
-            <section className="genBox">
-              <div className="genre">
-                <i className="fa fa-tag"></i>
-                <h3>Post-Slow-Noise-Core-Wave</h3>
+            <article className="bandInfo">
+              <div className="soundCloud">
+                <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+                </iframe>
               </div>
-            </section>
+              <div className="youtube">
+                <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+              </div>
+              <section className="genBox">
+                <div className="genre">
+                  <i className="fa fa-tag"></i>
+                  <h3>Post-Slow-Noise-Core-Wave</h3>
+                </div>
+              </section>
             </article>
 
             <section className="fundInfoBox">

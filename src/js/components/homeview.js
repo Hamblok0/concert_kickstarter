@@ -10,7 +10,7 @@ class HomeView extends React.Component {
         <article className="homeHero">
           <div className="textBox">
           <h1>
-            Gigster
+            Gigstart
           </h1>
           <p>Give your show a gig start.</p>
           </div>
