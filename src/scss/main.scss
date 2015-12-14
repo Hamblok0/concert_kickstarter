@@ -238,6 +238,161 @@ article.campaignList {
     }
   }
 
+  ///////////////////////////////
+ //        PROFILE - EDIT     //
+///////////////////////////////
+
+div.bandEdit {
+  article.cover {
+    .editBtn {
+      float: right;
+      background: $base01;
+      border-radius: 1px;
+      color: white;
+      margin-right: 20px;
+      margin-top: 20px;
+      border: none;
+      font-size: .8em;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: 10px 15px;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    div.title {
+      text-align: center;
+      margin: 15px auto;
+      h1 {
+        display: inline;
+      }
+    }
+  }
+  article.cover.hide {
+    display: none;
+  }
+  article.coverEdit {
+    padding-top: 80px;
+    text-align: center;
+    .editBtn {
+      float: right;
+      background: $base01;
+      border-radius: 1px;
+      color: white;
+      margin-right: 20px;
+      margin-top: 20px;
+      border: none;
+      font-size: .8em;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: 10px 15px;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    input {
+      font-size: 1.5em;
+      padding: 10px;
+      margin: 20px 10px;
+    }
+    img {
+      text-align: center;
+      margin: 0 auto;
+      width: 100%;
+      height: 300px;
+      border: 1px solid $base01;
+      border-radius: 1px;
+    }
+  }
+  article.coverEdit.hide {
+    display: none;
+  }
+  section.profile {
+    @include outer-container;
+    article.bandInfo {
+      @include span-columns(7.5);
+    }
+    article.bandInfoEdit {
+      @include span-columns(7.5);
+      input {
+        display: block;
+        font-size: 1.2em;
+        padding: 10px;
+        margin: 20px 10px;
+        width: 90%;
+      }
+    }
+    article.bandInfoEdit.hide,
+    article.bandInfo.hide {
+      display: none;
+    }
+    section.fundInfoBox.hide {
+      display: none;
+    }
+  }
+  article.campaignList {
+    div.campBox.hide {
+      display: none;
+    }
+    div.campBoxEdit {
+      @include span-columns(6);
+      @include shift(3);
+      section.border {
+        background: white;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+      input[type=date] {
+        // font-family: 'Montserrat', sans-serif;
+        font-family: 'Fira Sans', sans-serif;
+      }
+      input,
+      span.input {
+        display: inline-block;
+        font-size: 1em;
+        padding: 10px;
+        margin: 20px 10px;
+        width: 90%;
+      }
+      .currencyinput {
+        border: 1px solid #ccc;
+        display: inline-block;
+        margin-left: 35px;
+        width: 30%;
+        span {
+          display: inline;
+        }
+      }
+      .currencyinput input {
+        border: 0;
+        width: 40%;
+        margin: 0;
+      }
+      input.bringBtn {
+        width: 100%;
+        margin-left: 0;
+        font-size: .8em;
+      }
+      span {
+        display: block;
+        margin-left: 10px;
+      }
+      h3 {
+        display: inline-block;
+        padding-left: 10px;
+      }
+    }
+    div.campBoxEdit.hide {
+      display: none;
+    }
+  }
+}
+
+
+  ///////////////////////////////
+ //          FUND PAGE        //
+///////////////////////////////
+
 section.fund {
   @include span-columns(12);
   margin: 0 auto 30px;
