@@ -30,7 +30,7 @@ class BandProfile extends React.Component {
               <h1>Tame Impala | Brooklyn, NY</h1>
               <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
             </div>
-            <img src="http://antikhobi.com/wp-content/uploads/2014/07/img_placeholder21.png"/>
+            <img src="images/tame.png"/>
             <div class="img">
             </div>
           </article>
