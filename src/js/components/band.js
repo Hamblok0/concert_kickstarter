@@ -4,7 +4,7 @@ class Band extends React.Component {
   render () {
     return (
       <article className="bandItem">
-        <a href="#band/1"><img src="http://lorempixel.com/115/115/nightlife" height="115px" width="115px" className="bandAvatar"/></a>
+        <a href="#band/1"><img src="http://lorempixel.com/115/115/abstract" height="115px" width="115px" className="bandAvatar"/></a>
         <section className="bandInfo">
           <a href="#band/1"><h4 className="bandName">
             {this.props.name}

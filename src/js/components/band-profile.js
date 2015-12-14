@@ -46,7 +46,7 @@ class BandProfile extends React.Component {
                 <h3>11</h3>
                 <p>days to go</p>
               </span>
-              <input type="submit" className="bringBtn" value="pledge"></input>
+              <a href="#fund"><input type="submit" className="bringBtn" value="pledge" href="#fund"></input></a>
             </section>
             </section>
             <article className="campaignList">
@@ -66,7 +66,7 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
-                <input type="submit" className="bringBtn" value="pledge"></input>
+                <a href="#fund"><input type="submit" className="bringBtn" value="pledge"></input></a>
               </div>
             </article>
         </div>

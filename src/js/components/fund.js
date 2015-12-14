@@ -3,47 +3,50 @@ import React from 'react'
 class Fund extends React.Component {
   render () {
     return(
-      <div>
-        <div className="showInfo">
-          <div className="campBox">
+      <section className="fund">
+        <div className="campBox">
+          <h1>Confirm your tickets</h1>
+          <section className="border">
+            <span>
+              <i className="fa fa-bolt"></i>
+              <h3 className="title">Headlining Band</h3>
+            </span>
             <span>
               <i className="fa fa-map-marker"></i>
               <h3>Nashville</h3>
             </span>
             <span>
               <i className="fa fa-calendar"></i>
-              <h3>Brovember 11th</h3>
+              <p className="bandDate">Brovember 11th</p>
             </span>
             <span>
               <i className="fa fa-ticket"></i>
-              <h3>$6 - General Admission</h3>
+              <p className="tickets">$6 - General Admission</p>
             </span>
-          </div>
-
-          <div className="deadBox">
-            <span>Funding Deadline:</span>
-            <span>October 11th</span>
-          </div>
+            <div className="deadBox">
+              <p className="warn">Funding Deadline:</p>
+              <p>October 11th</p>
+            </div>
+            <div className="pledge">
+              <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <p>$6 - General Admission</p>
+              <p>Total:</p>
+            </div>
+          </section>
+          <a href="#"><input type="submit" className="bringBtn" value="confirm"></input></a>
         </div>
-
-        <div className="pledge">
-          <select>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-          <span>$6 - General Admission</span>
-
-        <button name="Pledge"></button>
-        </div>
-      </div>
+      </section>
     )
   }
 }
