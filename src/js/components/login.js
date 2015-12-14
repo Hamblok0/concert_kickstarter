@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import createLocation from 'history/lib/createLocation';
 import $ from 'jquery';
 
+import CreateUser from '../models/create-user';
 
 class Login extends React.Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class Login extends React.Component {
 
     if(email && password) {
       CreateUser.login({
-        email: email,
+        // grant_type: password,
+        username: email,
         password: password
       }, (error, data) => {
         if(!error) {
@@ -37,10 +39,20 @@ class Login extends React.Component {
     return(
       <form className="login"
             onSubmit={this.handleLogin}>
-        <input type="text" className="email" placeholder="Email" ref="email" />
-        <input type="password" className="password" placeholder="Password" ref="pwd" />
-        <input type="submit" className="loginBtn" value="Log in" />
-        <p className="instructions">Don't have an account? <a href="#register" className="formLink">Sign up »</a></p>
+        <h1>Please sign in</h1>
+        <input type="text"
+               className="email"
+               placeholder="Email"
+               ref="email" />
+        <input type="password"
+               className="password"
+               placeholder="Password" ref="pwd" />
+        <input type="submit"
+               className="loginBtn"
+               value="Log in" />
+        <p className="instructions">Don't have an account?
+          <a href="#register" className="formLink">Sign up »</a>
+        </p>
       </form>
     )
   }

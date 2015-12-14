@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import CreateUser from '../models/create-user';
 import createLocation from 'history/lib/createLocation';
 import $ from 'jquery';
 
+import CreateUser from '../models/create-user';
 
 class Register extends React.Component {
   constructor(props) {
@@ -43,13 +43,16 @@ class Register extends React.Component {
     return(
       <form className="register"
             onSubmit={this.handleRegister}>
-        <input type="text" className="email" placeholder="Email" ref="email" />
-        <input type="password" className="password" placeholder="Password" ref="pwd" />
-        <input type="password" className="password" placeholder="Confirm password" ref="pwd1" />
-        <label id="fan" value="fan">I am a... Fan</label>
-        <input type="radio" id="fan" name="radio" value="Fan"/>
-        <label id="band" value="band">Band</label>
-        <input type="radio" id="band" name="radio" value="Band"/>
+        <h1>Welcome to Gigster!</h1>
+        <input type="text" className="email" placeholder="Email*" ref="email" />
+        <input type="password" className="password" placeholder="Password*" ref="pwd" />
+        <input type="password" className="password" placeholder="Confirm password*" ref="pwd1" />
+        <section className="radio">
+          <label id="fan" value="fan">I am a... Fan</label>
+          <input type="radio" id="fan" name="radio" value="Fan"/>
+          <label id="band" value="band">Band</label>
+          <input type="radio" id="band" name="radio" value="Band"/>
+        </section>
         <input type="submit" className="registerBtn" value="Sign up" />
         <p className="instructions">Already have an account? <a href="#login" className="formLink">Login »</a></p>
       </form>

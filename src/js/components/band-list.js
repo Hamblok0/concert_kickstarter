@@ -35,6 +35,7 @@ class BandList extends React.Component {
 
   return (
     <section className="bandList">
+      <h1>Latest</h1>
       {bands}
     </section>
   )

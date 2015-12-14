@@ -30,8 +30,30 @@ class CreateUser {
   }
   login(data, done) {
     let url = 'https://gigster-app.herokuapp.com/oauth/token';
-  }
+    data.grant_type = 'password';
+    let options = {
+      url: url,
+      method: 'POST',
+      data: data 
+    };
 
+    $.ajax(options).then(response => {
+      let {access_token, refresh_token, expires_in, created_at} = response;
+
+      this.access_token = access_token;
+      this.refresh_token = refresh_token;
+      this.token_expires = expires_in;
+      this.token_created = created_at;
+
+      done(null, response);
+    }).fail(error => {
+      done(error);
+    });
+    this.state = {
+      access_token: this.access_token,
+    }
+    console.log(this.access_token);
+  }
   logout() {
     this.token = null;
   }
