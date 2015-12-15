@@ -1,7 +1,7 @@
 # Gigster
 Gigster is a music business app that allows fans to buy concert tickets in order to fund a band's potential show. Users pledge to buy tickets, and if the funding goal is not reached by a preset deadline, fans' money is refunded and the concert never happens. If the band's ticket sales goal is reached by the deadline, the fans' credit cards are charged and the concert happens on the scheduled date. At the time of funding, bands receive contact information for a venue correspondent, who then happily books the pre-funded event.
 
-This project was built as my final project for the Front End Engineering class at The Iron Yard.  It was built using React on the front end and Ruby on Rails on the back end.
+This project was built as our final project for the Front End Engineering class at The Iron Yard.  It was built using React on the front end and Ruby on Rails on the back end.
 
 ## Installation
 
