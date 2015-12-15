@@ -11,6 +11,16 @@ class BandEdit extends React.Component {
     this.viewCampaign = this.viewCampaign.bind(this);
   }
 
+  componentDidMount() {
+    let element = this.refs.filepicker;
+    element.addEventListener('change', this.handleFilePickerChange, false);
+  }
+
+  componentWillUnmount() {
+    let element = this.refs.filepicker;
+    element.removeEventListener('change', this.handleFilePickerChange, false);
+  }
+
   editMode(e) {
     e.preventDefault();
     console.log('you clicked the edit btn!');
@@ -20,12 +30,14 @@ class BandEdit extends React.Component {
     let infoView = $('.bandInfo');
     let infoEdit = $('.bandInfoEdit');
     let fundInfoBox = $('.fundInfoBox');
+    let uploadBtn = $('.fp__btn button');
 
     bandView.toggleClass('hide');
     bandEdit.toggleClass('hide');
     infoView.toggleClass('hide');
     infoEdit.toggleClass('hide');
     fundInfoBox.toggleClass('hide');
+    uploadBtn.html('Upload photo');
   }
 
   viewMode(e) {
@@ -56,6 +68,13 @@ class BandEdit extends React.Component {
     gigEdit.toggleClass('hide');
   }
 
+  handleFilePickerChange(data) {
+    console.log(data.fpfile.url);
+    let url = data.fpfile.url;
+    let imgBox = $('.imgBox');
+
+    imgBox.attr('src', url);
+  }
 
   render () {
     return(
@@ -75,9 +94,8 @@ class BandEdit extends React.Component {
             <input type="text" placeholder="Band Name..." />
             <input type="text" placeholder="Your location..." />
           </div>
-            <input type="text" placeholder="Upload cover photo..." />
-            <input type="submit" value="Upload" />
-            <img src="images/tame.png"/>
+          <input ref="filepicker" type="filepicker" data-fp-apikey="AHqgbWUAATSCgbyRYc8Sbz" />
+          <img className="imgBox" src="images/tame.png"/>
         </article>
 
 

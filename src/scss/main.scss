@@ -303,6 +303,18 @@ div.bandEdit {
       border: 1px solid $base01;
       border-radius: 1px;
     }
+    .fp__btn {
+      background: $base01;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .8em;
+      border-radius: 1px;
+      text-align: center;
+      padding: 5px 15px;
+      height: auto;
+      margin: 0 auto 5px;
+    }
   }
   article.coverEdit.hide {
     display: none;
@@ -343,7 +355,6 @@ div.bandEdit {
         padding: 20px;
       }
       input[type=date] {
-        // font-family: 'Montserrat', sans-serif;
         font-family: 'Fira Sans', sans-serif;
       }
       input,
