@@ -106,14 +106,47 @@ article.cover {
     text-align: center;
     font-size: 2em;
     margin: 20px auto;
+    padding-right: 20px;
+    &:hover {
+      color: $gray;
+      cursor: pointer;
+      transition: text-decoration .3s ease;
+    }
+  }
+  h1.bandLoc {
+    font-weight: lighter;
+  }
+  div.imgContainer {
+    display: block;
+    text-align: center;
+    background: $base01;
+    overflow: hidden;
   }
   img {
     text-align: center;
-    margin: 0 auto;
-    width: 100%;
+    margin: 5px auto 0;
+    width: auto;
     height: 300px;
     border: 1px solid $base01;
     border-radius: 1px;
+  }
+  div.textBox {
+    position: relative;
+    bottom: 200px;
+    left: 80px;
+    display: inline-block;
+    background: rgba(0, 0, 0, .5);
+    p {
+      font-size: 1.2em;
+      color: white;
+      padding: 15px 20px;
+      transition: text-decoration .3s ease;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        transition: text-decoration .3s ease;
+      }
+    }
   }
 }
 
@@ -291,14 +324,24 @@ div.bandEdit {
       }
     }
     input {
-      font-size: 1.5em;
+      font-size: 1.2em;
       padding: 10px;
       margin: 20px 10px;
     }
+    p {
+      display: inline-block;
+      padding-right: 50px;
+    }
+    div.imgContainer {
+      display: block;
+      text-align: center;
+      background: $base01;
+      overflow: hidden;
+    }
     img {
       text-align: center;
-      margin: 0 auto;
-      width: 100%;
+      margin: 5px auto 0;
+      width: auto;
       height: 300px;
       border: 1px solid $base01;
       border-radius: 1px;
@@ -313,7 +356,10 @@ div.bandEdit {
       text-align: center;
       padding: 5px 15px;
       height: auto;
-      margin: 0 auto 5px;
+      margin: 0 33px 10px 0px;
+      &:hover {
+        opacity: .8;
+      }
     }
   }
   article.coverEdit.hide {
