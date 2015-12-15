@@ -1,5 +1,5 @@
-import React from 'react';
 
+import React, { PropTypes } from 'react';
 
 class Fund extends React.Component {
 
