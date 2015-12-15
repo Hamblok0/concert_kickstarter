@@ -14,22 +14,19 @@ class BandList extends React.Component {
   }
 
   componentDidMount(){
-    jQuery.ajax("https://gigster-app.herokuapp.com/users").then( response => {
-      let bands = response.filter(band => {
-        return band.type === "Band"
-      });
+    jQuery.ajax("https://gigster-app.herokuapp.com/bands").then( response => {
+      let bands = response
       this.setState({
         bands
-      });
-    });
-  }
+      })
+    })
+  };
 
   render () {
     let bands = this.state.bands.map(band => {
       return (
         <Band key={band.id}
               name={band.name} />
-
       )
     });
 
