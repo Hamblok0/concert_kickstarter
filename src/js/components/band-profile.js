@@ -68,7 +68,7 @@ class BandProfile extends React.Component {
                 <h3>11</h3>
                 <p>days to go</p>
               </span>
-              <a href="#fund"><input type="submit" className="bringBtn" value="pledge" href="#fund"></input></a>
+              <a className="pledgeBtn" href={`#band/${this.props.params.id}/fund`}>Pledge</a>
             </section>
             </section>
             <article className="campaignList">

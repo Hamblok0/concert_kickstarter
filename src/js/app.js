@@ -21,8 +21,9 @@ const routes = (
       <Route path="band/:id" component={BandProfile}>
         <Route path="edit" component={BandEdit} />
         <Route path="edit2" component={CampaignEdit} />
+        <Route path="fund" component={Fund} />
       </Route>
-      <Route path ="fund" component={Fund} />
+
     </Route>
   </Router>
 );

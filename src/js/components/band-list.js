@@ -1,5 +1,5 @@
 import React from 'react';
-import jQuery from 'jquery';
+import BandAPI from '../models/band';
 
 import Band from './band';
 
@@ -14,12 +14,10 @@ class BandList extends React.Component {
   }
 
   componentDidMount(){
-    jQuery.ajax("https://gigster-app.herokuapp.com/users").then( response => {
-      let bands = response.filter(band => {
-        return band.type === "Band"
-      });
+    BandAPI.getAll((data) => {
+      console.log(data);
       this.setState({
-        bands
+        bands: data.bands
       });
     });
   }
