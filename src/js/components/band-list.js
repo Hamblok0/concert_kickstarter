@@ -1,5 +1,5 @@
 import React from 'react';
-import BandAPI from '../models/band';
+// import BandAPI from '../models/band';
 
 import Band from './band';
 
