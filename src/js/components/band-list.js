@@ -1,5 +1,5 @@
 import React from 'react';
-import jQuery from 'jquery';
+import BandAPI from '../models/band';
 
 import Band from './band';
 

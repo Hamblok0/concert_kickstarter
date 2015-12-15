@@ -1,7 +1,11 @@
+
 import React, { PropTypes } from 'react';
 
 class Fund extends React.Component {
+
+
   render () {
+
     return(
       <section className="fund">
         <div className="campBox">
@@ -9,7 +13,7 @@ class Fund extends React.Component {
           <section className="border">
             <span>
               <i className="fa fa-bolt"></i>
-              <h3 className="title">Headlining Band</h3>
+              <h3 className="title">{title}</h3>
             </span>
             <span>
               <i className="fa fa-map-marker"></i>
@@ -22,13 +26,14 @@ class Fund extends React.Component {
             <span>
               <i className="fa fa-ticket"></i>
               <p className="tickets">$6 - General Admission</p>
+              <p className="tickets">{ remaining } Remaining</p>
             </span>
             <div className="deadBox">
               <p className="warn">Funding Deadline:</p>
               <p>October 11th</p>
             </div>
             <div className="pledge">
-              <select>
+              <select ref="qty">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -44,7 +49,7 @@ class Fund extends React.Component {
               <p>Total:</p>
             </div>
           </section>
-          <a href="#"><input type="submit" className="bringBtn" value="confirm"></input></a>
+          <a href="#"><input type="submit" className="bringBtn" value="confirm" onClick={this.onClick}></input></a>
         </div>
       </section>
     )

@@ -11,7 +11,7 @@ class Band extends React.Component {
           </h4></a>
           <p className="bandDate">December 11th - Nashvegas</p>
           <p className="bandStatus">Status: 5 years until show</p>
-          <a className="pledgeBtn" href="#band/1">Pledge</a>
+          <a className="pledgeBtn" href={`#band/${this.props.params.id}/fund`}>Pledge</a>
         </section>
       </article>
     )
