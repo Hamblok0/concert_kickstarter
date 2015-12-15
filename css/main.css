@@ -1,0 +1,662 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+  body a {
+    text-decoration: none; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #F2F2F2; }
+
+div.wrapper {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  div.wrapper::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+header {
+  margin-right: 0;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background: rgba(159, 108, 209, 0.5); }
+  header .fa {
+    float: left;
+    font-size: 3em;
+    color: #9F6CD1;
+    margin: 15px 0 0 30px; }
+  header nav {
+    margin: 25px 0;
+    display: inline-block;
+    width: 90%;
+    text-align: right; }
+    header nav a {
+      text-decoration: none;
+      padding: 10px;
+      font-size: .8em;
+      letter-spacing: .15em;
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease; }
+      header nav a:hover {
+        transition: background 0.3s ease, color 0.3s ease; }
+    header nav a.btn {
+      border: 1px solid #999999;
+      margin-right: 20px; }
+      header nav a.btn:hover {
+        background: #9F6CD1; }
+    header nav div.guestBtn {
+      display: inline-block; }
+      header nav div.guestBtn a:hover {
+        color: #9F6CD1; }
+
+main {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  main::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+div.profile {
+  margin-top: 50px; }
+
+article.cover {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  article.cover:last-child {
+    margin-right: 0; }
+  article.cover h1 {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px auto; }
+  article.cover img {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #9F6CD1;
+    border-radius: 1px; }
+
+section.profile {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+  section.profile::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+article.bandInfo {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 61.61588%;
+  border-right: 1px solid #AAAAAA;
+  padding-right: 50px; }
+  article.bandInfo:last-child {
+    margin-right: 0; }
+  article.bandInfo div.soundCloud {
+    padding-top: 20px; }
+  article.bandInfo div.youtube {
+    text-align: center;
+    margin-top: 20px; }
+  article.bandInfo section.genBox {
+    text-align: center; }
+    article.bandInfo section.genBox h3 {
+      display: inline-block;
+      padding-left: 5px;
+      font-weight: lighter;
+      font-size: 1em; }
+
+section.fundInfoBox {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-right: 0;
+  padding-top: 20px;
+  padding-left: 20px; }
+  section.fundInfoBox:last-child {
+    margin-right: 0; }
+  section.fundInfoBox h3 {
+    font-size: 3em;
+    margin: 5px 0 0; }
+  section.fundInfoBox span .fa {
+    font-size: 2.8em;
+    padding-right: 5px; }
+  section.fundInfoBox span h3 {
+    display: inline-block; }
+  section.fundInfoBox span p {
+    font-size: 1em;
+    font-weight: bolder;
+    margin: 5px 0 20px; }
+  section.fundInfoBox input.bringBtn {
+    width: 80%;
+    margin-top: 70px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background: #9F6CD1;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    padding: 15px;
+    float: right;
+    border-radius: 1px;
+    transition: opacity .3s ease; }
+    section.fundInfoBox input.bringBtn:hover {
+      opacity: .8;
+      transition: opacity .3s ease; }
+
+input.bringBtn {
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  background: #9F6CD1;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 0;
+  display: block;
+  font-size: 1em;
+  border: none;
+  border-radius: 1px;
+  text-align: center;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: .8em;
+  transition: opacity .3s ease; }
+  input.bringBtn:hover {
+    opacity: .8;
+    transition: opacity .3s ease; }
+
+article.campaignList {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin: 0 auto 30px;
+  background: #F2F2F2;
+  border-top: 1px solid #777777; }
+  article.campaignList:last-child {
+    margin-right: 0; }
+  article.campaignList h1 {
+    text-align: center;
+    font-size: 2em; }
+
+div.campBox {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%; }
+  div.campBox:last-child {
+    margin-right: 0; }
+  div.campBox section.border {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px; }
+  div.campBox span {
+    display: block;
+    margin-left: 10px; }
+  div.campBox h3 {
+    display: inline-block;
+    padding-left: 10px; }
+
+div.bandEdit article.cover .editBtn {
+  float: right;
+  background: #9F6CD1;
+  border-radius: 1px;
+  color: white;
+  margin-right: 20px;
+  margin-top: 20px;
+  border: none;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: 10px 15px; }
+  div.bandEdit article.cover .editBtn:hover {
+    opacity: .8; }
+
+div.bandEdit article.cover div.title {
+  text-align: center;
+  margin: 15px auto; }
+  div.bandEdit article.cover div.title h1 {
+    display: inline; }
+
+div.bandEdit article.cover.hide {
+  display: none; }
+
+div.bandEdit article.coverEdit {
+  padding-top: 80px;
+  text-align: center; }
+  div.bandEdit article.coverEdit .editBtn {
+    float: right;
+    background: #9F6CD1;
+    border-radius: 1px;
+    color: white;
+    margin-right: 20px;
+    margin-top: 20px;
+    border: none;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    padding: 10px 15px; }
+    div.bandEdit article.coverEdit .editBtn:hover {
+      opacity: .8; }
+  div.bandEdit article.coverEdit input {
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 20px 10px; }
+  div.bandEdit article.coverEdit img {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #9F6CD1;
+    border-radius: 1px; }
+
+div.bandEdit article.coverEdit.hide {
+  display: none; }
+
+div.bandEdit section.profile {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  div.bandEdit section.profile::after {
+    clear: both;
+    content: "";
+    display: table; }
+  div.bandEdit section.profile article.bandInfo {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 61.61588%; }
+    div.bandEdit section.profile article.bandInfo:last-child {
+      margin-right: 0; }
+  div.bandEdit section.profile article.bandInfoEdit {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 61.61588%; }
+    div.bandEdit section.profile article.bandInfoEdit:last-child {
+      margin-right: 0; }
+    div.bandEdit section.profile article.bandInfoEdit input {
+      display: block;
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 20px 10px;
+      width: 90%; }
+  div.bandEdit section.profile article.bandInfoEdit.hide,
+  div.bandEdit section.profile article.bandInfo.hide {
+    display: none; }
+  div.bandEdit section.profile section.fundInfoBox.hide {
+    display: none; }
+
+div.bandEdit article.campaignList div.campBox.hide {
+  display: none; }
+
+div.bandEdit article.campaignList div.campBoxEdit {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%; }
+  div.bandEdit article.campaignList div.campBoxEdit:last-child {
+    margin-right: 0; }
+  div.bandEdit article.campaignList div.campBoxEdit section.border {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px; }
+  div.bandEdit article.campaignList div.campBoxEdit input[type=date] {
+    font-family: 'Fira Sans', sans-serif; }
+  div.bandEdit article.campaignList div.campBoxEdit input,
+  div.bandEdit article.campaignList div.campBoxEdit span.input {
+    display: inline-block;
+    font-size: 1em;
+    padding: 10px;
+    margin: 20px 10px;
+    width: 90%; }
+  div.bandEdit article.campaignList div.campBoxEdit .currencyinput {
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-left: 35px;
+    width: 30%; }
+    div.bandEdit article.campaignList div.campBoxEdit .currencyinput span {
+      display: inline; }
+  div.bandEdit article.campaignList div.campBoxEdit .currencyinput input {
+    border: 0;
+    width: 40%;
+    margin: 0; }
+  div.bandEdit article.campaignList div.campBoxEdit input.bringBtn {
+    width: 100%;
+    margin-left: 0;
+    font-size: .8em; }
+  div.bandEdit article.campaignList div.campBoxEdit span {
+    display: block;
+    margin-left: 10px; }
+  div.bandEdit article.campaignList div.campBoxEdit h3 {
+    display: inline-block;
+    padding-left: 10px; }
+
+div.bandEdit article.campaignList div.campBoxEdit.hide {
+  display: none; }
+
+section.fund {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin: 0 auto 30px;
+  background: #F2F2F2;
+  border-top: 1px solid #777777; }
+  section.fund:last-child {
+    margin-right: 0; }
+  section.fund h1 {
+    margin: 100px 0 30px;
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: left;
+    border-bottom: 1px solid #AAAAAA;
+    padding-bottom: 15px; }
+  section.fund h3 {
+    margin: 0px; }
+  section.fund div.campBox {
+    margin-bottom: 100px; }
+    section.fund div.campBox section.border {
+      padding: 30px; }
+    section.fund div.campBox .fa {
+      padding-right: 3px; }
+    section.fund div.campBox h3.title {
+      font-size: 1.5em; }
+    section.fund div.campBox p.tickets {
+      font-weight: 100;
+      color: #777777;
+      padding-left: 5px; }
+    section.fund div.campBox p.bandDate {
+      font-weight: 100;
+      padding-left: 5px; }
+    section.fund div.campBox p {
+      display: inline; }
+    section.fund div.campBox span {
+      margin-bottom: 10px; }
+    section.fund div.campBox div.deadBox,
+    section.fund div.campBox div.pledge {
+      margin: 30px 0; }
+      section.fund div.campBox div.deadBox p,
+      section.fund div.campBox div.pledge p {
+        padding-right: 10px; }
+      section.fund div.campBox div.deadBox p.warn,
+      section.fund div.campBox div.pledge p.warn {
+        color: #E70B20; }
+    section.fund div.campBox div.pledge p {
+      padding-left: 10px; }
+
+form.login,
+form.register {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 34.11922%;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  text-align: center; }
+  form.login:last-child,
+  form.register:last-child {
+    margin-right: 0; }
+  form.login h1,
+  form.register h1 {
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #AAAAAA;
+    padding-bottom: 15px; }
+  form.login input.email,
+  form.login input.password,
+  form.register input.email,
+  form.register input.password {
+    margin-bottom: 1em;
+    font-size: 1em;
+    width: 100%;
+    padding: 1em;
+    border-radius: 1px;
+    border: 1px solid #E1E1E1;
+    color: black; }
+  form.login section.radio,
+  form.register section.radio {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 1em; }
+    form.login section.radio label,
+    form.register section.radio label {
+      color: black;
+      margin-right: 5px; }
+    form.login section.radio input[type=radio],
+    form.register section.radio input[type=radio] {
+      margin-right: 40px; }
+  form.login .instructions,
+  form.register .instructions {
+    color: #9F6CD1;
+    font-size: 0.9em;
+    border-top: 1px solid #AAAAAA;
+    padding-top: 15px; }
+    form.login .instructions a,
+    form.register .instructions a {
+      text-decoration: none;
+      color: blue;
+      transition: text-decoration 0.5s ease;
+      padding: 10px 50px; }
+      form.login .instructions a:hover,
+      form.register .instructions a:hover {
+        text-decoration: underline;
+        transition: text-decoration 0.5s ease; }
+  form.login .loginBtn,
+  form.login .registerBtn,
+  form.register .loginBtn,
+  form.register .registerBtn {
+    color: white;
+    text-decoration: none;
+    background: #9F6CD1;
+    width: 100%;
+    padding: 10px 0;
+    display: block;
+    margin: 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0;
+    display: block;
+    font-size: 1em;
+    border: none;
+    border-radius: 1px;
+    text-align: center;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    transition: opacity .3s ease; }
+    form.login .loginBtn:hover,
+    form.login .registerBtn:hover,
+    form.register .loginBtn:hover,
+    form.register .registerBtn:hover {
+      opacity: .8;
+      transition: opacity .3s ease; }
+  form.login a.formLink,
+  form.register a.formLink {
+    text-decoration: none;
+    color: #9F6CD1; }
+
+section.home {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  section.home::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.homeHero {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: url("../images/bg-home.jpg") no-repeat center center;
+  background-position: contain;
+  height: 500px;
+  padding-top: 100px;
+  background-position: 100% 0%;
+  text-align: center; }
+  .homeHero::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .homeHero div.textBox {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 50px auto;
+    margin-left: 25%; }
+    .homeHero div.textBox:last-child {
+      margin-right: 0; }
+  .homeHero h1 {
+    color: white;
+    font-size: 3em;
+    text-transform: uppercase; }
+  .homeHero p {
+    color: white;
+    font-size: 2.5em; }
+
+section.bandList {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Fira Sans', sans-serif;
+  background: white;
+  margin-top: 50px; }
+  section.bandList::after {
+    clear: both;
+    content: "";
+    display: table; }
+  section.bandList h1 {
+    font-weight: 500;
+    font-size: 1.2em;
+    border-bottom: 1px solid #9F6CD1;
+    background: #F2F2F2;
+    padding-bottom: 25px; }
+  section.bandList:nth-child(1) {
+    padding-top: 50px;
+    background: purple; }
+  section.bandList article.bandItem {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25%;
+    border-bottom: 5px solid #F2F2F2;
+    margin-bottom: 45px;
+    padding-bottom: 20px; }
+    section.bandList article.bandItem:last-child {
+      margin-right: 0; }
+    section.bandList article.bandItem img {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      border-radius: 1px;
+      height: 115px;
+      width: auto; }
+      section.bandList article.bandItem img:last-child {
+        margin-right: 0; }
+    section.bandList article.bandItem section.bandInfo {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      float: right; }
+      section.bandList article.bandItem section.bandInfo:last-child {
+        margin-right: 0; }
+      section.bandList article.bandItem section.bandInfo a, section.bandList article.bandItem section.bandInfo .bandName {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        font-size: 1.2em;
+        margin: 0;
+        display: inline;
+        transition: color .3s ease; }
+        section.bandList article.bandItem section.bandInfo a:hover, section.bandList article.bandItem section.bandInfo .bandName:hover {
+          color: #9F6CD1;
+          transition: color .3s ease; }
+      section.bandList article.bandItem section.bandInfo p.bandDate {
+        color: black;
+        font-weight: 300;
+        margin: 0; }
+      section.bandList article.bandItem section.bandInfo p.bandStatus {
+        color: #777777;
+        font-weight: 300;
+        margin: 0; }
+      section.bandList article.bandItem section.bandInfo a.pledgeBtn {
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        color: white;
+        background: #9F6CD1;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+        font-size: .6em;
+        padding: 10px;
+        float: right;
+        border-radius: 1px; }
+  section.bandList::after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.cover {
+  margin-top: 70px; }
+
+footer {
+  margin-right: 0;
+  clear: both;
+  background: black;
+  border-top: 1px solid #999999;
+  position: relative;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  text-align: center; }
+  footer i.fa {
+    float: left;
+    font-size: 1.5em;
+    color: white;
+    margin: 10px 0 0 80px; }
+  footer nav {
+    margin: 10px 0;
+    display: inline-block; }
+    footer nav a, footer nav p {
+      display: inline-block;
+      text-decoration: none;
+      padding: 5px;
+      font-size: .75em;
+      color: white;
+      transition: color 0.3s ease;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-right: 20px; }
+    footer nav p {
+      margin: 0 50px; }
+    footer nav a:hover {
+      color: #9F6CD1;
+      transition: color 0.3s ease; }
