@@ -275,7 +275,8 @@ article.campaignList {
  //        PROFILE - EDIT     //
 ///////////////////////////////
 
-div.bandEdit {
+div.bandEdit,
+section.bandProfile {
   article.cover {
     .editBtn {
       float: right;
@@ -283,7 +284,7 @@ div.bandEdit {
       border-radius: 1px;
       color: white;
       margin-right: 20px;
-      margin-top: 20px;
+      // margin-top: 20px;
       border: none;
       font-size: .8em;
       text-transform: uppercase;
@@ -295,7 +296,7 @@ div.bandEdit {
     }
     div.title {
       text-align: center;
-      margin: 15px auto;
+      margin: 50px auto;
       h1 {
         display: inline;
       }
@@ -304,8 +305,8 @@ div.bandEdit {
   article.cover.hide {
     display: none;
   }
-  article.coverEdit {
-    padding-top: 80px;
+  article.coverEdit,
+  article.cover {
     text-align: center;
     .editBtn {
       float: right;

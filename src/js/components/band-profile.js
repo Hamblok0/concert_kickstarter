@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router';
 
+import BandEdit from './band-edit';
+
 class BandProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,11 @@ class BandProfile extends React.Component {
     this.props.history.pushState(null, "band/1/edit2");
   }
 
+  // handleSave(data).then(response => {
+  //     data.setState = response;
+  //     done(null, response);
+  //   })
+
 
   render() {
     let html;
@@ -25,12 +32,15 @@ class BandProfile extends React.Component {
     } else {
       html = (
         <div>
-          <article className="cover">
+          <article className="cover coverEdit">
             <div className="title">
-              <h1>Tame Impala | Brooklyn, NY</h1>
-              <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
+              <h1 className="bandName">Band Name</h1>
+              <h1 className="bandLoc">Location</h1>
+              <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>
             </div>
-            <img src="images/tame.png"/>
+            <div className="imgContainer">
+              <img className="imgBox" src="images/tame.png"/>
+            </div>
           </article>
           <section className="profile">
             <article className="bandInfo">
