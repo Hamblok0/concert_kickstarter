@@ -1,5 +1,9 @@
 import React from 'react';
 import jQuery from 'jquery';
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 import Band from './band';
 

@@ -2,6 +2,8 @@ import React from "react";
 import $ from "jquery";
 import { Link } from 'react-router';
 
+import BandEdit from './band-edit';
+
 
 class BandProfile extends React.Component {
   constructor(props) {
@@ -34,6 +36,11 @@ class BandProfile extends React.Component {
     this.props.history.pushState(null, `band/${this.props.params.id}/edit2`);
   }
 
+  // handleSave(data).then(response => {
+  //     data.setState = response;
+  //     done(null, response);
+  //   })
+
 
   render() {
 
@@ -44,12 +51,15 @@ class BandProfile extends React.Component {
     } else {
       html = (
         <div>
-          <article className="cover">
+          <article className="cover coverEdit">
             <div className="title">
-              <h1>{this.state.band.name} | {this.state.band.location}</h1>
-              <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
+              <h1 className="bandName">{this.state.band.name}</h1>
+              <h1 className="bandLoc">{this.state.band.location}</h1>
+              <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>
             </div>
-            <img src="images/tame.png"/>
+            <div className="imgContainer">
+              <img className="imgBox" src="images/tame.png"/>
+            </div>
           </article>
           <section className="profile">
             <article className="bandInfo">
