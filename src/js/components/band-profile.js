@@ -46,8 +46,7 @@ class BandProfile extends React.Component {
 
     let html;
     if (this.props.children) {
-      // here, clone the children, give them band property set to this.state.band, then html = those cloned children
-      html = this.props.children
+      html = React.cloneElement(this.props.children, {band: this.state.band});
     } else {
       html = (
         <div>

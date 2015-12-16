@@ -62,9 +62,11 @@ class User {
 
     $.ajax(options).then(response => {
       done(null, response);
+      console.log(response);
     }).fail(error => {
       done(error);
     });
+
   }
 
   login(data, done) {

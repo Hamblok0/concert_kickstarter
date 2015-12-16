@@ -1,6 +1,7 @@
 
 import React, { PropTypes } from 'react';
 
+
 class Fund extends React.Component {
 
 
@@ -13,11 +14,11 @@ class Fund extends React.Component {
           <section className="border">
             <span>
               <i className="fa fa-bolt"></i>
-              <h3 className="title"></h3>
+              <h3 className="title">{this.props.band.name}</h3>
             </span>
             <span>
               <i className="fa fa-map-marker"></i>
-              <h3>Nashville</h3>
+              <h3>{this.props.band.location}</h3>
             </span>
             <span>
               <i className="fa fa-calendar"></i>
