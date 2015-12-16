@@ -67,7 +67,7 @@ header {
       }
     }
     a.btn {
-      border: 1px solid $border;
+      border: 1px solid rgba(250, 250, 250, .3);
       margin-right: 20px;
       // border-radius: 5px;
       &:hover {
@@ -114,7 +114,7 @@ article.cover {
     }
   }
   h1.bandLoc {
-    font-weight: lighter;
+    font-weight: 100;
   }
   div.imgContainer {
     display: block;
@@ -136,10 +136,12 @@ article.cover {
     left: 80px;
     display: inline-block;
     background: rgba(0, 0, 0, .5);
-    p {
+    p.pic {
       font-size: 1.2em;
       color: white;
       padding: 15px 20px;
+      text-align: center;
+      margin-left: 0;
       transition: text-decoration .3s ease;
       &:hover {
         text-decoration: underline;
@@ -290,8 +292,10 @@ section.bandProfile {
       text-transform: uppercase;
       letter-spacing: .12em;
       padding: 10px 15px;
+      transition: opacity .3s ease;
       &:hover {
         opacity: .8;
+        transition: opacity .3s ease;
       }
     }
     div.title {
@@ -301,13 +305,16 @@ section.bandProfile {
         display: inline;
       }
     }
+    div.titleEdit {
+      margin: 0 auto;
+    }
   }
   article.cover.hide {
     display: none;
   }
   article.coverEdit,
   article.cover {
-    text-align: center;
+    // text-align: center;
     .editBtn {
       float: right;
       background: $base01;
@@ -332,6 +339,7 @@ section.bandProfile {
     p {
       display: inline-block;
       padding-right: 50px;
+      margin-left: 25%;
     }
     div.imgContainer {
       display: block;
@@ -358,8 +366,13 @@ section.bandProfile {
       padding: 5px 15px;
       height: auto;
       margin: 0 33px 10px 0px;
+      transition: opacity .3s ease;
       &:hover {
         opacity: .8;
+        transition: opacity .3s ease;
+      }
+      &:nth-of-type(2) {
+        display: none;
       }
     }
   }
@@ -390,6 +403,7 @@ section.bandProfile {
     }
   }
   article.campaignList {
+    margin-top: 0px;
     div.campBox.hide {
       display: none;
     }
@@ -423,7 +437,7 @@ section.bandProfile {
       }
       .currencyinput input {
         border: 0;
-        width: 40%;
+        width: 80%;
         margin: 0;
       }
       input.bringBtn {
@@ -701,6 +715,11 @@ section.bandList {
         padding: 10px;
         float: right;
         border-radius: 1px;
+        transition: opacity .3s ease;
+        &:hover {
+          opacity: .8;
+          transition: opacity .3s ease;
+        }
       }
     }
   }
