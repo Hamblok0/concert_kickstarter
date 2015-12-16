@@ -15,6 +15,7 @@ class BandEdit extends React.Component {
 
   componentDidMount() {
     let element = this.refs.filepicker;
+    filepicker.constructWidget(element);
     element.addEventListener('change', this.handleFilePickerChange, false);
   }
 
@@ -47,7 +48,7 @@ class BandEdit extends React.Component {
         public: true
      }, (error, data) => {
         if(!error) {
-          this.props.history.pushState(null, 'band/:id');
+          this.props.history.pushState(null, 'band/' + data.id);
         } else {
           alert('There was an error with your information.' + error);
           console.log(error);
@@ -97,7 +98,7 @@ class BandEdit extends React.Component {
         <article className="cover coverEdit">
           <input type="button" className="editBtn" value="Save Changes"
             onClick={this.handleSave}/>
-          <div className="title">
+          <div className="title titleEdit">
             <input ref="name" type="text" placeholder="Band Name..." />
             <input ref="location" type="text" placeholder="Your location..." />
           </div>
@@ -107,7 +108,7 @@ class BandEdit extends React.Component {
             <img className="imgBox" src="images/camera.jpg"/>
           </div>
           <div className="textBox">
-            <p onClick={this.editMode}>Upload a cover photo.</p>
+            <p className="pic" onClick={this.editMode}>Upload a cover photo.</p>
           </div>
         </article>
         <section className="profile">
@@ -137,7 +138,7 @@ class BandEdit extends React.Component {
                 <h3>$6 - General Admission</h3>
               </span>
             </section>
-            <input type="submit" className="bringBtn" value="Add a gig" onClick={this.viewCampaign}/>
+            <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="Add a gig" /></a>
           </div>
         </article>
     </div>

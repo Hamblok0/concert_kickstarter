@@ -46,7 +46,7 @@ class User {
   }
 
   updateProfile(data, done) {
-    let url = 'https://gigster-app.herokuapp.com/me/bands';
+    let url = 'https://gigster-app.herokuapp.com/me/band';
 
     let options = {
       url: url,
@@ -56,7 +56,7 @@ class User {
       },
       beforeSend: (xhr) => {
         let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
-        xhr.setRequestHeader("Authorization", "Bearer " +userAuthStorage.access_token);
+        xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
       }
     };
 

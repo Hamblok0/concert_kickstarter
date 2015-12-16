@@ -12,7 +12,7 @@ class Band extends React.Component {
           </h4></Link>
           <p className="bandDate">December 11th - Nashvegas</p>
           <p className="bandStatus">Status: 5 years until show</p>
-          <Link to={`band/${this.props.id}/fund`} className="pledgeBtn">Pledge</Link>
+          <Link to={`band/${this.props.id}`} className="pledgeBtn">Pledge</Link>
         </section>
       </article>
     )
