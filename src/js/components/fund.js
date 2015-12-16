@@ -13,7 +13,7 @@ class Fund extends React.Component {
           <section className="border">
             <span>
               <i className="fa fa-bolt"></i>
-              <h3 className="title">{title}</h3>
+              <h3 className="title"></h3>
             </span>
             <span>
               <i className="fa fa-map-marker"></i>
@@ -26,7 +26,7 @@ class Fund extends React.Component {
             <span>
               <i className="fa fa-ticket"></i>
               <p className="tickets">$6 - General Admission</p>
-              <p className="tickets">{ remaining } Remaining</p>
+              <p className="tickets"> Remaining</p>
             </span>
             <div className="deadBox">
               <p className="warn">Funding Deadline:</p>

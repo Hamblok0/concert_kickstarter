@@ -6,7 +6,6 @@ class User {
     this.refresh_token = null;
     this.token_expires = null;
     this.token_created = null;
-
     if (localStorage.getItem('user_auth')) {
       let {
         access_token,
@@ -20,6 +19,8 @@ class User {
       this.token_expires = token_expires;
       this.token_created = token_created;
     }
+
+
 
   }
   isLoggedIn() {
@@ -54,7 +55,6 @@ class User {
 
     $.ajax(options).then(response => {
       let {access_token, refresh_token, expires_in, created_at} = response;
-
       this.access_token = access_token;
       this.refresh_token = refresh_token;
       this.token_expires = expires_in;
@@ -71,6 +71,8 @@ class User {
     }).fail(error => {
       done(error);
     });
+
+
   }
   logout() {
     this.access_token = null;
