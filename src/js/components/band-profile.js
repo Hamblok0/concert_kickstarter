@@ -1,5 +1,7 @@
 import React from "react";
+import $ from "jquery";
 import { Link } from 'react-router';
+
 
 class BandProfile extends React.Component {
   constructor(props) {
@@ -7,27 +9,44 @@ class BandProfile extends React.Component {
 
     this.goToEdit = this.goToEdit.bind(this);
     this.goToEdit2 = this.goToEdit2.bind(this);
+
+    this.state = {
+      band: {}
+    }
+  }
+
+  componentDidMount(){
+    $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
+      let band = response
+      this.setState({
+        band
+      });
+      console.log(response);
+      console.log(this.state);
+    });
   }
 
   goToEdit(e){
-    this.props.history.pushState(null, "band/1/edit");
+    this.props.history.pushState(null, `band/${this.props.params.id}/edit`);
   }
 
   goToEdit2(e){
-    this.props.history.pushState(null, "band/1/edit2");
+    this.props.history.pushState(null, `band/${this.props.params.id}/edit2`);
   }
 
 
   render() {
+
     let html;
     if (this.props.children) {
+      // here, clone the children, give them band property set to this.state.band, then html = those cloned children
       html = this.props.children
     } else {
       html = (
         <div>
           <article className="cover">
             <div className="title">
-              <h1>Tame Impala | Brooklyn, NY</h1>
+              <h1>{this.state.band.name} | {this.state.band.location}</h1>
               <button  className="editBut" name="Edit Profile" onClick={this.goToEdit}/>
             </div>
             <img src="images/tame.png"/>
@@ -44,7 +63,7 @@ class BandProfile extends React.Component {
               <section className="genBox">
                 <div className="genre">
                   <i className="fa fa-tag"></i>
-                  <h3>Post-Slow-Noise-Core-Wave</h3>
+                  <h3>{this.state.band.genre}</h3>
                 </div>
               </section>
             </article>

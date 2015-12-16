@@ -1,5 +1,5 @@
 import React from 'react';
-import BandAPI from '../models/band';
+import jQuery from 'jquery';
 
 import Band from './band';
 
@@ -26,7 +26,8 @@ class BandList extends React.Component {
     let bands = this.state.bands.map(band => {
       return (
         <Band key={band.id}
-              name={band.name} />
+              name={band.name}
+              id={band.id} />
       )
     });
 
