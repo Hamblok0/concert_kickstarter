@@ -1,14 +1,9 @@
-# Iron Yard Front End Boilerplate
+# Gigster
+Gigster is a music business app that allows fans to buy concert tickets in order to fund a band's potential show. Users pledge to buy tickets, and if the funding goal is not reached by a preset deadline, fans' money is refunded and the concert never happens. If the band's ticket sales goal is reached by the deadline, the fans' credit cards are charged and the concert happens on the scheduled date. At the time of funding, bands receive contact information for a venue correspondent, who then happily books the pre-funded event.
 
+This project was built as our final project for the Front End Engineering class at The Iron Yard.  It was built using React on the front end and Ruby on Rails on the back end.
 
 ## Installation
-
-- `cd ~/dev`
-- `git clone git@github.com:theironyard-frontend-nashville/frontend-boilerplate.git <projectname>` replacing <projectname> with your own project name.
-- `cd <projectname>`
-- `rm -rf .git`
-- `git init`
--  Create a new repo on Github.com and [add the remote](https://help.github.com/articles/adding-a-remote/).
 
 - `npm install`
   - This will install the node dependencies for you, and will also install any bower components.

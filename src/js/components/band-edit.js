@@ -11,6 +11,16 @@ class BandEdit extends React.Component {
     this.viewCampaign = this.viewCampaign.bind(this);
   }
 
+  componentDidMount() {
+    let element = this.refs.filepicker;
+    element.addEventListener('change', this.handleFilePickerChange, false);
+  }
+
+  componentWillUnmount() {
+    let element = this.refs.filepicker;
+    element.removeEventListener('change', this.handleFilePickerChange, false);
+  }
+
   editMode(e) {
     e.preventDefault();
     console.log('you clicked the edit btn!');
@@ -20,13 +30,17 @@ class BandEdit extends React.Component {
     let infoView = $('.bandInfo');
     let infoEdit = $('.bandInfoEdit');
     let fundInfoBox = $('.fundInfoBox');
+    let uploadBtn = $('.fp__btn button');
 
     bandView.toggleClass('hide');
     bandEdit.toggleClass('hide');
     infoView.toggleClass('hide');
     infoEdit.toggleClass('hide');
     fundInfoBox.toggleClass('hide');
+    uploadBtn.html('Upload photo');
   }
+
+
 
   viewMode(e) {
     e.preventDefault();
@@ -37,12 +51,19 @@ class BandEdit extends React.Component {
     let infoView = $('.bandInfo');
     let infoEdit = $('.bandInfoEdit');
     let fundInfoBox = $('.fundInfoBox');
+    let bandInput = this.refs.bandInput;
+    let locationInput = this.refs.locInput;
+    let bandName = $('.bandName');
+    let bandLoc = $('.bandLoc');
 
     bandView.toggleClass('hide');
     bandEdit.toggleClass('hide');
     infoView.toggleClass('hide');
     infoEdit.toggleClass('hide');
     fundInfoBox.toggleClass('hide');
+    bandName.html(bandInput.value);
+    bandLoc.html(locationInput.value);
+
   }
 
   viewCampaign(e) {
@@ -56,6 +77,15 @@ class BandEdit extends React.Component {
     gigEdit.toggleClass('hide');
   }
 
+  handleFilePickerChange(data) {
+    console.log(data.fpfile.url);
+    let url = data.fpfile.url;
+    let imgBox = $('.imgBox');
+    let divHide = $('.textBox');
+
+    imgBox.attr('src', 'https://process.filepicker.io/l5uQ3k7FQ5GoYCHyTdZV/crop=dim:[0,0,1800,300]/resize=h:300/' + url);
+    divHide.hide();
+  }
 
   render () {
     return(
@@ -63,21 +93,28 @@ class BandEdit extends React.Component {
         <article className="cover">
           <input type="button" className="editBtn" value="Edit Profile" onClick={this.editMode}/>
           <div className="title">
-            <h1>Band Name | </h1>
-            <h1>Location</h1>
+            <h1 className="bandName" onClick={this.editMode}>Band Name</h1>
+            <h1 className="bandLoc" onClick={this.editMode}>Location</h1>
           </div>
-          <img src="images/tame.png"/>
+          <div className="imgContainer">
+            <img className="imgBox" src="images/camera.jpg"/>
+          </div>
+          <div className="textBox">
+            <p onClick={this.editMode}>Upload a cover photo.</p>
+          </div>
         </article>
 
         <article className="coverEdit hide">
           <input type="button" className="editBtn" value="Save Changes" onClick={this.viewMode}/>
           <div className="title">
-            <input type="text" placeholder="Band Name..." />
-            <input type="text" placeholder="Your location..." />
+            <input ref="bandInput" type="text" placeholder="Band Name..." />
+            <input ref="locInput" type="text" placeholder="Your location..." />
           </div>
-            <input type="text" placeholder="Upload cover photo..." />
-            <input type="submit" value="Upload" />
-            <img src="images/tame.png"/>
+          <p>Update cover photo:</p>
+          <input ref="filepicker" type="filepicker" data-fp-apikey="AHqgbWUAATSCgbyRYc8Sbz" />
+          <div className="imgContainer">
+            <img className="imgBox" src="images/camera.jpg"/>
+          </div>
         </article>
 
 
@@ -102,7 +139,7 @@ class BandEdit extends React.Component {
             <input type="text" placeholder="http://www.soundcloud.com/your_track" />
             <input type="text" placeholder="http://www.youtube.com/your_vid" />
             <section className="genBox">
-                <input type="text" placeholder="Genre..." />
+                <input type="text" placeholder="Genre..." onClick={this.editMode}/>
             </section>
           </article>
 
