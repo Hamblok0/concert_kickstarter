@@ -48,7 +48,7 @@ class User {
   updateProfile(data, done) {
     let url = 'https://gigster-app.herokuapp.com/me/band';
 
-    let options = {
+    let optdions = {
       url: url,
       method: 'PUT',
       data: {
@@ -66,6 +66,21 @@ class User {
     }).fail(error => {
       done(error);
     });
+
+  }
+
+  getMe(done){
+    let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+    let options = {
+      url: 'https://gigster-app.herokuapp.com/me',
+      headers: {
+        Authorization: "Bearer " + userAuthStorage.access_token
+      }
+    }
+
+    $.ajax(options).then(response => {
+      done(response);
+    })
 
   }
 
