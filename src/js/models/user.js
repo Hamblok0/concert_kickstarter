@@ -69,6 +69,21 @@ class User {
 
   }
 
+  getMe(done){
+    let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+    let options = {
+      url: 'https://gigster-app.herokuapp.com/me',
+      headers: {
+        Authorization: "Bearer " + userAuthStorage.access_token
+      }
+    }
+
+    $.ajax(options).then(response => {
+      done(response);
+    })
+
+  }
+
   login(data, done) {
     let url = 'https://gigster-app.herokuapp.com/oauth/token';
     data.grant_type = 'password';
