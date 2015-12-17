@@ -143,11 +143,6 @@ article.cover {
       text-align: center;
       margin-left: 0;
       transition: text-decoration .3s ease;
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-        transition: text-decoration .3s ease;
-      }
     }
   }
 }
@@ -676,7 +671,8 @@ section.bandList {
       @include span-columns(3);
       border-radius: 1px;
       height: 115px;
-      width: auto;
+      width: 115px;
+      object-fit: cover;
     }
     section.bandInfo {
       @include span-columns(8);
