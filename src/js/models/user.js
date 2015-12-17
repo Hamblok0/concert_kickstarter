@@ -48,7 +48,7 @@ class User {
   updateProfile(data, done) {
     let url = 'https://gigster-app.herokuapp.com/me/band';
 
-    let optdions = {
+    let options = {
       url: url,
       method: 'PUT',
       data: {

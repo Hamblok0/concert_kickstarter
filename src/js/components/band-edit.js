@@ -9,7 +9,7 @@ class BandEdit extends React.Component {
   constructor(props) {
     super(props);
 
-    this.viewCampaign = this.viewCampaign.bind(this);
+    // this.viewCampaign = this.viewCampaign.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -69,28 +69,16 @@ class BandEdit extends React.Component {
     divHide.hide();
   }
 
-  //   console.log('saving info to the server...');
-  //
-  //   const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
-  //   $.get(
-  //   'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=' + Client_ID,
-  //     function (result) {//returns json, we only need id in this case
-  //       $(".videowrapper, .exhibitions-image, iframe").replaceWith('<iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + result.id +'&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>');
-  //     }
-  //   );
-  // }
-
-
-  viewCampaign(e) {
-    e.preventDefault();
-    console.log('you clicked the add a gig btn!');
-
-    let gigView = $('.campBox');
-    let gigEdit = $('.campBoxEdit');
-
-    gigView.toggleClass('hide');
-    gigEdit.toggleClass('hide');
-  }
+  handleSoundCloud() {
+    const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
+    let trackUrl = this.refs.track.value;
+    $.get(
+    'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=' + Client_ID,
+      function (result) {//returns json, we only need id in this case
+        console.log(result);
+        // $.('iframe').replaceWith('<iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + result.id +'&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>');
+      })
+    }
 
   render () {
     return(
@@ -113,7 +101,7 @@ class BandEdit extends React.Component {
         </article>
         <section className="profile">
           <article className="bandInfo bandInfoEdit">
-            <input ref="track" type="text" placeholder="http://www.soundcloud.com/your_track" />
+            <input ref="track" type="text" placeholder="http://soundcloud.com/band-name/track-name" />
             <input ref="video" type="text" placeholder="http://www.youtube.com/your_vid" />
             <section className="genBox">
                 <input ref="genre" type="text" placeholder="Genre..." />

@@ -13,6 +13,7 @@ class BandProfile extends React.Component {
     this.goToEdit = this.goToEdit.bind(this);
     this.goToEdit2 = this.goToEdit2.bind(this);
     this.handleMe = this.handleMe.bind(this);
+    this.trackId = this.trackId.bind(this);
 
     this.state = {
       band: {},
@@ -28,6 +29,10 @@ class BandProfile extends React.Component {
       this.setState({
         band
       });
+      const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
+      let trackUrl = this.state.band.audio_url;
+      let url = `http://api.soundcloud.com/resolve.json?url=${this.state.band.audio_url}&client_id=${Client_ID}`;
+      this.trackId(url);
     })
 
   User.getMe(this.handleMe)
@@ -38,6 +43,16 @@ class BandProfile extends React.Component {
       thisBand: response
     });
     console.log(response)
+  }
+
+  trackId(url) {
+    console.log('trackid function is running...');
+    $.ajax(url).then( response => {
+      console.log(response.id);
+      this.setState({trackId: response.id})
+      // return response.id;
+      // console.log(this.state);
+    })
   }
 
   goToEdit(e){
@@ -55,8 +70,8 @@ class BandProfile extends React.Component {
 
 
   render() {
-
     let html;
+    console.log(this.state);
     if (this.props.children) {
       html = React.cloneElement(this.props.children, {band: this.state.band, thisBand: this.state.thisBand});
     } else {
@@ -70,13 +85,13 @@ class BandProfile extends React.Component {
               <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>
             </div>
             <div className="imgContainer">
-              <img className="imgBox" src="images/tame.png"/>
+              <img className="imgBox" src={this.state.band.avatar_url}/>
             </div>
           </article>
           <section className="profile">
             <article className="bandInfo">
               <div className="soundCloud">
-                <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+                <iframe width="100%" height="150" scrolling="no" frameborder="no" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.state.trackId}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`}>
                 </iframe>
               </div>
               <div className="youtube">
