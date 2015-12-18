@@ -53,7 +53,7 @@ header {
       header nav a:hover {
         transition: background 0.3s ease, color 0.3s ease; }
     header nav a.btn {
-      border: 1px solid #999999;
+      border: 1px solid rgba(250, 250, 250, 0.3);
       margin-right: 20px; }
       header nav a.btn:hover {
         background: #9F6CD1; }
@@ -84,14 +84,39 @@ article.cover {
   article.cover h1 {
     text-align: center;
     font-size: 2em;
-    margin: 20px auto; }
+    margin: 20px auto;
+    padding-right: 20px; }
+    article.cover h1:hover {
+      color: #777777;
+      cursor: pointer;
+      transition: text-decoration .3s ease; }
+  article.cover h1.bandLoc {
+    font-weight: 100; }
+  article.cover div.imgContainer {
+    display: block;
+    text-align: center;
+    background: #9F6CD1;
+    overflow: hidden; }
   article.cover img {
     text-align: center;
-    margin: 0 auto;
-    width: 100%;
+    margin: 5px auto 0;
+    width: auto;
     height: 300px;
     border: 1px solid #9F6CD1;
     border-radius: 1px; }
+  article.cover div.textBox {
+    position: relative;
+    bottom: 200px;
+    left: 80px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5); }
+    article.cover div.textBox p.pic {
+      font-size: 1.2em;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      margin-left: 0;
+      transition: text-decoration .3s ease; }
 
 section.profile {
   max-width: 90%;
@@ -112,10 +137,10 @@ article.bandInfo {
   article.bandInfo:last-child {
     margin-right: 0; }
   article.bandInfo div.soundCloud {
-    padding-top: 20px; }
+    padding-top: 80px; }
   article.bandInfo div.youtube {
     text-align: center;
-    margin-top: 20px; }
+    margin-top: 60px; }
   article.bandInfo section.genBox {
     text-align: center; }
     article.bandInfo section.genBox h3 {
@@ -217,144 +242,234 @@ div.campBox {
     display: inline-block;
     padding-left: 10px; }
 
-div.bandEdit article.cover .editBtn {
+div.bandEdit article.cover .editBtn,
+section.bandProfile article.cover .editBtn {
   float: right;
   background: #9F6CD1;
   border-radius: 1px;
   color: white;
   margin-right: 20px;
-  margin-top: 20px;
+  border: none;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: 10px 15px;
+  transition: opacity .3s ease; }
+  div.bandEdit article.cover .editBtn:hover,
+  section.bandProfile article.cover .editBtn:hover {
+    opacity: .8;
+    transition: opacity .3s ease; }
+
+div.bandEdit article.cover div.title,
+section.bandProfile article.cover div.title {
+  text-align: center;
+  margin: 20px auto 50px; }
+  div.bandEdit article.cover div.title h1,
+  section.bandProfile article.cover div.title h1 {
+    display: inline; }
+
+div.bandEdit article.cover div.titleEdit,
+section.bandProfile article.cover div.titleEdit {
+  margin: 0 auto; }
+
+div.bandEdit article.cover.hide,
+section.bandProfile article.cover.hide {
+  display: none; }
+
+div.bandEdit article.coverEdit .editBtn,
+div.bandEdit article.cover .editBtn,
+section.bandProfile article.coverEdit .editBtn,
+section.bandProfile article.cover .editBtn {
+  float: right;
+  background: #9F6CD1;
+  border-radius: 1px;
+  color: white;
+  margin-right: 20px;
   border: none;
   font-size: .8em;
   text-transform: uppercase;
   letter-spacing: .12em;
   padding: 10px 15px; }
-  div.bandEdit article.cover .editBtn:hover {
+  div.bandEdit article.coverEdit .editBtn:hover,
+  div.bandEdit article.cover .editBtn:hover,
+  section.bandProfile article.coverEdit .editBtn:hover,
+  section.bandProfile article.cover .editBtn:hover {
     opacity: .8; }
 
-div.bandEdit article.cover div.title {
+div.bandEdit article.coverEdit input,
+div.bandEdit article.cover input,
+section.bandProfile article.coverEdit input,
+section.bandProfile article.cover input {
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 0px 10px 20px; }
+
+div.bandEdit article.coverEdit p,
+div.bandEdit article.cover p,
+section.bandProfile article.coverEdit p,
+section.bandProfile article.cover p {
+  display: inline-block;
+  padding-right: 50px;
+  margin-left: 25%; }
+
+div.bandEdit article.coverEdit div.imgContainer,
+div.bandEdit article.cover div.imgContainer,
+section.bandProfile article.coverEdit div.imgContainer,
+section.bandProfile article.cover div.imgContainer {
+  display: block;
   text-align: center;
-  margin: 15px auto; }
-  div.bandEdit article.cover div.title h1 {
-    display: inline; }
+  background: #9F6CD1;
+  overflow: hidden; }
 
-div.bandEdit article.cover.hide {
+div.bandEdit article.coverEdit img,
+div.bandEdit article.cover img,
+section.bandProfile article.coverEdit img,
+section.bandProfile article.cover img {
+  text-align: center;
+  margin: 5px auto 0;
+  width: auto;
+  height: 300px;
+  border: 1px solid #9F6CD1;
+  border-radius: 1px; }
+
+div.bandEdit article.coverEdit .fp__btn,
+div.bandEdit article.cover .fp__btn,
+section.bandProfile article.coverEdit .fp__btn,
+section.bandProfile article.cover .fp__btn {
+  background: #9F6CD1;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: .8em;
+  border-radius: 1px;
+  text-align: center;
+  padding: 5px 15px;
+  height: auto;
+  margin: 0 33px 10px 0px;
+  transition: opacity .3s ease; }
+  div.bandEdit article.coverEdit .fp__btn:hover,
+  div.bandEdit article.cover .fp__btn:hover,
+  section.bandProfile article.coverEdit .fp__btn:hover,
+  section.bandProfile article.cover .fp__btn:hover {
+    opacity: .8;
+    transition: opacity .3s ease; }
+  div.bandEdit article.coverEdit .fp__btn:nth-of-type(2),
+  div.bandEdit article.cover .fp__btn:nth-of-type(2),
+  section.bandProfile article.coverEdit .fp__btn:nth-of-type(2),
+  section.bandProfile article.cover .fp__btn:nth-of-type(2) {
+    display: none; }
+
+div.bandEdit article.coverEdit.hide,
+section.bandProfile article.coverEdit.hide {
   display: none; }
 
-div.bandEdit article.coverEdit {
-  padding-top: 80px;
-  text-align: center; }
-  div.bandEdit article.coverEdit .editBtn {
-    float: right;
-    background: #9F6CD1;
-    border-radius: 1px;
-    color: white;
-    margin-right: 20px;
-    margin-top: 20px;
-    border: none;
-    font-size: .8em;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    padding: 10px 15px; }
-    div.bandEdit article.coverEdit .editBtn:hover {
-      opacity: .8; }
-  div.bandEdit article.coverEdit input {
-    font-size: 1.5em;
-    padding: 10px;
-    margin: 20px 10px; }
-  div.bandEdit article.coverEdit img {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    height: 300px;
-    border: 1px solid #9F6CD1;
-    border-radius: 1px; }
-
-div.bandEdit article.coverEdit.hide {
-  display: none; }
-
-div.bandEdit section.profile {
+div.bandEdit section.profile,
+section.bandProfile section.profile {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  div.bandEdit section.profile::after {
+  div.bandEdit section.profile::after,
+  section.bandProfile section.profile::after {
     clear: both;
     content: "";
     display: table; }
-  div.bandEdit section.profile article.bandInfo {
+  div.bandEdit section.profile article.bandInfo,
+  section.bandProfile section.profile article.bandInfo {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 61.61588%; }
-    div.bandEdit section.profile article.bandInfo:last-child {
+    div.bandEdit section.profile article.bandInfo:last-child,
+    section.bandProfile section.profile article.bandInfo:last-child {
       margin-right: 0; }
-  div.bandEdit section.profile article.bandInfoEdit {
+  div.bandEdit section.profile article.bandInfoEdit,
+  section.bandProfile section.profile article.bandInfoEdit {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 61.61588%; }
-    div.bandEdit section.profile article.bandInfoEdit:last-child {
+    div.bandEdit section.profile article.bandInfoEdit:last-child,
+    section.bandProfile section.profile article.bandInfoEdit:last-child {
       margin-right: 0; }
-    div.bandEdit section.profile article.bandInfoEdit input {
+    div.bandEdit section.profile article.bandInfoEdit input,
+    section.bandProfile section.profile article.bandInfoEdit input {
       display: block;
       font-size: 1.2em;
       padding: 10px;
       margin: 20px 10px;
       width: 90%; }
   div.bandEdit section.profile article.bandInfoEdit.hide,
-  div.bandEdit section.profile article.bandInfo.hide {
+  div.bandEdit section.profile article.bandInfo.hide,
+  section.bandProfile section.profile article.bandInfoEdit.hide,
+  section.bandProfile section.profile article.bandInfo.hide {
     display: none; }
-  div.bandEdit section.profile section.fundInfoBox.hide {
+  div.bandEdit section.profile section.fundInfoBox.hide,
+  section.bandProfile section.profile section.fundInfoBox.hide {
     display: none; }
 
-div.bandEdit article.campaignList div.campBox.hide {
-  display: none; }
-
-div.bandEdit article.campaignList div.campBoxEdit {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-left: 25.58941%; }
-  div.bandEdit article.campaignList div.campBoxEdit:last-child {
-    margin-right: 0; }
-  div.bandEdit article.campaignList div.campBoxEdit section.border {
-    background: white;
-    margin-bottom: 20px;
-    padding: 20px; }
-  div.bandEdit article.campaignList div.campBoxEdit input[type=date] {
-    font-family: 'Fira Sans', sans-serif; }
-  div.bandEdit article.campaignList div.campBoxEdit input,
-  div.bandEdit article.campaignList div.campBoxEdit span.input {
-    display: inline-block;
-    font-size: 1em;
-    padding: 10px;
-    margin: 20px 10px;
-    width: 90%; }
-  div.bandEdit article.campaignList div.campBoxEdit .currencyinput {
-    border: 1px solid #ccc;
-    display: inline-block;
-    margin-left: 35px;
-    width: 30%; }
-    div.bandEdit article.campaignList div.campBoxEdit .currencyinput span {
-      display: inline; }
-  div.bandEdit article.campaignList div.campBoxEdit .currencyinput input {
-    border: 0;
-    width: 40%;
-    margin: 0; }
-  div.bandEdit article.campaignList div.campBoxEdit input.bringBtn {
-    width: 100%;
-    margin-left: 0;
-    font-size: .8em; }
-  div.bandEdit article.campaignList div.campBoxEdit span {
+div.bandEdit article.campaignList,
+section.bandProfile article.campaignList {
+  margin-top: 0px; }
+  div.bandEdit article.campaignList div.campBox.hide,
+  section.bandProfile article.campaignList div.campBox.hide {
+    display: none; }
+  div.bandEdit article.campaignList div.campBoxEdit,
+  section.bandProfile article.campaignList div.campBoxEdit {
+    float: left;
     display: block;
-    margin-left: 10px; }
-  div.bandEdit article.campaignList div.campBoxEdit h3 {
-    display: inline-block;
-    padding-left: 10px; }
-
-div.bandEdit article.campaignList div.campBoxEdit.hide {
-  display: none; }
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%; }
+    div.bandEdit article.campaignList div.campBoxEdit:last-child,
+    section.bandProfile article.campaignList div.campBoxEdit:last-child {
+      margin-right: 0; }
+    div.bandEdit article.campaignList div.campBoxEdit section.border,
+    section.bandProfile article.campaignList div.campBoxEdit section.border {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px; }
+    div.bandEdit article.campaignList div.campBoxEdit input[type=date],
+    section.bandProfile article.campaignList div.campBoxEdit input[type=date] {
+      font-family: 'Fira Sans', sans-serif; }
+    div.bandEdit article.campaignList div.campBoxEdit input,
+    div.bandEdit article.campaignList div.campBoxEdit span.input,
+    section.bandProfile article.campaignList div.campBoxEdit input,
+    section.bandProfile article.campaignList div.campBoxEdit span.input {
+      display: inline-block;
+      font-size: 1em;
+      padding: 10px;
+      margin: 20px 10px;
+      width: 90%; }
+    div.bandEdit article.campaignList div.campBoxEdit .currencyinput,
+    section.bandProfile article.campaignList div.campBoxEdit .currencyinput {
+      border: 1px solid #ccc;
+      display: inline-block;
+      margin-left: 35px;
+      width: 30%; }
+      div.bandEdit article.campaignList div.campBoxEdit .currencyinput span,
+      section.bandProfile article.campaignList div.campBoxEdit .currencyinput span {
+        display: inline; }
+    div.bandEdit article.campaignList div.campBoxEdit .currencyinput input,
+    section.bandProfile article.campaignList div.campBoxEdit .currencyinput input {
+      border: 0;
+      width: 80%;
+      margin: 0; }
+    div.bandEdit article.campaignList div.campBoxEdit input.bringBtn,
+    section.bandProfile article.campaignList div.campBoxEdit input.bringBtn {
+      width: 100%;
+      margin-left: 0;
+      font-size: .8em; }
+    div.bandEdit article.campaignList div.campBoxEdit span,
+    section.bandProfile article.campaignList div.campBoxEdit span {
+      display: block;
+      margin-left: 10px; }
+    div.bandEdit article.campaignList div.campBoxEdit h3,
+    section.bandProfile article.campaignList div.campBoxEdit h3 {
+      display: inline-block;
+      padding-left: 10px; }
+  div.bandEdit article.campaignList div.campBoxEdit.hide,
+  section.bandProfile article.campaignList div.campBoxEdit.hide {
+    display: none; }
 
 section.fund {
   float: left;
@@ -578,7 +693,8 @@ section.bandList {
       width: 23.23176%;
       border-radius: 1px;
       height: 115px;
-      width: auto; }
+      width: 115px;
+      object-fit: cover; }
       section.bandList article.bandItem img:last-child {
         margin-right: 0; }
     section.bandList article.bandItem section.bandInfo {
@@ -618,14 +734,18 @@ section.bandList {
         font-size: .6em;
         padding: 10px;
         float: right;
-        border-radius: 1px; }
+        border-radius: 1px;
+        transition: opacity .3s ease; }
+        section.bandList article.bandItem section.bandInfo a.pledgeBtn:hover {
+          opacity: .8;
+          transition: opacity .3s ease; }
   section.bandList::after {
     content: "";
     display: block;
     clear: both; }
 
 .cover {
-  margin-top: 70px; }
+  margin-top: 100px; }
 
 footer {
   margin-right: 0;
