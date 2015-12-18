@@ -10,7 +10,8 @@ class BandList extends React.Component {
     super(props);
 
     this.state = {
-      bands: []
+      bands: [],
+      concerts: []
     }
   }
 
@@ -24,13 +25,9 @@ class BandList extends React.Component {
   };
 
   render () {
-    let bands = this.state.bands.map(band => {
+    let bands = this.state.bands.map((band) => {
       return (
-        <Band key={band.id}
-              name={band.name}
-              id={band.id}
-              avatar={band.avatar_url}
-              location={band.concerts.location} />
+        <Band key={band.id} band={band} />
       )
     });
 
