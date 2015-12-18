@@ -115,6 +115,7 @@ article.cover {
   }
   h1.bandLoc {
     font-weight: 100;
+    opacity: .8;
   }
   div.imgContainer {
     display: block;
@@ -163,6 +164,7 @@ article.bandInfo {
   }
   section.genBox {
     text-align: center;
+    padding: 20px;
     h3 {
       display: inline-block;
       padding-left: 5px;
@@ -175,7 +177,7 @@ article.bandInfo {
 section.fundInfoBox {
   @include span-columns(4);
   @include omega;
-  padding-top: 20px;
+  padding-top: 70px;
   padding-left: 20px;
   h3 {
     font-size: 3em;
@@ -281,7 +283,6 @@ section.bandProfile {
       border-radius: 1px;
       color: white;
       margin-right: 20px;
-      // margin-top: 20px;
       border: none;
       font-size: .8em;
       text-transform: uppercase;
@@ -315,7 +316,7 @@ section.bandProfile {
       background: $base01;
       border-radius: 1px;
       color: white;
-      margin-right: 20px;
+      margin-right: 55px;
       // margin-top: 20px;
       border: none;
       font-size: .8em;
@@ -672,6 +673,7 @@ section.bandList {
       border-radius: 1px;
       height: 115px;
       width: 115px;
+      border: 2px solid $background;
       object-fit: cover;
     }
     section.bandInfo {

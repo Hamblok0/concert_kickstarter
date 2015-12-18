@@ -60,7 +60,7 @@ class BandProfile extends React.Component {
 
   videoId(videoUrl) {
     console.log('videoId function is running with the url ' + videoUrl);
-    let newString = videoUrl.substring(videoUrl.lastIndexOf("=")+1);
+    let newString = videoUrl.substring(videoUrl.lastIndexOf("v=")+2);
 
     console.log(newString);
     this.setState({videoId: newString})
@@ -154,7 +154,7 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
-                <a href={`#band/${this.props.params.id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
+                <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>
               </div>
             </article>
         </div>
