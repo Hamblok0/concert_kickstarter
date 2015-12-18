@@ -6,7 +6,7 @@ class CampaignEdit extends React.Component {
     return(
       <section className="profile">
         <article className="campaignList">
-          <h1>Campaigns</h1>
+          <h1>Add A Campaign</h1>
           <div className="campBoxEdit">
             <section className="border">
               <span>
