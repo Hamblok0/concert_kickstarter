@@ -23,7 +23,8 @@ export default (props) => {
     <header id="fading" height="70px">
       <a href="#"><i className="fa fa-headphones"></i></a>
       <nav>
-        <a className="gitBtn btn" href="#band/1/edit">Start A Gig</a>
+        <a className="gitBtn btn" href="#band/me/edit2">Start A Gig</a>
+        <a className="gitBtn btn" href="#band/me">My Band</a>
         <a className="discoverBtn btn" href="#">Discover</a>
         {userNav}
       </nav>

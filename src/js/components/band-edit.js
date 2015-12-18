@@ -69,17 +69,6 @@ class BandEdit extends React.Component {
     divHide.hide();
   }
 
-  handleSoundCloud() {
-    const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
-    let trackUrl = this.refs.track.value;
-    $.get(
-    'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=' + Client_ID,
-      function (result) {//returns json, we only need id in this case
-        console.log(result);
-        // $.('iframe').replaceWith('<iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + result.id +'&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>');
-      })
-    }
-
   render () {
     return(
       <div className="bandEdit">

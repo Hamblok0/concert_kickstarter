@@ -115,6 +115,7 @@ article.cover {
   }
   h1.bandLoc {
     font-weight: 100;
+    opacity: .8;
   }
   div.imgContainer {
     display: block;
@@ -143,11 +144,6 @@ article.cover {
       text-align: center;
       margin-left: 0;
       transition: text-decoration .3s ease;
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-        transition: text-decoration .3s ease;
-      }
     }
   }
 }
@@ -160,14 +156,15 @@ article.bandInfo {
   border-right: 1px solid $med-gray;
   padding-right: 50px;
   div.soundCloud {
-    padding-top: 20px;
+    padding-top: 80px;
   }
   div.youtube {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
   }
   section.genBox {
     text-align: center;
+    padding: 20px;
     h3 {
       display: inline-block;
       padding-left: 5px;
@@ -180,7 +177,7 @@ article.bandInfo {
 section.fundInfoBox {
   @include span-columns(4);
   @include omega;
-  padding-top: 20px;
+  padding-top: 70px;
   padding-left: 20px;
   h3 {
     font-size: 3em;
@@ -286,7 +283,6 @@ section.bandProfile {
       border-radius: 1px;
       color: white;
       margin-right: 20px;
-      // margin-top: 20px;
       border: none;
       font-size: .8em;
       text-transform: uppercase;
@@ -300,7 +296,7 @@ section.bandProfile {
     }
     div.title {
       text-align: center;
-      margin: 50px auto;
+      margin: 20px auto 50px;
       h1 {
         display: inline;
       }
@@ -320,8 +316,8 @@ section.bandProfile {
       background: $base01;
       border-radius: 1px;
       color: white;
-      margin-right: 20px;
-      margin-top: 20px;
+      margin-right: 55px;
+      // margin-top: 20px;
       border: none;
       font-size: .8em;
       text-transform: uppercase;
@@ -334,7 +330,7 @@ section.bandProfile {
     input {
       font-size: 1.2em;
       padding: 10px;
-      margin: 20px 10px;
+      margin: 0px 10px 20px;
     }
     p {
       display: inline-block;
@@ -676,7 +672,9 @@ section.bandList {
       @include span-columns(3);
       border-radius: 1px;
       height: 115px;
-      width: auto;
+      width: 115px;
+      border: 2px solid $background;
+      object-fit: cover;
     }
     section.bandInfo {
       @include span-columns(8);
@@ -731,7 +729,7 @@ section.bandList {
 }
 
 .cover {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
   ///////////////////////////////

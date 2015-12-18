@@ -14,8 +14,10 @@ class BandProfile extends React.Component {
     this.goToEdit2 = this.goToEdit2.bind(this);
     this.handleMe = this.handleMe.bind(this);
     this.trackId = this.trackId.bind(this);
+    this.videoId = this.videoId.bind(this);
 
     this.state = {
+      trackId: null,
       band: {},
       thisBand: {}
     }
@@ -31,8 +33,11 @@ class BandProfile extends React.Component {
       });
       const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
       let trackUrl = this.state.band.audio_url;
+      let videoUrl = this.state.band.video_url;
       let url = `http://api.soundcloud.com/resolve.json?url=${this.state.band.audio_url}&client_id=${Client_ID}`;
+      let url2 = `https://www.youtube.com/oembed?url=${this.state.band.video_url}&format=json`;
       this.trackId(url);
+      this.videoId(videoUrl);
     })
 
   User.getMe(this.handleMe)
@@ -50,9 +55,16 @@ class BandProfile extends React.Component {
     $.ajax(url).then( response => {
       console.log(response.id);
       this.setState({trackId: response.id})
-      // return response.id;
-      // console.log(this.state);
     })
+  }
+
+  videoId(videoUrl) {
+    console.log('videoId function is running with the url ' + videoUrl);
+    let newString = videoUrl.substring(videoUrl.lastIndexOf("v=")+2);
+
+    console.log(newString);
+    this.setState({videoId: newString})
+
   }
 
   goToEdit(e){
@@ -76,6 +88,7 @@ class BandProfile extends React.Component {
       html = React.cloneElement(this.props.children, {band: this.state.band, thisBand: this.state.thisBand});
     } else {
       if(this.state.band.id === this.state.thisBand.band_id) {
+
       html = (
         <div>
           <article className="cover coverEdit">
@@ -95,7 +108,7 @@ class BandProfile extends React.Component {
                 </iframe>
               </div>
               <div className="youtube">
-                <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+                <iframe width="420" height="300" src={`https://www.youtube.com/embed/${this.state.videoId}`} allowfullscreen></iframe>
               </div>
               <section className="genBox">
                 <div className="genre">
@@ -141,7 +154,7 @@ class BandProfile extends React.Component {
                     <h3>$6 - General Admission</h3>
                   </span>
                 </section>
-                <a href={`#band/${this.props.params.id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
+                <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>
               </div>
             </article>
         </div>
@@ -164,8 +177,10 @@ class BandProfile extends React.Component {
                 <iframe width="100%" height="150" scrolling="no" frameborder="no" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.state.trackId}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`}>
                 </iframe>
               </div>
+              <div>
+              </div>
               <div className="youtube">
-                <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+                <iframe width="420" height="300" src={`https://www.youtube.com/embed/${this.state.videoId}`} allowfullscreen></iframe>
               </div>
               <section className="genBox">
                 <div className="genre">

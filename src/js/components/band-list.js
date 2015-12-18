@@ -28,7 +28,9 @@ class BandList extends React.Component {
       return (
         <Band key={band.id}
               name={band.name}
-              id={band.id} />
+              id={band.id}
+              avatar={band.avatar_url}
+              location={band.concerts.location} />
       )
     });
 

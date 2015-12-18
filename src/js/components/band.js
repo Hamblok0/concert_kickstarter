@@ -5,12 +5,14 @@ class Band extends React.Component {
   render () {
     return (
       <article className="bandItem">
-        <Link to={`band/${this.props.id}`}><img src="http://lorempixel.com/115/115/abstract" height="115px" width="115px" className="bandAvatar"/></Link>
+        <Link to={`band/${this.props.id}`}>
+          <img src={this.props.avatar} alt="Band Photo" height="115px" width="115px" className="bandAvatar"/>
+        </Link>
         <section className="bandInfo">
           <Link to={`band/${this.props.id}`}><h4 className="bandName">
             {this.props.name}
           </h4></Link>
-          <p className="bandDate">December 11th - Nashvegas</p>
+        <p className="bandDate">December 11th - {this.props.location}</p>
           <p className="bandStatus">Status: 5 years until show</p>
           <Link to={`band/${this.props.id}`} className="pledgeBtn">Pledge</Link>
         </section>
