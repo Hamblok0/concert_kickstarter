@@ -180,7 +180,7 @@ class BandProfile extends React.Component {
               <div>
               </div>
               <div className="youtube">
-                <iframe width="420" height="300" src="https://www.youtube.com/embed/XFkzRNyygfk" allowfullscreen></iframe>
+                <iframe width="420" height="300" src={`https://www.youtube.com/embed/${this.state.videoId}`} allowfullscreen></iframe>
               </div>
               <section className="genBox">
                 <div className="genre">
