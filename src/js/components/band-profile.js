@@ -155,13 +155,13 @@ class BandProfile extends React.Component {
               <h1 className="bandLoc">{this.state.band.location}</h1>
             </div>
             <div className="imgContainer">
-              <img className="imgBox" src="images/tame.png"/>
+              <img className="imgBox" src={this.state.band.avatar_url}/>
             </div>
           </article>
           <section className="profile">
             <article className="bandInfo">
               <div className="soundCloud">
-                <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231073377&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+                <iframe width="100%" height="150" scrolling="no" frameborder="no" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.state.trackId}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`}>
                 </iframe>
               </div>
               <div className="youtube">
