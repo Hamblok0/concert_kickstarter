@@ -29,7 +29,7 @@ class Register extends React.Component {
         type: type
      }, (error, data) => {
         if(!error) {
-          this.props.history.pushState(null, '/');
+          this.props.history.pushState(null, '/');      
         } else {
           alert('There was an error with your information.' + error);
         }
