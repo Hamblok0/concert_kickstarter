@@ -23,13 +23,12 @@ class BandProfile extends React.Component {
     }
   }
 
-
-
   componentDidMount(){
     $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
       let band = response
       this.setState({
-        band
+        band,
+        concerts: band.concerts[0]
       });
       const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
       let trackUrl = this.state.band.audio_url;
@@ -64,7 +63,6 @@ class BandProfile extends React.Component {
 
     console.log(newString);
     this.setState({videoId: newString})
-
   }
 
   goToEdit(e){
@@ -82,6 +80,8 @@ class BandProfile extends React.Component {
 
 
   render() {
+    let concerts = this.state.band.concerts;
+    console.log(concerts);
     let html;
     console.log(this.state);
     if (this.props.children) {
@@ -143,7 +143,7 @@ class BandProfile extends React.Component {
                 <section className="border">
                   <span>
                     <i className="fa fa-map-marker"></i>
-                    <h3>Nashville</h3>
+                    <h3>location</h3>
                   </span>
                   <span>
                     <i className="fa fa-calendar"></i>
