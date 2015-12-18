@@ -155,11 +155,11 @@ article.bandInfo {
   border-right: 1px solid $med-gray;
   padding-right: 50px;
   div.soundCloud {
-    padding-top: 20px;
+    padding-top: 80px;
   }
   div.youtube {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
   }
   section.genBox {
     text-align: center;
@@ -295,7 +295,7 @@ section.bandProfile {
     }
     div.title {
       text-align: center;
-      margin: 50px auto;
+      margin: 20px auto 50px;
       h1 {
         display: inline;
       }
@@ -316,7 +316,7 @@ section.bandProfile {
       border-radius: 1px;
       color: white;
       margin-right: 20px;
-      margin-top: 20px;
+      // margin-top: 20px;
       border: none;
       font-size: .8em;
       text-transform: uppercase;
@@ -329,7 +329,7 @@ section.bandProfile {
     input {
       font-size: 1.2em;
       padding: 10px;
-      margin: 20px 10px;
+      margin: 0px 10px 20px;
     }
     p {
       display: inline-block;
@@ -727,7 +727,7 @@ section.bandList {
 }
 
 .cover {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
   ///////////////////////////////
