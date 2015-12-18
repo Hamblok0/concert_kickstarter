@@ -22,7 +22,7 @@ class Fund extends React.Component {
             </span>
             <span>
               <i className="fa fa-calendar"></i>
-              <p className="bandDate">Brovember 11th</p>
+              <p className="bandDate">{this.props.band.concerts[0].performance_date}</p>
             </span>
             <span>
               <i className="fa fa-ticket"></i>

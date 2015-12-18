@@ -21,7 +21,6 @@ class User {
     }
 
 
-
   }
   isLoggedIn() {
     return this.access_token !== null;
