@@ -250,6 +250,7 @@ article.campaignList {
   h1 {
     text-align: center;
     font-size: 2em;
+    margin-top: 100px;
   }
 }
   div.campBox {
@@ -259,6 +260,7 @@ article.campaignList {
       background: white;
       margin-bottom: 20px;
       padding: 20px;
+      width: 100%;
     }
     span {
       display: block;
@@ -411,6 +413,9 @@ section.bandProfile {
         margin-bottom: 20px;
         padding: 20px;
       }
+      select {
+        margin-left: 10px;
+      }
       input[type=date] {
         font-family: 'Fira Sans', sans-serif;
       }
@@ -481,17 +486,24 @@ section.fund {
     margin-bottom: 100px;
     section.border {
       padding: 30px;
+      span {
+        // display: inline;
+      }
     }
     .fa {
       padding-right: 3px;
     }
     h3.title {
       font-size: 1.5em;
+      span {
+        display: inline;
+      }
     }
     p.tickets {
       font-weight: 100;
       color: $gray;
       padding-left: 5px;
+      display: inline;
     }
     p.bandDate {
       font-weight: 100;

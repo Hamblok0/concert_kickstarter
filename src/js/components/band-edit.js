@@ -9,7 +9,6 @@ class BandEdit extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.viewCampaign = this.viewCampaign.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
