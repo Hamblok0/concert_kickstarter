@@ -79,6 +79,7 @@ class User {
 
     $.ajax(options).then(response => {
       done(response);
+      console.log(response)
     })
 
   }

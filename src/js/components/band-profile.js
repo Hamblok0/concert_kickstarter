@@ -2,6 +2,7 @@ import React from "react";
 import $ from "jquery";
 import { Link } from 'react-router';
 
+
 import User from '../models/user';
 import BandEdit from './band-edit';
 import CampaignList from './campaign-list';
@@ -29,6 +30,7 @@ class BandProfile extends React.Component {
   componentDidMount(){
     $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
       let band = response;
+      console.log();
       this.setState({
         band,
         concerts: band.concerts[0]
@@ -40,7 +42,6 @@ class BandProfile extends React.Component {
       let url2 = `https://www.youtube.com/oembed?url=${this.state.band.video_url}&format=json`;
       this.trackId(url);
       this.videoId(videoUrl);
-      console.log(this.state.band.concerts);
     })
 
   User.getMe(this.handleMe)
@@ -83,6 +84,9 @@ class BandProfile extends React.Component {
     let html;
     let edit;
     let edit2;
+    let campList;
+    var start = moment.get('date')
+    console.log(start);
     if (this.state.band.id === this.state.thisBand.band_id) {
       edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>;
       edit = <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>;
@@ -124,17 +128,17 @@ class BandProfile extends React.Component {
             <section className="fundInfoBox">
               <span className="fanSpan">
                 <i className="fa fa-users"></i>
-                <h3>900</h3>
+                <h3>{this.state.band.fanship}</h3>
                 <p>fans</p>
               </span>
               <span className="fundSpan">
                 <i className="fa fa-ticket"></i>
                 <h3>12</h3>
-                <p>tickets pledged of 100</p>
+                <p>tickets pledged of {this.props.band.concerts[0].funding_goal}</p>
               </span>
               <span className="daysSpan">
                 <i className="fa fa-calendar"></i>
-                <h3>11</h3>
+                <h3></h3>
                 <p>days to go</p>
               </span>
               <a href={`#band/${this.props.params.id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
@@ -144,20 +148,6 @@ class BandProfile extends React.Component {
               <h1>Campaigns</h1>
               <div className="campBox">
                 <CampaignList band={this.state.band} />
-                <section className="border">
-                  <span>
-                    <i className="fa fa-map-marker"></i>
-                    <h3>location</h3>
-                  </span>
-                  <span>
-                    <i className="fa fa-calendar"></i>
-                    <h3>Brovember 11th</h3>
-                  </span>
-                  <span>
-                    <i className="fa fa-ticket"></i>
-                    <h3>$6 - General Admission</h3>
-                  </span>
-                </section>
                 {edit2}
               </div>
             </article>
