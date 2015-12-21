@@ -250,6 +250,7 @@ article.campaignList {
   h1 {
     text-align: center;
     font-size: 2em;
+    margin-top: 100px;
   }
 }
   div.campBox {
@@ -410,6 +411,9 @@ section.bandProfile {
         background: white;
         margin-bottom: 20px;
         padding: 20px;
+      }
+      select {
+        margin-left: 10px;
       }
       input[type=date] {
         font-family: 'Fira Sans', sans-serif;
