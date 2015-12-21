@@ -13,17 +13,17 @@ class CampaignEdit extends React.Component {
     e.preventDefault();
     let location = this.refs.location.value;
     let date = this.refs.date.value;
-    let funding = this.refs.funding.value;
+    let price = this.refs.price.value;
     let tickets = this.refs.tickets.value;
-    console.log('Congrats! You added a new concert! Here are the details. Date: ' + date + ' Location: ' + location + ' Funding goal: ' + funding + ' Ticket price: $' + tickets);
+    console.log('Congrats! You added a new concert! Here are the details. Date: ' + date + ' Location: ' + location + ' Ticket price: $' + price + ' Ticket goal: ' + tickets);
 
-    if(location && date && funding && tickets) {
+    if(location && date && price && tickets) {
       User.updateConcerts({
+        funding_goal: tickets,
         location: location,
+        performance_date: date,
         venue: 'TBA',
-        date: date,
-        funding: funding,
-        tickets: tickets
+        price: price
      }, (error, data) => {
         if(!error) {
           this.props.history.pushState(null, 'band/' + data.id);
@@ -33,7 +33,7 @@ class CampaignEdit extends React.Component {
         }
       });
     } else {
-      alert('Show location, date, funding goal, and ticket price are required.')
+      alert('Show location, date, ticket price, and ticket goal are required.')
     }
   }
 
@@ -58,10 +58,10 @@ class CampaignEdit extends React.Component {
               </span>
               <span>
                 <i className="fa fa-ticket"></i>
-                <h3>Enter funding goal:</h3>
+                <h3>Enter ticket price:</h3>
               </span>
               <span className="currencyinput">$
-                <input ref="funding" type="text" name="currency" placeholder="00.00" />
+                <input ref="price" type="text" name="currency" placeholder="00.00" />
               </span>
               <span>
                 <h3>Select estimated minimum tickets to sell:</h3>

@@ -144,20 +144,6 @@ class BandProfile extends React.Component {
               <h1>Campaigns</h1>
               <div className="campBox">
                 <CampaignList band={this.state.band} />
-                <section className="border">
-                  <span>
-                    <i className="fa fa-map-marker"></i>
-                    <h3>location</h3>
-                  </span>
-                  <span>
-                    <i className="fa fa-calendar"></i>
-                    <h3>Brovember 11th</h3>
-                  </span>
-                  <span>
-                    <i className="fa fa-ticket"></i>
-                    <h3>$6 - General Admission</h3>
-                  </span>
-                </section>
                 {edit2}
               </div>
             </article>

@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
+let moment = require('moment');
+moment().format();
 
 class Band extends React.Component {
   render () {
+    let momentTime = moment(this.props.band.concerts.performance_date).fromNow();
     let location = this.props.band.concerts.reduce((total, concert) => {
       let date = concert.performance_date ? concert.performance_date  : 'TBD';
-      return `${date} - ${concert.location}`;
+      return `${date} – ${concert.location}`;
     }, 'Location TBD');
 
     return (
