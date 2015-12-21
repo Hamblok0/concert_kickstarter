@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import User from '../models/user';
 import BandEdit from './band-edit';
 import CampaignList from './campaign-list';
+import Fund from './fund';
 
 
 class BandProfile extends React.Component {
