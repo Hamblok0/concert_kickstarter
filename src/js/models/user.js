@@ -65,7 +65,29 @@ class User {
     }).fail(error => {
       done(error);
     });
+  }
 
+  updateConcerts(data, done) {
+    let url = 'https://gigster-app.herokuapp.com/band/8/concerts';
+
+    let options = {
+      url: url,
+      method: 'POST',
+      data: {
+        concert: data
+      },
+      beforeSend: (xhr) => {
+        let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+        xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
+      }
+    };
+
+    $.ajax(options).then(response => {
+      done(null, response);
+      console.log(response);
+    }).fail(error => {
+      done(error);
+    });
   }
 
   getMe(done){
