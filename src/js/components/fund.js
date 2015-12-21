@@ -3,6 +3,22 @@ import moment from 'moment';
 moment().format();
 
 class Fund extends React.Component {
+  constructor(props) {
+    super(props);
+    this.processPledge = this.processPledge.bind(this);
+  }
+
+
+  processPledge(e) {
+    if (this.props.band.id === this.props.thisBand.band_id) {
+      alert("Sorry, you cannot pledge to your own show")
+      return;
+    } else if (this.props.thisBand.type_of_user === "Band") {
+      alert("Sorry, you cannot pledge to other bands as a band, please register as a fan to continue")
+      return;
+    } else {
+      alert("pledge complete")
+    }
 
   handleTotal(e) {
     e.preventDefault();
@@ -60,7 +76,7 @@ class Fund extends React.Component {
               <p>Total: {total}</p>
             </div>
           </section>
-          <a href="#"><input type="submit" className="bringBtn" value="confirm" onClick={this.onClick}></input></a>
+          <input type="submit" className="bringBtn" value="confirm" onClick={this.processPledge}></input>
         </div>
       </section>
     )
