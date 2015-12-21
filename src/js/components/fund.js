@@ -1,11 +1,21 @@
-
 import React, { PropTypes } from 'react';
-
+import moment from 'moment';
+moment().format();
 
 class Fund extends React.Component {
 
+  handleTotal(e) {
+    e.preventDefault();
+    let totalTix= this.refs.qty.value;
+    let total = totalTix * price;
+  }
 
   render () {
+    let date = this.props.band.concerts[0].performance_date;
+    let momentTime = moment(date).format('LL');
+    let deadline = moment(momentTime).subtract(60, 'days').format('LL');
+    let price = '$' + this.props.band.concerts[0].price;
+    let total = price;
 
     return(
       <section className="fund">
@@ -22,19 +32,19 @@ class Fund extends React.Component {
             </span>
             <span>
               <i className="fa fa-calendar"></i>
-              <p className="bandDate">{this.props.band.concerts[0].performance_date}</p>
+              <p className="bandDate">{momentTime}</p>
             </span>
             <span>
               <i className="fa fa-ticket"></i>
-              <p className="tickets">$6 - General Admission</p>
-              <p className="tickets"> Remaining</p>
+              <p className="tickets">{price}</p>
+              <p className="tickets"> - General Admission</p>
             </span>
             <div className="deadBox">
               <p className="warn">Funding Deadline:</p>
-              <p>October 11th</p>
+              <p>{deadline}</p>
             </div>
             <div className="pledge">
-              <select ref="qty">
+              <select ref="qty" onChange={this.handleTotal}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -46,8 +56,8 @@ class Fund extends React.Component {
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <p>$6 - General Admission</p>
-              <p>Total:</p>
+              <p>{price} - General Admission</p>
+              <p>Total: {total}</p>
             </div>
           </section>
           <a href="#"><input type="submit" className="bringBtn" value="confirm" onClick={this.onClick}></input></a>

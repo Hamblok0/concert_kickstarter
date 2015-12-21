@@ -1,5 +1,5 @@
 import React from 'react';
-let moment = require('moment');
+import moment from 'moment';
 moment().format();
 
 
@@ -19,8 +19,9 @@ class Campaign extends React.Component {
           <h3>{momentTime}</h3>
         </span>
         <span>
-          <i className="fa fa-ticket"></i>
-          <h3>${this.props.concert.price}- General Admission</h3>
+          <i className="fa fa-ticket">$</i>
+          <i>{this.props.concert.price}</i>
+          <h3> - General Admission</h3>
         </span>
         <a href={`#band/${id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
       </section>
