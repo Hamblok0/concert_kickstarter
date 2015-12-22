@@ -7,7 +7,8 @@ class Campaign extends React.Component {
   render () {
     let id = this.props.bandId;
     let date = this.props.concert.performance_date
-    let momentTime = moment(date).fromNow();
+    let momentTime = moment(date).format('LL');
+    let price = "$" + this.props.concert.price;
     return (
       <section className="border">
         <span>
@@ -19,8 +20,8 @@ class Campaign extends React.Component {
           <h3>{momentTime}</h3>
         </span>
         <span>
-          <i className="fa fa-ticket">$</i>
-          <i>{this.props.concert.price}</i>
+          <i className="fa fa-ticket"></i>
+          <i>{price}</i>
           <h3> - General Admission</h3>
         </span>
         <a href={`#band/${id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
