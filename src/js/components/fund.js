@@ -25,13 +25,14 @@ class Fund extends React.Component {
     e.preventDefault();
     let totalTix= this.refs.qty.value;
     let total = totalTix * price;
+    console.log(total);
   }
 
   render () {
-    let date = this.props.band.concerts[0].performance_date;
+    let date = this.props.band.concerts[this.props.band.concerts.length-1].performance_date;
     let momentTime = moment(date).format('LL');
     let deadline = moment(momentTime).subtract(60, 'days').format('LL');
-    let price = '$' + this.props.band.concerts[0].price;
+    let price = '$' + this.props.band.concerts[this.props.band.concerts.length-1].price;
     let total = price;
 
     return(
@@ -73,8 +74,10 @@ class Fund extends React.Component {
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <p>{price} - General Admission</p>
-              <p>Total: {total}</p>
+              <p>{price}</p>
+              <p>- General Admission</p>
+              <p>Total:</p>
+              <p>{total}</p>
             </div>
           </section>
           <input type="submit" className="bringBtn" value="confirm" onClick={this.processPledge}></input>
