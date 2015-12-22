@@ -19,6 +19,7 @@ class Fund extends React.Component {
     } else {
       alert("pledge complete")
     }
+  }
 
   handleTotal(e) {
     e.preventDefault();
