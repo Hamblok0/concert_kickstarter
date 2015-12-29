@@ -1,7 +1,6 @@
 import React from "react";
 import $ from "jquery";
 import { Link } from 'react-router';
-import moment from 'moment';
 
 
 import User from '../models/user';
@@ -23,7 +22,7 @@ class BandProfile extends React.Component {
     this.state = {
       trackId: null,
       band: {
-        concerts: []
+        concerts: {}
       },
       thisBand: {}
     }
@@ -87,8 +86,6 @@ class BandProfile extends React.Component {
     let edit;
     let edit2;
     let campList;
-    var start = moment.get('date')
-    console.log(start);
     if (this.state.band.id === this.state.thisBand.band_id) {
       edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>;
       edit = <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>;
@@ -135,8 +132,8 @@ class BandProfile extends React.Component {
               </span>
               <span className="fundSpan">
                 <i className="fa fa-ticket"></i>
-                <h3>12</h3>
-                <p>tickets pledged of {this.props.band.concerts[0].funding_goal}</p>
+                <h3>{this.state.band.concerts.pledge_key}</h3>
+                <p>tickets pledged of {this.state.band.concerts.funding_goal}</p>
               </span>
               <span className="daysSpan">
                 <i className="fa fa-calendar"></i>
@@ -149,7 +146,7 @@ class BandProfile extends React.Component {
             <article className="campaignList">
               <h1>Campaigns</h1>
               <div className="campBox">
-                <CampaignList band={this.state.band} />
+                <CampaignList band={this.state.band} thisBand={this.state.thisBand} />
                 {edit2}
               </div>
             </article>
