@@ -12,7 +12,7 @@ class Band extends React.Component {
         let concertDate = moment(concert.performance_date);
         if (concertDate.isAfter(moment())) {
           if (!previous.performance_date) {
-            return {location: concert.location, performance_date: concert.performance_date, successful: concert.successful};
+            return {location: concert.location, performance_date: concert.performance_date, successful: concert.successful, concertId: concert.id};
           } else if (concertDate.isBefore(moment(previous.performance_date))) {
             return {location: concert.location, performance_date: concert.performance_date, successful: concert.successful}
           }
