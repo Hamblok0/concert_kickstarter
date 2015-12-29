@@ -44,6 +44,28 @@ class User {
     });
   }
 
+  pledge(data, done) {
+    let url = `https://gigster-app.herokuapp.com/concerts/${data.concertId}/pledges`;
+
+    let options = {
+      url: url,
+      method: 'POST',
+      data: JSON.stringify({ pledge: { "count": data.count }}),
+      beforeSend: (xhr) => {
+        let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+        xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+      }
+    };
+
+    $.ajax(options).then(response => {
+      done(null, response);
+    }).fail(error => {
+      done(error);
+    });
+  }
+
   updateProfile(data, done) {
     let url = 'https://gigster-app.herokuapp.com/me/band';
 

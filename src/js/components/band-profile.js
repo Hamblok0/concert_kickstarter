@@ -1,7 +1,8 @@
 import React from "react";
 import $ from "jquery";
 import { Link } from 'react-router';
-
+import moment from 'moment';
+moment().format();
 
 import User from '../models/user';
 import BandEdit from './band-edit';
@@ -18,6 +19,7 @@ class BandProfile extends React.Component {
     this.handleMe = this.handleMe.bind(this);
     this.trackId = this.trackId.bind(this);
     this.videoId = this.videoId.bind(this);
+    this.concertId = this.concertId.bind(this);
 
     this.state = {
       trackId: null,
@@ -33,19 +35,34 @@ class BandProfile extends React.Component {
       let band = response;
       console.log();
       this.setState({
-        band,
-        concerts: band.concerts[0]
+        band
       });
       const Client_ID = '16184569b31c47388a9b9e9c358a0f9d';
       let trackUrl = this.state.band.audio_url;
       let videoUrl = this.state.band.video_url;
+      let concertIds = this.state.band.concerts.map ((concert) => {
+        return concert.id;
+      });
       let url = `http://api.soundcloud.com/resolve.json?url=${this.state.band.audio_url}&client_id=${Client_ID}`;
       let url2 = `https://www.youtube.com/oembed?url=${this.state.band.video_url}&format=json`;
+      let url3 = `https://gigster-app.herokuapp.com/concerts/${concertIds[concertIds.length-1]}`;
       this.trackId(url);
       this.videoId(videoUrl);
+      this.concertId(url3);
     })
 
-  User.getMe(this.handleMe)
+  User.getMe(this.handleMe);
+
+
+  // console.log(concertIds);
+  // let thisConcertId = concertIds[concertIds.length-1];
+  // $.ajax().then( response => {
+  //   let concerts = response;
+  //   console.log(response);
+  //   this.setState({
+  //     concert
+  //   });
+  // });
 }
 
   handleMe(response) {
@@ -57,6 +74,12 @@ class BandProfile extends React.Component {
   trackId(url) {
     $.ajax(url).then( response => {
       this.setState({trackId: response.id})
+    })
+  }
+
+  concertId(url3) {
+    $.ajax(url3).then( response => {
+      this.setState({pledges: response.pledges.length})
     })
   }
 
@@ -78,23 +101,38 @@ class BandProfile extends React.Component {
   //     done(null, response);
   //   })
 
+  // let concerts = this.state.band.concerts;
+  // let thisConcert = concerts[concerts.length-1];
+  // console.log(thisConcert);
 
   render() {
-    let concerts = this.state.band.concerts;
-    console.log(concerts);
     let html;
     let edit;
     let edit2;
     let campList;
+    let date = this.state.band.concerts.map ((concert) => {
+      return concert.performance_date;
+    });
+    let momentTime = moment(date[date.length-1]).fromNow();
+    let tickets = this.state.band.concerts.map ((concert) => {
+      return concert.funding_goal;
+    });
+    let ticketTotal = tickets[tickets.length-1];
+    // let concertIds = this.state.band.concerts.map ((concert) => {
+    //   return concert.id;
+    // });
+    // let thisConcertId = concertIds[concertIds.length-1];
+
+
     if (this.state.band.id === this.state.thisBand.band_id) {
       edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>;
       edit = <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>;
     }
 
     if (this.props.children) {
-      html = React.cloneElement(this.props.children, {band: this.state.band, thisBand: this.state.thisBand});
+      html = React.cloneElement(this.props.children, {band: this.state.band, thisBand: this.state.thisBand });
     } else {
-
+      console.log(this.state);
       html = (
         <div>
           <article className="cover coverEdit">
@@ -127,18 +165,18 @@ class BandProfile extends React.Component {
             <section className="fundInfoBox">
               <span className="fanSpan">
                 <i className="fa fa-users"></i>
-                <h3>{this.state.band.fanship}</h3>
+                <h3>{this.state.pledges}</h3>
                 <p>fans</p>
               </span>
               <span className="fundSpan">
                 <i className="fa fa-ticket"></i>
-                <h3>{this.state.band.concerts.pledge_key}</h3>
-                <p>tickets pledged of {this.state.band.concerts.funding_goal}</p>
+                <h3>{this.state.pledges}</h3>
+                <p>tickets pledged of {ticketTotal}</p>
               </span>
               <span className="daysSpan">
                 <i className="fa fa-calendar"></i>
-                <h3></h3>
-                <p>days to go</p>
+                <h3>{momentTime}</h3>
+                <p>deadline</p>
               </span>
               <a href={`#band/${this.props.params.id}/fund`}><input type="submit" className="bringBtn" value="pledge"></input></a>
             </section>
