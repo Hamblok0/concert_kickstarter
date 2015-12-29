@@ -1,0 +1,97 @@
+@media (max-width: 1002px) {
+  section.bandList {
+    article.bandItem {
+      @include span-columns(8);
+      margin-left: 15%;
+    }
+  }
+} //end of 1002px media query
+
+@media (max-width: 860px) {
+  section.bandList {
+    article.bandItem {
+      @include span-columns(9);
+      margin-left: 10%;
+    }
+  }
+} //end of 860px media query
+
+@media (max-width: 732px) {
+  .homeHero {
+    div.textBox {
+      @include span-columns(8);
+      margin-left: 15%;
+    }
+  }
+  section.bandList {
+    article.bandItem {
+      @include span-columns(10);
+      margin-left: 7%;
+      img {
+        @include span-columns(12);
+      }
+      section.bandInfo {
+        @include span-columns(12);
+        text-align: center;
+        margin-top: 15px;
+        p.bandStatus {
+          padding-bottom: 10px;
+        }
+        a.pledgeBtn {
+          float: none;
+        }
+      }
+    }
+  }
+} //end of 732px media query
+
+@media (max-width: 600px) {
+  header {
+    height: 120px;
+    a .fa {
+      @include span-columns(12 of 12);
+      float: none;
+      margin: 5px auto;
+      text-align: center;
+    }
+    nav {
+      @include span-columns(12 of 12);
+      margin: 15px auto;
+      float: none;
+      text-align: center;
+      a {
+        font-size: .7em;
+      }
+    }
+  }
+} //end of 600px media query
+
+@media (max-width: 461px) {
+  header {
+    a .fa {
+      text-align: left;
+      margin-left: 20px;
+    }
+    nav {
+      div.guestBtn {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        // margin-top: 10px;
+        float: right;
+      }
+    }
+  }
+    article.homeHero {
+      div.textBox {
+        padding: inherit 10px;
+        p {
+          font-size: 2em;
+        }
+      }
+    }
+  section.bandList {
+    @include outer-container(80%);
+  }
+}
