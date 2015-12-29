@@ -2,10 +2,16 @@ import React, { PropTypes } from 'react';
 import moment from 'moment';
 moment().format();
 
+import User from '../models/user';
+
 class Fund extends React.Component {
   constructor(props) {
     super(props);
     this.processPledge = this.processPledge.bind(this);
+  }
+
+  componentDidMount() {
+    let pledgeCounter;
   }
 
 
@@ -17,9 +23,43 @@ class Fund extends React.Component {
       alert("Sorry, you cannot pledge to other bands as a band, please register as a fan to continue")
       return;
     } else {
-      alert("pledge complete")
-    }
+      if(!User.isLoggedIn()) {
+        alert('You must be logged in to pledge.')
+        this.props.history.pushState(null, 'login');
+        return
+      }
+      alert("pledge complete");
+      console.log(this.refs.qty.value);
+      let price = this.props.band.concerts[this.props.band.concerts.length-1].price;
+      let pledgeCounter = this.refs.qty.value;
+      let totalFunds = pledgeCounter * price;
+      console.log('$' + totalFunds + ' has been added to total_funds key.');
 
+      if(pledgeCounter) {
+        let concert = this.props.band.concerts[this.props.band.concerts.length-1];
+        console.log('props: ',this.props);
+        User.pledge({
+          count: pledgeCounter,
+          concertId: concert.id
+       }, (error, data) => {
+          if(!error) {
+            this.props.history.pushState(null, '/');
+          } else {
+            alert('There was an error with your information.' + error);
+          }
+        });
+      } else {
+        alert('Please select a number of tickets.');
+      }
+      //make a PUT request to the current concert:
+        //update the 'pledge_key' with running total of tickets
+        //update the 'total_funds' with running total of money.
+    //write another function (or do it in here):
+        //after everytime 'total_funds' is updated,
+        //compare 'total_funds' to 'funding_goal'.
+        //if they are equal, update 'successful' key to true.
+    }
+  }
   handleTotal(e) {
     e.preventDefault();
     let totalTix= this.refs.qty.value;
@@ -28,10 +68,12 @@ class Fund extends React.Component {
   }
 
   render () {
-    let date = this.props.band.concerts[this.props.band.concerts.length-1].performance_date;
+    let show = this.props.band.concerts[this.props.band.concerts.length-1];
+    let date = show.performance_date;
     let momentTime = moment(date).format('LL');
     let deadline = moment(momentTime).subtract(60, 'days').format('LL');
-    let price = '$' + this.props.band.concerts[this.props.band.concerts.length-1].price;
+    let price = '$' + show.price;
+    console.log(price);
     let total = price;
 
     return(
