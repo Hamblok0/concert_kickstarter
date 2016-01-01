@@ -24,7 +24,7 @@ class BandProfile extends React.Component {
     this.state = {
       trackId: null,
       band: {
-        concerts: {}
+        concerts: []
       },
       thisBand: {}
     }
