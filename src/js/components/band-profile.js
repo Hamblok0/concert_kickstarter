@@ -125,7 +125,7 @@ class BandProfile extends React.Component {
 
 
     if (this.state.band.id === this.state.thisBand.band_id) {
-      edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="add a gig"></input></a>;
+      edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="addGig bringBtn" value="add a gig"></input></a>;
       edit = <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>;
     }
 

@@ -40,7 +40,7 @@ class CampaignEdit extends React.Component {
   render () {
     return(
       <section className="profile">
-        <article className="campaignList">
+        <article className="campaignList edit">
           <h1>Add A Campaign</h1>
           <div className="campBoxEdit">
             <section className="border">

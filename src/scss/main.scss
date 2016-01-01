@@ -162,7 +162,7 @@ article.bandInfo {
   }
   section.genBox {
     text-align: center;
-    padding: 20px;
+    padding-bottom: 20px;
     h3 {
       display: inline-block;
       padding-left: 5px;
@@ -199,7 +199,7 @@ section.fundInfoBox {
   input.bringBtn {
     width: 80%;
     margin-top: 70px;
-    font-weight: bold;
+    // font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: white;
     background: $base01;
@@ -244,22 +244,22 @@ article.campaignList {
   @include span-columns(12);
   margin: 0 auto 30px;
   background: $background;
-  border-top: 1px solid $gray;
+  border-top: 1px solid $med-gray;
   h1 {
     text-align: center;
     font-size: 2em;
-    margin-top: 100px;
+    margin-top: 50px;
   }
 }
   div.campBox {
-    @include span-columns(6);
-    @include shift(3);
+    @include span-columns(12);
     section.border {
+      @include span-columns(4);
+      @include shift(4);
       display: none;
       background: white;
       margin-bottom: 20px;
       padding: 20px;
-      width: 100%;
       &:last-child {
         display: block;
       }
@@ -267,12 +267,25 @@ article.campaignList {
     span {
       display: block;
       margin-left: 10px;
+      // text-align: center;
     }
     h3 {
       display: inline-block;
       padding-left: 10px;
       &:nth-child(3) {
         font-size: 1em;
+      }
+    }
+    input.addGig {
+      width: 40%;
+      margin: 0 auto;
+      text-align: center;
+      color: $base01;
+      background: white;
+      opacity: .6;
+      border: 1px solid $base01;
+      &:hover {
+        opacity: 1;
       }
     }
   }
@@ -335,7 +348,7 @@ section.bandProfile {
       }
     }
     input {
-      font-size: 1.2em;
+      font-size: 1em;
       padding: 10px;
       margin: 0px 10px 20px;
     }
@@ -388,12 +401,17 @@ section.bandProfile {
       @include span-columns(7.5);
     }
     article.bandInfoEdit {
-      @include span-columns(7.5);
+      @include span-columns(8);
+      border-right: none;
+      @include shift(3);
+      label {
+        color: $base01;
+      }
       input {
         display: block;
-        font-size: 1.2em;
+        font-size: 1em;
         padding: 10px;
-        margin: 20px 10px;
+        margin: 10px 10px 50px;
         width: 90%;
       }
     }
@@ -464,6 +482,10 @@ section.bandProfile {
       display: none;
     }
   }
+  article.campaignList.edit {
+    margin-top: 50px;
+    border-top: none;
+  }
 }
 
 
@@ -475,7 +497,7 @@ section.fund {
   @include span-columns(12);
   margin: 0 auto 30px;
   background: $background;
-  border-top: 1px solid $gray;
+  border-top: 1px solid $med-gray;
   h1 {
     margin: 100px 0 30px;
     font-weight: 100;
@@ -802,3 +824,9 @@ footer {
     }
   }
 }
+
+  /////////////////////////////////
+ //         MEDIA QUERIES       //
+/////////////////////////////////
+
+@import "responsive";

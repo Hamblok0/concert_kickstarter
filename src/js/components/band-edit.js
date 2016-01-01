@@ -75,8 +75,8 @@ class BandEdit extends React.Component {
           <input type="button" className="editBtn" value="Save Changes"
             onClick={this.handleSave}/>
           <div className="title titleEdit">
-            <input ref="name" type="text" placeholder="Band Name..." />
-            <input ref="location" type="text" placeholder="Your location..." />
+            <input ref="name" type="text" placeholder="Band name..." />
+            <input ref="location" type="text" placeholder="Band location..." />
           </div>
           <p>Update cover photo:</p>
           <input ref="filepicker" type="filepicker" data-fp-apikey="AHqgbWUAATSCgbyRYc8Sbz" />
@@ -89,11 +89,12 @@ class BandEdit extends React.Component {
         </article>
         <section className="profile">
           <article className="bandInfo bandInfoEdit">
-            <input ref="track" type="text" placeholder="http://soundcloud.com/band-name/track-name" />
-            <input ref="video" type="text" placeholder="http://www.youtube.com/your_vid" />
-            <section className="genBox">
-                <input ref="genre" type="text" placeholder="Genre..." />
-            </section>
+            <label>Upload a track from SoundCloud: </label>
+            <input ref="track" type="text" placeholder="http://soundcloud.com/band-name/track-name..." />
+            <label>Add a music video from YouTube: </label>
+            <input ref="video" type="text" placeholder="https://www.youtube.com/watch?v=ay_pTE7vwJY..." />
+            <label>Add a genre to describe your music: </label>
+            <input ref="genre" type="text" placeholder="Genre..." />
           </article>
         </section>
 
@@ -114,7 +115,7 @@ class BandEdit extends React.Component {
                 <h3>$6 - General Admission</h3>
               </span>
             </section>
-            <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn" value="Add a gig" /></a>
+            <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="bringBtn addGig" value="Add a gig" /></a>
           </div>
         </article>
     </div>
