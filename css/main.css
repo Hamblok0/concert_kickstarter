@@ -26,21 +26,40 @@ div.wrapper {
     display: table; }
 
 header {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-right: 0;
   position: fixed;
   width: 100%;
   height: 70px;
   background: rgba(159, 108, 209, 0.5); }
-  header .fa {
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header a .fa {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%;
     float: left;
     font-size: 3em;
     color: #9F6CD1;
-    margin: 15px 0 0 30px; }
+    margin: 15px 0 0 2%; }
+    header a .fa:last-child {
+      margin-right: 0; }
   header nav {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
     margin: 25px 0;
     display: inline-block;
-    width: 90%;
-    text-align: right; }
+    text-align: right;
+    float: right; }
+    header nav:last-child {
+      margin-right: 0; }
     header nav a {
       text-decoration: none;
       padding: 10px;
@@ -86,10 +105,6 @@ article.cover {
     font-size: 2em;
     margin: 20px auto;
     padding-right: 20px; }
-    article.cover h1:hover {
-      color: #777777;
-      cursor: pointer;
-      transition: text-decoration .3s ease; }
   article.cover h1.bandLoc {
     font-weight: 100;
     opacity: .8; }
@@ -144,7 +159,7 @@ article.bandInfo {
     margin-top: 60px; }
   article.bandInfo section.genBox {
     text-align: center;
-    padding: 20px; }
+    padding-bottom: 20px; }
     article.bandInfo section.genBox h3 {
       display: inline-block;
       padding-left: 5px;
@@ -176,7 +191,6 @@ section.fundInfoBox {
   section.fundInfoBox input.bringBtn {
     width: 80%;
     margin-top: 70px;
-    font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: white;
     background: #9F6CD1;
@@ -218,33 +232,53 @@ article.campaignList {
   width: 100%;
   margin: 0 auto 30px;
   background: #F2F2F2;
-  border-top: 1px solid #777777; }
+  border-top: 1px solid #AAAAAA; }
   article.campaignList:last-child {
     margin-right: 0; }
   article.campaignList h1 {
     text-align: center;
     font-size: 2em;
-    margin-top: 100px; }
+    margin-top: 50px; }
 
 div.campBox {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-left: 25.58941%; }
+  width: 100%; }
   div.campBox:last-child {
     margin-right: 0; }
   div.campBox section.border {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    margin-left: 34.11922%;
+    display: none;
     background: white;
     margin-bottom: 20px;
-    padding: 20px;
-    width: 100%; }
+    padding: 20px; }
+    div.campBox section.border:last-child {
+      margin-right: 0; }
+    div.campBox section.border:last-child {
+      display: block; }
   div.campBox span {
     display: block;
     margin-left: 10px; }
   div.campBox h3 {
     display: inline-block;
     padding-left: 10px; }
+    div.campBox h3:nth-child(3) {
+      font-size: 1em; }
+  div.campBox input.addGig {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    color: #9F6CD1;
+    background: white;
+    opacity: .6;
+    border: 1px solid #9F6CD1; }
+    div.campBox input.addGig:hover {
+      opacity: 1; }
 
 div.bandEdit article.cover .editBtn,
 section.bandProfile article.cover .editBtn {
@@ -304,7 +338,7 @@ div.bandEdit article.coverEdit input,
 div.bandEdit article.cover input,
 section.bandProfile article.coverEdit input,
 section.bandProfile article.cover input {
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 10px;
   margin: 0px 10px 20px; }
 
@@ -391,16 +425,21 @@ section.bandProfile section.profile {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 61.61588%; }
+    width: 65.88078%;
+    border-right: none;
+    margin-left: 25.58941%; }
     div.bandEdit section.profile article.bandInfoEdit:last-child,
     section.bandProfile section.profile article.bandInfoEdit:last-child {
       margin-right: 0; }
+    div.bandEdit section.profile article.bandInfoEdit label,
+    section.bandProfile section.profile article.bandInfoEdit label {
+      color: #9F6CD1; }
     div.bandEdit section.profile article.bandInfoEdit input,
     section.bandProfile section.profile article.bandInfoEdit input {
       display: block;
-      font-size: 1.2em;
+      font-size: 1em;
       padding: 10px;
-      margin: 20px 10px;
+      margin: 10px 10px 50px;
       width: 90%; }
   div.bandEdit section.profile article.bandInfoEdit.hide,
   div.bandEdit section.profile article.bandInfo.hide,
@@ -478,14 +517,19 @@ section.bandProfile article.campaignList {
   section.bandProfile article.campaignList div.campBoxEdit.hide {
     display: none; }
 
+div.bandEdit article.campaignList.edit,
+section.bandProfile article.campaignList.edit {
+  margin-top: 50px;
+  border-top: none; }
+
 section.fund {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%;
-  margin: 0 auto 30px;
+  width: 48.82117%;
+  margin-left: 25.58941%;
   background: #F2F2F2;
-  border-top: 1px solid #777777; }
+  border-top: 1px solid #AAAAAA; }
   section.fund:last-child {
     margin-right: 0; }
   section.fund h1 {
@@ -500,7 +544,10 @@ section.fund {
   section.fund div.campBox {
     margin-bottom: 100px; }
     section.fund div.campBox section.border {
-      padding: 30px; }
+      width: 100%;
+      display: block;
+      padding: 30px;
+      margin-left: 0; }
     section.fund div.campBox .fa {
       padding-right: 3px; }
     section.fund div.campBox h3.title {
@@ -577,20 +624,51 @@ form.register {
       margin-right: 40px; }
   form.login .instructions,
   form.register .instructions {
+    float: left;
+    display: block;
+    margin-right: 7.42297%;
+    width: 100%;
     color: #9F6CD1;
     font-size: 0.9em;
     border-top: 1px solid #AAAAAA;
     padding-top: 15px; }
+    form.login .instructions:last-child,
+    form.register .instructions:last-child {
+      margin-right: 0; }
+    form.login .instructions span,
+    form.register .instructions span {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 59.71639%;
+      text-align: left;
+      margin-right: 0; }
+      form.login .instructions span:last-child,
+      form.register .instructions span:last-child {
+        margin-right: 0; }
     form.login .instructions a,
     form.register .instructions a {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 32.86064%;
       text-decoration: none;
       color: blue;
       transition: text-decoration 0.5s ease;
-      padding: 10px 50px; }
+      text-align: left;
+      float: right; }
+      form.login .instructions a:last-child,
+      form.register .instructions a:last-child {
+        margin-right: 0; }
       form.login .instructions a:hover,
       form.register .instructions a:hover {
         text-decoration: underline;
         transition: text-decoration 0.5s ease; }
+    form.login .instructions::after,
+    form.register .instructions::after {
+      content: "";
+      clear: both;
+      display: block; }
   form.login .loginBtn,
   form.login .registerBtn,
   form.register .loginBtn,
@@ -791,3 +869,273 @@ footer {
     footer nav a:hover {
       color: #9F6CD1;
       transition: color 0.3s ease; }
+
+@media (max-width: 1002px) {
+  section.bandList article.bandItem {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 15%; }
+    section.bandList article.bandItem:last-child {
+      margin-right: 0; } }
+
+@media (max-width: 860px) {
+  form.register,
+  form.login {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%; }
+    form.register:last-child,
+    form.login:last-child {
+      margin-right: 0; }
+  section.bandList article.bandItem {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%;
+    margin-left: 10%; }
+    section.bandList article.bandItem:last-child {
+      margin-right: 0; }
+  article.campaignList div.campBox section.border {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%;
+    display: none; }
+    article.campaignList div.campBox section.border:last-child {
+      margin-right: 0; }
+    article.campaignList div.campBox section.border:last-child {
+      display: block; }
+  section.fund {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    border-top: none; }
+    section.fund:last-child {
+      margin-right: 0; } }
+
+@media (max-width: 732px) {
+  .homeHero div.textBox {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 15%; }
+    .homeHero div.textBox:last-child {
+      margin-right: 0; }
+  section.bandList article.bandItem {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 7%; }
+    section.bandList article.bandItem:last-child {
+      margin-right: 0; }
+    section.bandList article.bandItem img {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      section.bandList article.bandItem img:last-child {
+        margin-right: 0; }
+    section.bandList article.bandItem section.bandInfo {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      text-align: center;
+      margin-top: 15px; }
+      section.bandList article.bandItem section.bandInfo:last-child {
+        margin-right: 0; }
+      section.bandList article.bandItem section.bandInfo p.bandStatus {
+        padding-bottom: 10px; }
+      section.bandList article.bandItem section.bandInfo a.pledgeBtn {
+        float: none; }
+  section.bandProfile article.cover.coverEdit {
+    margin: 80px auto 0; }
+    section.bandProfile article.cover.coverEdit div.title {
+      margin: 20px auto 20px;
+      margin-bottom: 20px; }
+      section.bandProfile article.cover.coverEdit div.title h1 {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        margin-top: 0; }
+        section.bandProfile article.cover.coverEdit div.title h1:last-child {
+          margin-right: 0; }
+      section.bandProfile article.cover.coverEdit div.title input.editBtn {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        width: 25%;
+        margin-left: 35%; }
+        section.bandProfile article.cover.coverEdit div.title input.editBtn:last-child {
+          margin-right: 0; }
+      section.bandProfile article.cover.coverEdit div.title::after {
+        content: "";
+        clear: both;
+        display: block; }
+    section.bandProfile article.cover.coverEdit div.imgContainer {
+      clear: both; }
+      section.bandProfile article.cover.coverEdit div.imgContainer img {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        border-radius: 1px;
+        height: 300px;
+        width: 100%;
+        margin: 5px 0;
+        object-fit: cover; }
+        section.bandProfile article.cover.coverEdit div.imgContainer img:last-child {
+          margin-right: 0; }
+  section.bandProfile section.profile article.bandInfo {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    width: 90%;
+    padding-right: 0;
+    margin: 0 auto;
+    margin-left: 5%;
+    border: none; }
+    section.bandProfile section.profile article.bandInfo:last-child {
+      margin-right: 0; }
+  section.bandProfile section.profile section.fundInfoBox {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #999999;
+    padding-top: 30px; }
+    section.bandProfile section.profile section.fundInfoBox:last-child {
+      margin-right: 0; }
+    section.bandProfile section.profile section.fundInfoBox input.bringBtn {
+      float: none;
+      margin: 20px 0 30px 25%;
+      width: 50%; }
+  section.fund {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%; }
+    section.fund:last-child {
+      margin-right: 0; } }
+
+@media (max-width: 600px) {
+  form.register,
+  form.login {
+    margin-top: 150px; }
+  header {
+    height: 120px; }
+    header a .fa {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      float: none;
+      margin: 5px auto;
+      text-align: center; }
+      header a .fa:last-child {
+        margin-right: 0; }
+    header nav {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin: 15px auto;
+      float: none;
+      text-align: center; }
+      header nav:last-child {
+        margin-right: 0; }
+      header nav a {
+        font-size: .7em; }
+  section.bandProfile article.cover.coverEdit {
+    margin-top: 100px; }
+    section.bandProfile article.cover.coverEdit div.title {
+      margin-top: 50px; }
+      section.bandProfile article.cover.coverEdit div.title h1.bandName {
+        margin-top: 5px; }
+      section.bandProfile article.cover.coverEdit div.title input.editBtn {
+        width: 35%;
+        margin-left: 30%; }
+  article.campaignList div.campBox section.border {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    display: none; }
+    article.campaignList div.campBox section.border:last-child {
+      margin-right: 0; }
+    article.campaignList div.campBox section.border:last-child {
+      display: block; }
+  section.fund {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 50px;
+    width: 90%;
+    margin-left: 5%; }
+    section.fund:last-child {
+      margin-right: 0; }
+    section.fund section.border h3.title {
+      font-size: 1.2em; } }
+
+@media (max-width: 461px) {
+  form.register,
+  form.login {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%; }
+    form.register:last-child,
+    form.login:last-child {
+      margin-right: 0; }
+  header a .fa {
+    text-align: left;
+    margin-left: 20px; }
+  header nav div.guestBtn {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    float: right; }
+  article.homeHero div.textBox {
+    padding: inherit 10px; }
+    article.homeHero div.textBox p {
+      font-size: 2em; }
+  section.bandList {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+    section.bandList::after {
+      clear: both;
+      content: "";
+      display: table; }
+  section.bandProfile article.bandInfo div.youtube iframe {
+    width: 90%;
+    height: 400; }
+  article.campaignList div.campBox section.border {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%;
+    display: none; }
+    article.campaignList div.campBox section.border:last-child {
+      margin-right: 0; }
+    article.campaignList div.campBox section.border:last-child {
+      display: block; } }
