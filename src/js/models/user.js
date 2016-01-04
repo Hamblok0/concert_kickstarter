@@ -89,7 +89,7 @@ class User {
     });
   }
 
-  updateConcerts(data, done) {
+  createConcerts(data, done) {
     let url = 'https://gigster-app.herokuapp.com/bands/id/concerts';
 
     let options = {
@@ -111,6 +111,26 @@ class User {
       done(error);
     });
   }
+
+  updateConcert(url, data, done) {
+    let options = {
+      url: url,
+      method: 'PUT',
+      data: {
+        concert: data
+      },
+      beforeSend: (xhr) => {
+        let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+        xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
+      }
+    };
+    $.ajax(options).then(response => {
+      done(null, response);
+    }).fail(error => {
+      done(error);
+    });
+  }
+
 
   getMe(done){
     let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));

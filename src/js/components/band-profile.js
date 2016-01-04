@@ -33,7 +33,6 @@ class BandProfile extends React.Component {
   componentDidMount(){
     $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
       let band = response;
-      console.log();
       this.setState({
         band
       });
