@@ -5,6 +5,11 @@
       margin-left: 15%;
     }
   }
+  section.about {
+    div {
+      padding: 15px 70px;
+    }
+  }
 } //end of 1002px media query
 
 @media (max-width: 860px) {
@@ -12,6 +17,11 @@
     article.bandItem {
       @include span-columns(9);
       margin-left: 10%;
+    }
+  }
+  section.about {
+    div {
+      padding: 15px 40px;
     }
   }
 } //end of 860px media query
@@ -91,7 +101,8 @@
         }
       }
     }
-  section.bandList {
+  section.bandList,
+  section.about {
     @include outer-container(80%);
   }
 }
