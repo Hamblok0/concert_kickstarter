@@ -13,11 +13,34 @@
 } //end of 1002px media query
 
 @media (max-width: 860px) {
+  form.register,
+  form.login {
+    @include span-columns(8);
+    @include shift(2);
+  }
   section.bandList {
     article.bandItem {
       @include span-columns(9);
       margin-left: 10%;
     }
+  }
+<<<<<<< HEAD
+  article.campaignList {
+    div.campBox {
+      section.border {
+        @include span-columns(6);
+        @include shift(3);
+        display: none;
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+  section.fund {
+    @include span-columns(8);
+    @include shift(2);
+    border-top: none;
   }
   section.about {
     div {
@@ -53,9 +76,73 @@
       }
     }
   }
+section.bandProfile {
+  article.cover.coverEdit {
+    margin: 80px auto 0;
+    div.title {
+      margin: 20px auto 20px;
+      margin-bottom: 20px;
+      h1 {
+        @include span-columns(12);
+        margin-top: 0;
+      }
+      input.editBtn {
+        @include span-columns(12);
+        width: 25%;
+        margin-left: 35%;
+      }
+      &::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+    }
+    div.imgContainer {
+      clear: both;
+      img {
+        @include span-columns(3);
+        border-radius: 1px;
+        height: 300px;
+        width: 100%;
+        margin: 5px 0;
+        // border: 2px solid $background;
+        object-fit: cover;
+      }
+    }
+  }
+  section.profile {
+    article.bandInfo {
+      @include span-columns(12);
+      width: 90%;
+      padding-right: 0;
+      margin: 0 auto;
+      margin-left: 5%;
+      border: none;
+    }
+    section.fundInfoBox {
+      @include span-columns(12);
+      text-align: center;
+      border-top: 1px solid $border;
+      padding-top: 30px;
+      input.bringBtn {
+        float: none;
+        margin: 20px 0 30px 25%;
+        width: 50%;
+      }
+    }
+  }
+ }
+ section.fund {
+   @include span-columns(10);
+   @include shift(1);
+ }
 } //end of 732px media query
 
 @media (max-width: 600px) {
+  form.register,
+  form.login {
+    margin-top: 150px;
+  }
   header {
     height: 120px;
     a .fa {
@@ -74,9 +161,52 @@
       }
     }
   }
+  section.bandProfile {
+  article.cover.coverEdit {
+    margin-top: 100px;
+    div.title {
+      margin-top: 50px;
+      h1.bandName {
+        margin-top: 5px;
+      }
+      input.editBtn {
+        width: 35%;
+        margin-left: 30%;
+      }
+    }
+  }
+}
+  article.campaignList {
+    div.campBox {
+      section.border {
+        @include span-columns(8);
+        @include shift(2);
+        display: none;
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+  section.fund {
+    @include span-columns(12);
+    margin-top: 50px;
+    width: 90%;
+    margin-left: 5%;
+    section.border {
+      h3.title {
+        font-size: 1.2em;
+      }
+    }
+  }
 } //end of 600px media query
 
 @media (max-width: 461px) {
+  form.register,
+  form.login {
+    @include span-columns(10);
+    @include shift(1);
+  }
   header {
     a .fa {
       text-align: left;
@@ -104,5 +234,25 @@
   section.bandList,
   section.about {
     @include outer-container(80%);
+  }
+  section.bandProfile {
+    article.bandInfo {
+      div.youtube iframe{
+        width: 90%;
+        height: 400;
+      }
+    }
+  }
+  article.campaignList {
+    div.campBox {
+      section.border {
+        @include span-columns(10);
+        @include shift(1);
+        display: none;
+        &:last-child {
+          display: block;
+        }
+      }
+    }
   }
 }

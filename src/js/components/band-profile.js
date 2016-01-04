@@ -117,7 +117,7 @@ class BandProfile extends React.Component {
     let tickets = this.state.band.concerts.map ((concert) => {
       return concert.funding_goal;
     });
-    let ticketTotal = tickets[tickets.length-1];
+    let ticketTotal = Math.ceil(tickets[tickets.length-1]);
     // let concertIds = this.state.band.concerts.map ((concert) => {
     //   return concert.id;
     // });
