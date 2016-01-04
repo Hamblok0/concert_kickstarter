@@ -33,7 +33,6 @@ class BandProfile extends React.Component {
   componentDidMount(){
     $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
       let band = response;
-      console.log();
       this.setState({
         band
       });
@@ -123,6 +122,7 @@ class BandProfile extends React.Component {
     // });
     // let thisConcertId = concertIds[concertIds.length-1];
 
+
     if (this.state.band.id === this.state.thisBand.band_id) {
       edit2 = <a href={`#band/${this.props.params.id}/edit2`}><input type="submit" className="addGig bringBtn" value="add a gig"></input></a>;
       edit = <input type="button" className="editBtn" value="Edit Profile" onClick={this.goToEdit}/>;
@@ -183,7 +183,7 @@ class BandProfile extends React.Component {
             <article className="campaignList">
               <h1>Campaigns</h1>
               <div className="campBox">
-                <CampaignList band={this.state.band} />
+                <CampaignList band={this.state.band} thisBand={this.state.thisBand} />
                 {edit2}
               </div>
             </article>

@@ -1,47 +1,60 @@
 import React from 'react';
+import $ from 'jquery';
 
 import User from '../models/user';
 
-class CampaignEdit extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.handleConcertCreate = this.handleConcertCreate.bind(this);
+class ShowEdit extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.sendUpdate = this.sendUpdate.bind(this);
+
+    this.state = {
+      concert: {}
+    }
   }
 
-  handleConcertCreate(e) {
+  componentDidMount() {
+
+        $.ajax(`https://gigster-app.herokuapp.com/concerts/${this.props.params.id}`).then( response => {
+          this.setState({
+            concert: response
+          });
+        });
+  }
+
+  sendUpdate(e) {
     e.preventDefault();
     let location = this.refs.location.value;
     let date = this.refs.date.value;
     let price = this.refs.price.value;
     let tickets = this.refs.tickets.value;
-    console.log('Congrats! You added a new concert! Here are the details. Date: ' + date + ' Location: ' + location + ' Ticket price: $' + price + ' Ticket goal: ' + tickets);
+    let url = `https://gigster-app.herokuapp.com/bands/${this.state.concert.band_id}/concerts/${this.state.concert.id}`;
 
-    if(location && date && price && tickets) {
-      User.createConcerts({
-        funding_goal: tickets,
+      User.updateConcert(url, {
+        funding_goal: tickets || this.state.concert.funding_goal,
         location: location,
-        performance_date: date,
+        performance_date: date || this.state.concert.performance_date,
         venue: 'TBA',
-        price: price
+        price: price || this.state.concert.price
      }, (error, data) => {
         if(!error) {
-          this.props.history.pushState(null, 'band/' + data.id);
+          this.props.history.pushState(null, 'band/' + data.band_id);
         } else {
           alert('There was an error with your information.' + error);
           console.log(error);
         }
       });
-    } else {
-      alert('Show location, date, ticket price, and ticket goal are required.')
-    }
-  }
+
+   }
 
   render () {
+        console.log(this.state.concert)
     return(
       <section className="profile">
         <article className="campaignList edit">
-          <h1>Add A Campaign</h1>
+          <h1>Edit Campaign</h1>
           <div className="campBoxEdit">
             <section className="border">
               <span>
@@ -54,18 +67,19 @@ class CampaignEdit extends React.Component {
               <span>
                 <i className="fa fa-calendar"></i>
                 <h3>Select date of gig:</h3>
-                <input ref="date" type="date" />
+                <input ref="date" type="date" placeholder={this.state.concert.performance_date} />
               </span>
               <span>
                 <i className="fa fa-ticket"></i>
                 <h3>Enter ticket price:</h3>
               </span>
               <span className="currencyinput">$
-                <input ref="price" type="text" name="currency" placeholder="00.00" />
+                <input ref="price" type="text" name="currency" placeholder={this.state.concert.price} />
               </span>
               <span>
                 <h3>Select estimated minimum tickets to sell:</h3>
                   <select ref="tickets">
+                    <option value="" disabled selected hidden>{this.state.concert.funding_goal}</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                     <option value="200">200</option>
@@ -76,7 +90,7 @@ class CampaignEdit extends React.Component {
                   </select>
               </span>
             </section>
-            <input type="submit" className="bringBtn" value="Save changes" onClick={this.handleConcertCreate} />
+            <input type="submit" className="bringBtn" value="Save changes" onClick={this.sendUpdate} />
           </div>
         </article>
       </section>
@@ -84,4 +98,4 @@ class CampaignEdit extends React.Component {
   }
 }
 
-export default CampaignEdit ;
+export default ShowEdit;

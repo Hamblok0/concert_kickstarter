@@ -11,6 +11,7 @@ import Register from './components/register';
 import About from './components/about';
 import Fund from './components/fund';
 import CampaignEdit from './components/campaign-edit';
+import ShowEdit from './components/show-edit';
 
 
 const routes = (
@@ -23,6 +24,7 @@ const routes = (
       <Route path="band/:id" component={BandProfile}>
         <Route path="edit" component={BandEdit} />
         <Route path="edit2" component={CampaignEdit} />
+        <Route path="editcampaign" component={ShowEdit} />
         <Route path="fund" component={Fund} />
       </Route>
     </Route>
