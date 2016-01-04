@@ -14,7 +14,7 @@ export default (props) => (
 
       <span className="number">4</span><p>At the time of funding, bands receive contact information for a venue correspondent, who then happily books the pre-funded event.</p>
 
-      <p><strong>This project was built as our final group project at The Iron Yard. It was built using React.js on the front end and Ruby on Rails on the back end. To view the source code, click <a href="https://github.com/Hamblok0/concert_kickstarter">here.</a></strong></p>
+      <p><strong>This project was built as our final group project at The Iron Yard. It was built using React.js on the front end and Ruby on Rails on the back end. To view the source code, click <a href="https://github.com/Hamblok0/concert_kickstarter" target="_blank">here.</a></strong></p>
     </div>
   </section>
 )
