@@ -5,9 +5,8 @@ export default (props) => (
     <a href="#"><i className="fa fa-headphones"></i></a>
     <nav>
       <a className="aboutBtn" href="#about">About</a>
-      <a className="faqBtn" href="#">FAQ</a>
-      <p>Copyright (c) 2015 Gigstep All Rights Reserved.</p>
-      <a className="contactBtn" href="#">Contact Us</a>
+      <p>Copyright (c) 2015 GigStart All Rights Reserved.</p>
+      <a className="contactBtn" href="#">Contact</a>
     </nav>
   </footer>
 )

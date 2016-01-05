@@ -7,7 +7,10 @@
   }
   section.about {
     div {
-      padding: 15px 70px;
+      padding: 15px 50px;
+      span.number {
+        padding-bottom: 0;
+      }
     }
   }
 } //end of 1002px media query
@@ -43,7 +46,13 @@
   }
   section.about {
     div {
-      padding: 15px 40px;
+      padding: 15px 30px;
+    }
+  }
+  footer {
+    i.fa {
+      @include span-columns(12);
+      margin: 10px auto 0;
     }
   }
 } //end of 860px media query
@@ -109,6 +118,13 @@ section.bandProfile {
       }
     }
   }
+  div.bandEdit article.coverEdit {
+    input.editBtn {
+      display: block;
+      margin: 0 auto;
+      float: none;
+    }
+  }
   section.profile {
     article.bandInfo {
       @include span-columns(12);
@@ -134,6 +150,16 @@ section.bandProfile {
  section.fund {
    @include span-columns(10);
    @include shift(1);
+ }
+ section.about {
+   div {
+     padding: 15px 50px;
+     span.number {
+       padding-top: 0;
+       font-size: 1.2em;
+       margin-top: 15px;
+     }
+   }
  }
 } //end of 732px media query
 
@@ -174,6 +200,28 @@ section.bandProfile {
       }
     }
   }
+  div.bandEdit article.coverEdit {
+    margin-top: 150px;
+    div.titleEdit {
+      width: 90%;
+      input {
+        width: 90%;
+      }
+    }
+    p {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0;
+    }
+    .fp__btn {
+      display: block;
+      margin: 10px auto;
+      &:nth-of-type(2) {
+        display: none;
+      }
+    }
+  }
 }
   article.campaignList {
     div.campBox {
@@ -196,6 +244,21 @@ section.bandProfile {
       h3.title {
         font-size: 1.2em;
       }
+    }
+  }
+  section.about {
+    div {
+      padding: 15px 10px;
+      span.number {
+        padding-bottom: 0;
+      }
+    }
+  }
+  footer {
+    p,
+    a.contactBtn,
+    a.aboutBtn {
+      margin: 0;
     }
   }
 } //end of 600px media query

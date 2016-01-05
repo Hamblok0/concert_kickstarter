@@ -92,7 +92,7 @@ class BandEdit extends React.Component {
             <label>Upload a track from SoundCloud: </label>
             <input ref="track" type="text" placeholder="http://soundcloud.com/band-name/track-name..." />
             <label>Add a music video from YouTube: </label>
-            <input ref="video" type="text" placeholder="https://www.youtube.com/watch?v=ay_pTE7vwJY..." />
+            <input ref="video" type="text" placeholder="https://www.youtube.com/watch?v=video-id..." />
             <label>Add a genre to describe your music: </label>
             <input ref="genre" type="text" placeholder="Genre..." />
           </article>
