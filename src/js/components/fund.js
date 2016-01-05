@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import $ from 'jquery';
 import moment from 'moment';
 moment().format();
 
@@ -17,18 +18,18 @@ class Fund extends React.Component {
 
   processPledge(e) {
     if (this.props.band.id === this.props.thisBand.band_id) {
-      alert("Sorry, you cannot pledge to your own show")
+      $('.selfMsg').show();
       return;
     } else if (this.props.thisBand.type_of_user === "Band") {
-      alert("Sorry, you cannot pledge to other bands as a band, please register as a fan to continue")
+      $('.bandMsg').show();
       return;
     } else {
       if(!User.isLoggedIn()) {
-        alert('You must be logged in to pledge.')
+        alert('You must be logged in to pledge.');
         this.props.history.pushState(null, 'login');
         return
       }
-      alert("pledge complete");
+      $('.fanMsg').show();
       console.log(this.refs.qty.value);
       let price = this.props.band.concerts[this.props.band.concerts.length-1].price;
       let pledgeCounter = this.refs.qty.value;
@@ -51,13 +52,6 @@ class Fund extends React.Component {
       } else {
         alert('Please select a number of tickets.');
       }
-      //make a PUT request to the current concert:
-        //update the 'pledge_key' with running total of tickets
-        //update the 'total_funds' with running total of money.
-    //write another function (or do it in here):
-        //after everytime 'total_funds' is updated,
-        //compare 'total_funds' to 'funding_goal'.
-        //if they are equal, update 'successful' key to true.
     }
   }
   handleTotal(e) {
@@ -122,6 +116,15 @@ class Fund extends React.Component {
             </div>
           </section>
           <input type="submit" className="bringBtn" value="confirm" onClick={this.processPledge}></input>
+          <div className="pledgeMsg bandMsg">
+            <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may only pledge a show if you are logged in as a fan. Please log in as a fan to continue.</p>
+          </div>
+          <div className="pledgeMsg selfMsg">
+            <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may not pledge to attend your own show.</p>
+          </div>
+          <div className="pledgeMsg fanMsg">
+            <i className="fa fa-check-circle"></i><p>Congratulations! You have pledged to attend this show. You will be notified two months before the show with further details.</p>
+          </div>
         </div>
       </section>
     )

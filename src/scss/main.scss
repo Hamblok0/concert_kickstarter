@@ -563,6 +563,21 @@ section.fund {
       }
     }
   }
+  input.bringBtn {
+    margin-bottom: 20px;
+  }
+  div.pledgeMsg {
+    display: none;
+    .fa,
+    p {
+      color: #E70B20;
+    }
+  }
+  div.fanMsg {
+    .fa, p {
+      color: #71DC5B;
+    }
+  }
 }
 
   ///////////////////////////////

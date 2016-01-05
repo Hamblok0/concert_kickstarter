@@ -29,7 +29,7 @@ class Register extends React.Component {
         type: type
      }, (error, data) => {
         if(!error) {
-          this.props.history.pushState(null, '/');      
+          this.props.history.pushState(null, '/');
         } else {
           alert('There was an error with your information.' + error);
         }
@@ -43,7 +43,7 @@ class Register extends React.Component {
     return(
       <form className="register"
             onSubmit={this.handleRegister}>
-        <h1>Welcome to Gigster!</h1>
+        <h1>Welcome to GigStart!</h1>
         <input type="text" className="email" placeholder="Email*" ref="email" />
         <input type="password" className="password" placeholder="Password*" ref="pwd" />
         <input type="password" className="password" placeholder="Confirm password*" ref="pwd1" />

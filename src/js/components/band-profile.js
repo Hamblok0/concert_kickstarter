@@ -50,7 +50,7 @@ class BandProfile extends React.Component {
       this.concertId(url3);
     })
 
-  User.getMe(this.handleMe);
+    User.getMe(this.handleMe);
 
 
   // console.log(concertIds);
@@ -62,7 +62,16 @@ class BandProfile extends React.Component {
   //     concert
   //   });
   // });
-}
+  }
+
+  componentDidUpdate (prevProps) {
+    // respond to parameter change in scenario 3
+    let oldId = prevProps.params.id
+    let newId = this.props.params.id
+    if (newId !== oldId) {
+      this.componentDidMount();
+    }
+  }
 
   handleMe(response) {
     this.setState({

@@ -50,7 +50,7 @@ class User {
     let options = {
       url: url,
       method: 'POST',
-      data: JSON.stringify({ pledge: { "count": data.count }}),
+      data: JSON.stringify({ pledge: { "count": data.quantity }}),
       beforeSend: (xhr) => {
         let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
         xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
