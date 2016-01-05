@@ -51,17 +51,6 @@ class BandProfile extends React.Component {
     })
 
     User.getMe(this.handleMe);
-
-
-  // console.log(concertIds);
-  // let thisConcertId = concertIds[concertIds.length-1];
-  // $.ajax().then( response => {
-  //   let concerts = response;
-  //   console.log(response);
-  //   this.setState({
-  //     concert
-  //   });
-  // });
   }
 
   componentDidUpdate (prevProps) {
@@ -104,15 +93,6 @@ class BandProfile extends React.Component {
     this.props.history.pushState(null, `band/${this.props.params.id}/edit2`);
   }
 
-  // handleSave(data).then(response => {
-  //     data.setState = response;
-  //     done(null, response);
-  //   })
-
-  // let concerts = this.state.band.concerts;
-  // let thisConcert = concerts[concerts.length-1];
-  // console.log(thisConcert);
-
   render() {
     let html;
     let edit;
@@ -121,15 +101,12 @@ class BandProfile extends React.Component {
     let date = this.state.band.concerts.map ((concert) => {
       return concert.performance_date;
     });
-    let momentTime = moment(date[date.length-1]).fromNow();
+    // let momentTime = moment(date[date.length-1]).fromNow();
+    let momentTime = moment(date[date.length-1]).subtract(60, 'days').fromNow();
     let tickets = this.state.band.concerts.map ((concert) => {
       return concert.funding_goal;
     });
     let ticketTotal = Math.ceil(tickets[tickets.length-1]);
-    // let concertIds = this.state.band.concerts.map ((concert) => {
-    //   return concert.id;
-    // });
-    // let thisConcertId = concertIds[concertIds.length-1];
 
 
     if (this.state.band.id === this.state.thisBand.band_id) {

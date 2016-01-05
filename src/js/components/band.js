@@ -24,6 +24,7 @@ class Band extends React.Component {
     let status = 'No current concerts';
     if(soonestConcert.performance_date) {
       formattedDate = moment(soonestConcert.performance_date).fromNow();
+      formattedDate = moment(soonestConcert.performance_date).subtract(60, 'days').fromNow();
     }
     if(soonestConcert.successful === false) {
       status = 'Currently Funding';
