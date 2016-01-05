@@ -9,6 +9,12 @@ class Fund extends React.Component {
   constructor(props) {
     super(props);
     this.processPledge = this.processPledge.bind(this);
+    this.state = {
+      displayBandMsg: false,
+      displaySelfMsg: false,
+      displayFanMsg: false,
+      displayFanErrorMsg: false
+    }
   }
 
   componentDidMount() {
@@ -18,35 +24,43 @@ class Fund extends React.Component {
 
   processPledge(e) {
     if (this.props.band.id === this.props.thisBand.band_id) {
-      $('.selfMsg').show();
+      this.setState({
+        displaySelfMsg: true
+      })
       return;
     } else if (this.props.thisBand.type_of_user === "Band") {
-      $('.bandMsg').show();
+      this.setState({
+        displayBandMsg: true
+      })
       return;
     } else {
       if(!User.isLoggedIn()) {
         alert('You must be logged in to pledge.');
         this.props.history.pushState(null, 'login');
-        return
+        return;
       }
-      $('.fanMsg').show();
-      console.log(this.refs.qty.value);
+
       let price = this.props.band.concerts[this.props.band.concerts.length-1].price;
       let pledgeCounter = this.refs.qty.value;
       let totalFunds = pledgeCounter * price;
-      console.log('$' + totalFunds + ' has been added to total_funds key.');
 
       if(pledgeCounter) {
         let concert = this.props.band.concerts[this.props.band.concerts.length-1];
-        console.log('props: ',this.props);
+
         User.pledge({
-          count: pledgeCounter,
+          quantity: pledgeCounter,
           concertId: concert.id
        }, (error, data) => {
           if(!error) {
-            this.props.history.pushState(null, '/');
+            this.setState({
+              displayFanMsg: true
+            });
+            console.log('pledge was successful!');
+            // this.props.history.pushState(null, '/');
           } else {
-            alert('There was an error with your information.' + error);
+            this.setState({
+              displayFanErrorMsg: true
+            })
           }
         });
       } else {
@@ -63,12 +77,56 @@ class Fund extends React.Component {
 
   render () {
     let show = this.props.band.concerts[this.props.band.concerts.length-1];
+
+    if (!show) {
+      return (<div>Loading...</div>)
+    }
+
+    let location = show.location;
     let date = show.performance_date;
     let momentTime = moment(date).format('LL');
     let deadline = moment(momentTime).subtract(60, 'days').format('LL');
     let price = '$' + show.price;
-    console.log(price);
     let total = price;
+
+    let bandMsg;
+    let fanMsg;
+    let selfMsg;
+    let fanErrorMsg;
+
+    if (this.state.displayBandMsg) {
+      bandMsg = (
+        <div className="pledgeMsg bandMsg">
+          <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may only pledge a show if you are logged in as a fan. Please log in as a fan to continue.</p>
+        </div>
+      );
+    }
+
+    if (this.state.displayFanMsg) {
+      fanMsg = (
+        <div className="pledgeMsg fanMsg">
+          <i className="fa fa-check-circle"></i><p>Congratulations! You have pledged to attend this show. You will be notified two months before the show with further details.</p>
+          <br></br>
+          <a href="#/"><p className="return">Return home </p><i className="fa fa-long-arrow-right"></i></a>
+        </div>
+      );
+    }
+
+    if (this.state.displaySelfMsg) {
+      selfMsg = (
+        <div className="pledgeMsg selfMsg">
+          <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may not pledge to attend your own show.</p>
+        </div>
+      );
+    }
+
+    if (this.state.displayFanErrorMsg) {
+      fanErrorMsg = (
+        <div className="pledgeMsg fanErrorMsg">
+          <i className="fa fa-exclamation-circle"></i><p>Sorry, but there was an error. Try again.</p>
+        </div>
+      );
+    }
 
     return(
       <section className="fund">
@@ -81,7 +139,7 @@ class Fund extends React.Component {
             </span>
             <span>
               <i className="fa fa-map-marker"></i>
-              <h3>{this.props.band.location}</h3>
+              <h3>{location}</h3>
             </span>
             <span>
               <i className="fa fa-calendar"></i>
@@ -116,15 +174,10 @@ class Fund extends React.Component {
             </div>
           </section>
           <input type="submit" className="bringBtn" value="confirm" onClick={this.processPledge}></input>
-          <div className="pledgeMsg bandMsg">
-            <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may only pledge a show if you are logged in as a fan. Please log in as a fan to continue.</p>
-          </div>
-          <div className="pledgeMsg selfMsg">
-            <i className="fa fa-exclamation-circle"></i><p>Sorry, but you may not pledge to attend your own show.</p>
-          </div>
-          <div className="pledgeMsg fanMsg">
-            <i className="fa fa-check-circle"></i><p>Congratulations! You have pledged to attend this show. You will be notified two months before the show with further details.</p>
-          </div>
+          {bandMsg}
+          {selfMsg}
+          {fanMsg}
+          {fanErrorMsg}
         </div>
       </section>
     )
