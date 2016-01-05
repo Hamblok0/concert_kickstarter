@@ -567,7 +567,6 @@ section.fund {
     margin-bottom: 20px;
   }
   div.pledgeMsg {
-    display: none;
     .fa,
     p {
       color: #E70B20;
@@ -576,6 +575,27 @@ section.fund {
   div.fanMsg {
     .fa, p {
       color: #71DC5B;
+    }
+    a {
+      float: right;
+      border: 1px solid $base01;
+      padding: 0 10px 8px;
+      margin-top: 10px;
+      background: white;
+      opacity: .7;
+      letter-spacing: .1em;
+      font-size: .8em;
+      text-transform: uppercase;
+      border-radius: 1px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    p.return,
+    .fa-long-arrow-right {
+      text-align: center;
+      color: $base01;
+      margin-top: 10px;
     }
   }
 }
