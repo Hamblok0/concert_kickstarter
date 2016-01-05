@@ -131,6 +131,26 @@ class User {
     });
   }
 
+  deleteConcert(url, data, done) {
+    let options = {
+      url: url,
+      data: {
+
+      },
+      method: 'DELETE',
+      beforeSend: (xhr) => {
+        let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
+        xhr.setRequestHeader("Authorization", "Bearer " + userAuthStorage.access_token);
+      }
+    };
+    $.ajax(options).then(response => {
+      done(null, response);
+    }).fail(error => {
+      done(error);
+    });
+  }
+
+
 
   getMe(done){
     let userAuthStorage = JSON.parse(localStorage.getItem('user_auth'));
