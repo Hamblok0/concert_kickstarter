@@ -13,6 +13,7 @@ class Fund extends React.Component {
 
   componentDidMount() {
     let pledgeCounter;
+    console.log(this.props.band.concerts)
   }
 
 
