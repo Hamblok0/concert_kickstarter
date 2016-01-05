@@ -23,6 +23,7 @@ class Fund extends React.Component {
 
 
   processPledge(e) {
+
     if (this.props.band.id === this.props.thisBand.band_id) {
       this.setState({
         displaySelfMsg: true
