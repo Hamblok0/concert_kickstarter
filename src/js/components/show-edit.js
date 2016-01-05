@@ -66,7 +66,6 @@ class ShowEdit extends React.Component {
    }
 
   render () {
-        console.log(this.state.concert)
     return(
       <section className="profile">
         <article className="campaignList edit">

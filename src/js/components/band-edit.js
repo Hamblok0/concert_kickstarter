@@ -10,12 +10,22 @@ class BandEdit extends React.Component {
     super(props);
 
     this.handleSave = this.handleSave.bind(this);
+
+    this.state = {
+      band: {}
+    }
   }
 
   componentDidMount() {
     let element = this.refs.filepicker;
     filepicker.constructWidget(element);
     element.addEventListener('change', this.handleFilePickerChange, false);
+    $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
+      this.setState({
+        band: response
+      });
+      console.log(this.state.band)
+    });
   }
 
   componentWillUnmount() {
@@ -53,7 +63,24 @@ class BandEdit extends React.Component {
           console.log(error);
         }
       });
-    } else {
+    } else if((!name || !location || !genre ) && (this.props.band.name !== null && this.props.band.location !== null && this.props.band.genre !== null)) {
+      User.updateProfile({
+        name: name || this.props.band.name,
+        location: location || this.props.band.location,
+        avatar_url: avatar_url || this.props.band.avatar_url,
+        genre: genre || this.props.band.genre,
+        video_url: video_url || this.props.band.video_url,
+        audio_url: audio_url || this.props.band.audio_url,
+        public: true
+     }, (error, data) => {
+        if(!error) {
+          this.props.history.pushState(null, 'band/' + data.id);
+        } else {
+          alert('There was an error with your information.' + error);
+          console.log(error);
+        }
+      });
+  } else {
       alert('Name, location, and genre are required.')
     }
   }
@@ -75,8 +102,8 @@ class BandEdit extends React.Component {
           <input type="button" className="editBtn" value="Save Changes"
             onClick={this.handleSave}/>
           <div className="title titleEdit">
-            <input ref="name" type="text" placeholder="Band name..." />
-            <input ref="location" type="text" placeholder="Band location..." />
+            <input ref="name" type="text" placeholder={this.props.band.name} />
+            <input ref="location" type="text" placeholder={this.props.band.location} />
           </div>
           <p>Update cover photo:</p>
           <input ref="filepicker" type="filepicker" data-fp-apikey="AHqgbWUAATSCgbyRYc8Sbz" />
@@ -90,11 +117,11 @@ class BandEdit extends React.Component {
         <section className="profile">
           <article className="bandInfo bandInfoEdit">
             <label>Upload a track from SoundCloud: </label>
-            <input ref="track" type="text" placeholder="http://soundcloud.com/band-name/track-name..." />
+            <input ref="track" type="text" placeholder={this.props.band.audio_url} />
             <label>Add a music video from YouTube: </label>
-            <input ref="video" type="text" placeholder="https://www.youtube.com/watch?v=video-id..." />
+            <input ref="video" type="text" placeholder={this.props.band.video_url} />
             <label>Add a genre to describe your music: </label>
-            <input ref="genre" type="text" placeholder="Genre..." />
+            <input ref="genre" type="text" placeholder={this.props.band.genre} />
           </article>
         </section>
 

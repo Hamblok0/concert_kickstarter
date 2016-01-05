@@ -19,11 +19,11 @@ class Fund extends React.Component {
 
   componentDidMount() {
     let pledgeCounter;
-    console.log(this.props.band.concerts)
   }
 
 
   processPledge(e) {
+
     if (this.props.band.id === this.props.thisBand.band_id) {
       this.setState({
         displaySelfMsg: true
