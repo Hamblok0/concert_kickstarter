@@ -256,13 +256,12 @@ article.campaignList {
     section.border {
       @include span-columns(4);
       @include shift(4);
-      display: none;
       background: white;
       margin-bottom: 20px;
       padding: 20px;
-      &:last-child {
-        display: block;
-      }
+      // &:last-child {
+      //   display: block;
+      // }
     }
     span {
       display: block;
