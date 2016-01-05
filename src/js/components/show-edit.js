@@ -9,6 +9,7 @@ class ShowEdit extends React.Component {
     super(props)
 
     this.sendUpdate = this.sendUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       concert: {}
@@ -32,7 +33,7 @@ class ShowEdit extends React.Component {
     let tickets = this.refs.tickets.value;
     let url = `https://gigster-app.herokuapp.com/bands/${this.state.concert.band_id}/concerts/${this.state.concert.id}`;
 
-      User.updateConcert(url, {
+      User.updateConcert (url, {
         funding_goal: tickets || this.state.concert.funding_goal,
         location: location,
         performance_date: date || this.state.concert.performance_date,
@@ -46,7 +47,22 @@ class ShowEdit extends React.Component {
           console.log(error);
         }
       });
+   }
 
+   handleDelete(e){
+     e.preventDefault();
+
+     let data = null;
+     let url = `https://gigster-app.herokuapp.com/bands/${this.state.concert.band_id}/concerts/${this.state.concert.id}`
+
+     User.deleteConcert(url, data, (error) => {
+       if(!error) {
+         this.props.history.pushState(null, 'band/' + this.state.concert.band_id)
+       } else {
+         alert('Unable to delete campaign');
+         console.log(error)
+       }
+     });
    }
 
   render () {
@@ -89,6 +105,7 @@ class ShowEdit extends React.Component {
                     <option value="1000">1000</option>
                   </select>
               </span>
+              <input className="concertDelete" type="button" value="Delete Campaign" onClick={this.handleDelete}></input>
             </section>
             <input type="submit" className="bringBtn" value="Save changes" onClick={this.sendUpdate} />
           </div>

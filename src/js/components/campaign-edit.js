@@ -26,7 +26,7 @@ class CampaignEdit extends React.Component {
         price: price
      }, (error, data) => {
         if(!error) {
-          this.props.history.pushState(null, 'band/' + data.id);
+          this.props.history.pushState(null, 'band/' + data.band_id);
         } else {
           alert('There was an error with your information.' + error);
           console.log(error);
