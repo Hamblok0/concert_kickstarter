@@ -253,14 +253,22 @@ div.campBox {
     margin-right: 2.35765%;
     width: 31.76157%;
     margin-left: 34.11922%;
-    display: none;
     background: white;
     margin-bottom: 20px;
     padding: 20px; }
     div.campBox section.border:last-child {
       margin-right: 0; }
-    div.campBox section.border:last-child {
-      display: block; }
+    div.campBox section.border input.concertEdit {
+      background: #9F6CD1;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      float: right;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-family: 'Montserrat', sans-serif; }
+      div.campBox section.border input.concertEdit:hover {
+        opacity: .8; }
   div.campBox span {
     display: block;
     margin-left: 10px; }
@@ -578,6 +586,31 @@ section.fund {
         color: #E70B20; }
     section.fund div.campBox div.pledge p {
       padding-left: 10px; }
+  section.fund input.bringBtn {
+    margin-bottom: 20px; }
+  section.fund div.pledgeMsg .fa,
+  section.fund div.pledgeMsg p {
+    color: #E70B20; }
+  section.fund div.fanMsg .fa, section.fund div.fanMsg p {
+    color: #71DC5B; }
+  section.fund div.fanMsg a {
+    float: right;
+    border: 1px solid #9F6CD1;
+    padding: 0 10px 8px;
+    margin-top: 10px;
+    background: white;
+    opacity: .7;
+    letter-spacing: .1em;
+    font-size: .8em;
+    text-transform: uppercase;
+    border-radius: 1px; }
+    section.fund div.fanMsg a:hover {
+      opacity: 1; }
+  section.fund div.fanMsg p.return,
+  section.fund div.fanMsg .fa-long-arrow-right {
+    text-align: center;
+    color: #9F6CD1;
+    margin-top: 10px; }
 
 form.login,
 form.register {
