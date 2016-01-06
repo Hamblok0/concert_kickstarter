@@ -6,6 +6,9 @@ class User {
     this.refresh_token = null;
     this.token_expires = null;
     this.token_created = null;
+
+    this.listeners = [];
+
     if (localStorage.getItem('user_auth')) {
       let {
         access_token,
@@ -19,9 +22,23 @@ class User {
       this.token_expires = token_expires;
       this.token_created = token_created;
     }
-
-
   }
+
+  subscribe(callback) {
+   this.listeners.push(callback);
+
+   // unsubscribe function, so that we can turn off what is being listened.
+   return () => {
+     return this.listeners.filter(listener => listener != callback);
+   }
+ }
+
+ dispatch() {
+   this.listeners.forEach((callback) => callback());
+   // Keep rerendering so that all changes are captured.
+ }
+
+
   isLoggedIn() {
     return this.access_token !== null;
   }
@@ -83,7 +100,7 @@ class User {
 
     $.ajax(options).then(response => {
       done(null, response);
-      console.log(response);
+      this.dispatch();
     }).fail(error => {
       done(error);
     });
@@ -163,7 +180,6 @@ class User {
 
     $.ajax(options).then(response => {
       done(response);
-      console.log(response)
     })
 
   }
