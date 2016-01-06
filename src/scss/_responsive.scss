@@ -283,11 +283,17 @@ section.bandProfile {
         // margin-top: 10px;
         float: right;
       }
+      a.btn {
+        margin-right: 5px;
+      }
     }
   }
     article.homeHero {
       div.textBox {
         padding: inherit 10px;
+        h1 {
+          font-size: 2.5em;
+        }
         p {
           font-size: 2em;
         }
@@ -317,4 +323,4 @@ section.bandProfile {
       }
     }
   }
-}
+} //end of 461px media query
