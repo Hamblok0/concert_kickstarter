@@ -25,7 +25,7 @@ class Login extends React.Component {
         password: password
       }, (error, data) => {
         if(!error) {
-          console.log('redirecting to home page');
+          User.getMe(this.props.handleSession);
           this.props.history.pushState(null, '/');
         } else {
           alert('There was an error with your information.' + error);
