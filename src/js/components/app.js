@@ -35,11 +35,14 @@ handleMe(response) {
 }
 
   render() {
+    let childrenWithProps = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {handleSession: this.handleMe})
+    })
     return (
       <div className="wrapper">
         <Header session={this.state.session}/>
         <main>
-          {this.props.children}
+          {childrenWithProps}
         </main>
         <Footer />
       </div>
