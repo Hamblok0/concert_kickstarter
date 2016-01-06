@@ -32,7 +32,6 @@ handleMe(response) {
       bandId: response.band_id
     }
   });
-  console.log(this.state);
 }
 
   render() {

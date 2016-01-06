@@ -24,7 +24,6 @@ class BandEdit extends React.Component {
       this.setState({
         band: response
       });
-      console.log(this.state.band)
     });
   }
 
@@ -77,7 +76,6 @@ class BandEdit extends React.Component {
           this.props.history.pushState(null, 'band/' + data.id);
         } else {
           alert('There was an error with your information.' + error);
-          console.log(error);
         }
       });
   } else {
@@ -86,7 +84,6 @@ class BandEdit extends React.Component {
   }
 
   handleFilePickerChange(data) {
-    console.log(data.fpfile.url);
     let url = data.fpfile.url;
     let imgBox = $('.imgBox');
     let divHide = $('.textBox');

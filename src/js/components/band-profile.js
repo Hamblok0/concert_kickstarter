@@ -30,7 +30,9 @@ class BandProfile extends React.Component {
     }
   }
 
-  componentDidMount(){
+
+
+  getBand() {
     $.ajax(`https://gigster-app.herokuapp.com/bands/${this.props.params.id}`).then( response => {
       let band = response;
       this.setState({
@@ -48,19 +50,47 @@ class BandProfile extends React.Component {
       this.trackId(url);
       this.videoId(videoUrl);
       this.concertId(url3);
-    })
+    });
+  }
+  componentDidMount(){
+    this.getBand();
+
+    this.unsubscribe = User.subscribe(() => {
+      this.getBand();
+    });
 
     User.getMe(this.handleMe);
   }
 
-  componentDidUpdate (prevProps) {
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  componentDidUpdate (prevProps, prevState) {
     // respond to parameter change in scenario 3
-    let oldId = prevProps.params.id
-    let newId = this.props.params.id
+    let oldName = prevState.band.name;
+    let oldLocation = prevState.band.location;
+    let oldGenre = prevState.band.genre;
+    let oldVid = prevState.band.video_url;
+    let oldAudio = prevState.band.audio_url;
+    let oldId = prevProps.params.id;
+
+    let newName = this.state.band.name;
+    let newLocation = this.state.band.location;
+    let newGenre = this.state.band.genre;
+    let newVid = this.state.band.video_url;
+    let newAudio = this.state.band.audio_url;
+    let newId = this.props.params.id;
     if (newId !== oldId) {
-      this.componentDidMount();
+      this.getBand();
+    }
+    if (newName !== oldName || newLocation !== oldLocation || newGenre !== oldGenre || newVid !== oldVid || newAudio !== oldAudio) {
+      this.getBand();
     }
   }
+
+
+
 
   handleMe(response) {
     this.setState({
@@ -117,7 +147,6 @@ class BandProfile extends React.Component {
     if (this.props.children) {
       html = React.cloneElement(this.props.children, {band: this.state.band, thisBand: this.state.thisBand });
     } else {
-      console.log(this.state);
       html = (
         <div>
           <article className="cover coverEdit">
