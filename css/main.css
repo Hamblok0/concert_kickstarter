@@ -1257,6 +1257,8 @@ footer {
     float: right; }
   article.homeHero div.textBox {
     padding: inherit 10px; }
+    article.homeHero div.textBox h1 {
+      font-size: 2.5em; }
     article.homeHero div.textBox p {
       font-size: 2em; }
   section.bandList,
