@@ -1255,6 +1255,8 @@ footer {
     right: 10px;
     top: 20px;
     float: right; }
+  header nav a.btn {
+    margin-right: 5px; }
   article.homeHero div.textBox {
     padding: inherit 10px; }
     article.homeHero div.textBox h1 {
