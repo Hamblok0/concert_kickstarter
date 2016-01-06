@@ -262,6 +262,19 @@ article.campaignList {
       // &:last-child {
       //   display: block;
       // }
+      input.concertEdit {
+        background: $base01;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        float: right;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-family: 'Montserrat', sans-serif;
+        &:hover {
+          opacity: .8;
+        }
+      }
     }
     span {
       display: block;
