@@ -20,10 +20,10 @@ class App extends React.Component {
   User.getMe(this.handleMe)
 }
 
-componentDidUpdate (prevProps) {
-  // respond to parameter change
-    this.componentDidMount();
-}
+// componentDidUpdate (prevProps) {
+//   // respond to parameter change
+//     this.componentDidMount();
+// }
 
 handleMe(response) {
   this.setState({
