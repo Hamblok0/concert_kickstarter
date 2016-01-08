@@ -750,10 +750,10 @@ section.home {
   margin-left: auto;
   margin-right: auto;
   background: url("../images/bg-home.jpg") no-repeat center center;
-  background-position: contain;
   height: 500px;
   padding-top: 100px;
   background-position: 100% 0%;
+  background-size: cover;
   text-align: center; }
   .homeHero::after {
     clear: both;
